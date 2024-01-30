@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Blackburn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Bryan Blackburn</h1>
+        <p>Welcome to the world of art</p>
+    </header>
+
+    <button class="toggle-btn" id="toggleBtn">See More</button>
+ 
+    <nav id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about" onclick="openAboutModal()">About</a>
+        <a href="#contact" onclick="openContactsModal()">Contact</a>
+    </nav>
+   
+    <section>
+        <h2>Featured Artwork</h2>
+        <div class="gallery">
+            <img src="Gandalf.jpeg" alt="Artwork 1">
+            <img src="Gandalf.jpeg" alt="Artwork 2">
+            <img src="Gandalf.jpeg" alt="Artwork 3">
+        </div>
+    </section>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAboutModal()">&times;</span>
+            <h2>About Us</h2>
+            <p>Welcome to our About section! We are a team of passionate individuals dedicated to...</p>
+        </div>
+    </div>
+    
+    <div id="contactsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactsModal()">&times;</span>
+            <h2>Bryan Blackburn</h2>
+            <p>520-286-3225</p>
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+
+</body>
+</html>
