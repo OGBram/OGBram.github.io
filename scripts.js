@@ -8,7 +8,7 @@ toggleBtn.addEventListener("mouseover", () => {
 toggleBtn.addEventListener("mouseout", () => {
     setTimeout(() => {
      mainNav.style.display = "none";
-   }, 3000); // Adjust the delay in milliseconds (e.g., 500ms for half a second)
+   }, 1800); // Adjust the delay in milliseconds (e.g., 500ms for half a second)
  }) 
  
 function openAboutModal() {
