@@ -180,10 +180,8 @@ footer p {
     height: auto;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     .gallery {
-        flex-direction: column;
-        align-items: center;
-        scale: 200%;
+       scale: 200%;
     }
 }
