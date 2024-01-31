@@ -103,6 +103,11 @@ footer p {
 }
 
 .gallery img {
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery img {
     width: 20%; /* Adjust the width as needed */
     margin-bottom: 1em;
     transition: transform 0.3s ease-in-out; /* Add a smooth transition for the zoom effect */
@@ -167,11 +172,6 @@ footer p {
 #contactsModal p {
     line-height: 1.6;
     margin-bottom: 15px;
-}
-
-.gallery img {
-    max-width: 100%;
-    height: auto;
 }
 
 @media screen and (max-width: 600px) {
