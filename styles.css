@@ -186,7 +186,7 @@ footer p {
         transition: transform 0.3s ease-in-out; /
     }
     .gallery img:hover {
-    transform: scale(4); /* Zoom in on hover */
+    transform: scale(3.5); /* Zoom in on hover */
 }
     }
 
