@@ -184,6 +184,6 @@ footer p {
     .gallery {
         flex-direction: column;
         align-items: center;
-        zoom: 200;
+        scale: 200%;
     }
 }
