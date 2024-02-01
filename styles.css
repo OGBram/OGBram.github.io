@@ -5,7 +5,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #111; /* Dark background */
+    background-color: #111;
     color: #fff;
 }   
 /* Header Styles */
@@ -71,10 +71,8 @@ nav a {
     text-align: center;
 }
 
-/* Footer Styles */
-
 footer {
-    background-color: transparent; /* Make the background transparent */
+    background-color: transparent;
     text-align: center;
     padding: 1em;
     width: 100%;
