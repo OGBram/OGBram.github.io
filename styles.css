@@ -1,4 +1,4 @@
-/* General Styles */
+/*styles*/
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -14,7 +14,6 @@ header {
     background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
 }
    
-    /* Navigation Styles */
 nav {
     background-color: #444;
     padding: 1em;
@@ -31,7 +30,6 @@ nav a {
     margin: 0 1em;
 }
 
-/* Toggle Button Styles */
 .toggle-btn {
     display: block;
     background-color: #555;
@@ -65,9 +63,10 @@ nav a {
 .toggle-btn:hover + nav {
     display: block; /* Show navigation when button is hovered */
 }
+
 footer {
     background-color: transparent;
-    text-align: center;
+    text-align: left;
     padding: 1em;
     width: 100%;
 }
@@ -75,14 +74,8 @@ footer {
 footer::before {
     content: "\00a0"; /* Add a non-breaking space to create some space */
     display: block;
-    height: 75px; /* Adjust the height as needed for the desired transparency effect */
-    background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333); /* Use a gradient for transparency */
-}
-
-footer p {
-    font-size: 1em; /* Adjust the font size as needed */
-    margin-top: -20px; /* Offset to align text with the gradient */
-    color: #fff; /* Text color */
+    height: 80px; 
+    background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
 }
 
 /* Gallery Styles */
@@ -102,13 +95,14 @@ footer p {
 .gallery img {
     width: 20%; /* Adjust the width as needed */
     margin-bottom: 1em;
+    margin-top: 1em;
     transition: transform 0.3s ease-in-out; /* Add a smooth transition for the zoom effect */
 }
 
 .gallery img:hover {
     transform: scale(1.3); /* Zoom in by 10% on hover */
 }
-
+/*modal for about and contact*/
 .modal {
     display: none;
     position: fixed;
@@ -127,12 +121,11 @@ footer p {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-    /* Additional CSS styles for customization */
-    color: #333; /* Text color */
+    color: #333; 
     font-family: 'Arial', sans-serif;
-    max-width: 600px; /* Adjust the maximum width of the modal content */
-    margin: 0 auto; /* Center the modal horizontally */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    max-width: 600px; 
+    margin: 0 auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .close {
@@ -146,7 +139,7 @@ footer p {
 }
 
 #aboutModal h2 {
-    color: #007BFF; /* Heading color */
+    color: #007BFF;
 }
 
 #aboutModal p {
