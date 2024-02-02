@@ -82,9 +82,10 @@ footer::before {
 
 .gallery {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-wrap: nowrap;
     padding: 1em;
+    flex: 1;
 }
 
 .gallery img {
@@ -161,14 +162,14 @@ footer::before {
         display: flex;
         flex-direction: column;
         align-items: center; /* Optional: Center the images horizontally */
+        width: auto;
     }
     .gallery .img {
         width: 100%; /* Make images fill the entire width of the container */
-        margin-bottom: 1em;
+        padding: 1em;
         transition: transform 0.3s ease-in-out; /
     }
     .gallery img:hover {
     transform: scale(3.5); /* Zoom in on hover */
 }
     }
-

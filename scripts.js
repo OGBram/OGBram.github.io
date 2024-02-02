@@ -1,3 +1,5 @@
+/*scripts*/
+
 const toggleBtn = document.getElementById("toggleBtn");
 const mainNav = document.getElementById("mainNav");
 
