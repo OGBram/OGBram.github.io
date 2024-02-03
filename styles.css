@@ -21,6 +21,8 @@ nav {
     display: none; /* Initially hidden */
     position: absolute;
     width: 100%;
+    border-radius: 5px;
+
 }
 
 nav a {
@@ -79,6 +81,9 @@ footer::before {
 }
 
 /* Gallery Styles */
+section {
+    text-align: center;
+}
 
 .gallery {
     display: flex;
@@ -103,6 +108,7 @@ footer::before {
 .gallery img:hover {
     transform: scale(1.3); /* Zoom in by 10% on hover */
 }
+
 /*modal for about and contact*/
 .modal {
     display: none;
