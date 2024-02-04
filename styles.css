@@ -1,4 +1,5 @@
 /*styles*/
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -167,15 +168,14 @@ section {
     .gallery {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Optional: Center the images horizontally */
+        align-items: center; 
         width: auto;
     }
     .gallery .img {
-        width: 100%; /* Make images fill the entire width of the container */
+        width: 100%;
         padding: 1em;
         transition: transform 0.3s ease-in-out; /
     }
     .gallery img:hover {
-    transform: scale(3.5); /* Zoom in on hover */
-}
+    transform: scale(3.5); 
     }
