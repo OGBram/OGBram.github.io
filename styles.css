@@ -197,8 +197,9 @@ section h2 {
     .gallery img:hover {
     transform: scale(3.5); 
     }
-    nav {
+    .mainNav {
         display: flex;
         flex-direction: column;
-        align-items: left;
+        align-items: left; 
+        width: auto;
     }
