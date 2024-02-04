@@ -205,9 +205,8 @@ section h2 {
     }
     nav a {
         color: #fff;
-        text-decoration: none;
+        text-decoration: underline;
         padding: 1em;
-        margin: 1em, 1em;
     }
 }
     
