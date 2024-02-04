@@ -196,7 +196,7 @@ section h2 {
         transition: transform 0.3s ease-in-out; /
     }
     .gallery img:hover {
-    transform: scale(3.5); 
+        transform: scale(3.5); 
     }
 
     .mainNav {
@@ -204,10 +204,7 @@ section h2 {
         align-items: flex-start;
     }
     .mainNav .a {
-        color: #fff;
         text-decoration: underline;
-        padding: auto;
-        margin: 10px, 10px, 0, 0,;
     }
 }
     
