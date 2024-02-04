@@ -76,7 +76,6 @@ nav a {
     display: inline;
 }
 
-
 .toggle-btn::after{
     content: "\2715"; /* Unicode close icon on hover */
     display: none;
@@ -208,3 +207,4 @@ section h2 {
     #mainNav a {
         margin: 10px 0; /* Add spacing between vertical items */
     }
+}
