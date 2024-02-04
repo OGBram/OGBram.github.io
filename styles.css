@@ -203,10 +203,9 @@ section h2 {
         flex-direction: column; 
         align-items: flex-start;
     }
-    .mainNav .a {
+    #mainNav {
         color: #fff;
-        text-decoration: underline;
-        padding: 1em;
+        text-decoration: underline;   
     }
 }
     
