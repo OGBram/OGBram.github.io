@@ -205,6 +205,6 @@ section h2 {
     }
     
     #mainNav a {
-        margin: 10px 10px; /* Add spacing between vertical items */
+       padding: auto; /* Add spacing between vertical items */
     }
 }
