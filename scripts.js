@@ -1,18 +1,20 @@
 /*scripts*/
 
-const toggleBtn = document.getElementById("toggleBtn");
-const mainNav = document.getElementById("mainNav");
+const toggleBtn = document.getElementById('toggleBtn');
+const mainNav = document.getElementById('mainNav');
 
-toggleBtn.addEventListener("mouseover", () => {
-    mainNav.style.display = "block";
- });
+toggleBtn.addEventListener("click", () => {
+    mainNav.style.display = (mainNav.style.display === "block") ? "none" : "block";
+    toggleBtn.classList.toggle('open');
+});
 
 toggleBtn.addEventListener("mouseout", () => {
     setTimeout(() => {
      mainNav.style.display = "none";
-   }, 3000); // Adjust the delay in milliseconds 
+   }, 15000); // Adjust the delay in milliseconds 
  }) 
  
+
 function openAboutModal() {
     document.getElementById('aboutModal').style.display = 'block';
 }

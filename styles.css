@@ -58,26 +58,28 @@ nav a {
     transition: background-color 0.3s;
 }
 
-.toggle-btn:hover {
-    background-color:   #333; /* Darker color on hover */
-}
-
-.toggle-btn:focus {
-    outline: none; /* Remove default focus outline */
-}
-
 .toggle-btn::before {
     content: "\2630"; /* Unicode hamburger icon */
     margin-right: 5px;
 }
 
-
-.toggle-btn:hover::before {
-    content: "\2715"; /* Unicode close icon on hover */
+.toggle-btn::after {
+    content: "\2715"; /* Unicode close icon */
+    margin-right: 5px;
 }
 
-.toggle-btn:hover + nav {
-    display: block; /* Show navigation when button is hovered */
+.toggle-btn.open::before {
+    display: none;
+}
+
+.toggle-btn.open::after {
+    display: inline;
+}
+
+
+.toggle-btn::after{
+    content: "\2715"; /* Unicode close icon on hover */
+    display: none;
 }
 
 footer {
@@ -197,9 +199,12 @@ section h2 {
     .gallery img:hover {
     transform: scale(3.5); 
     }
-    .mainNav {
-        display: flex;
-        flex-direction: column;
-        align-items: left; 
-        width: auto;
+
+    #mainNav {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+    
+    #mainNav a {
+        margin: 10px 0; /* Add spacing between vertical items */
     }
