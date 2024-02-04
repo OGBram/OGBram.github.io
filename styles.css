@@ -201,10 +201,11 @@ section h2 {
 
     #mainNav {
         flex-direction: column; 
-        align-items: flex-start; 
+        align-items: flex-start;
+        margin: 15px;
     }
     
     #mainNav a {
-        padding: 10px;
+    
     }
 }
