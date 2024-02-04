@@ -102,7 +102,6 @@ section h2 {
     font-family: 'Bitter', sans-serif;
     font-weight: 100;
     font-size: 35px;
-    text-decoration: overline, underline;
 }
 
 .gallery {
@@ -206,6 +205,6 @@ section h2 {
     }
     
     #mainNav a {
-        margin: 30px 0; /* Add spacing between vertical items */
+        margin: 10px 10px; /* Add spacing between vertical items */
     }
 }
