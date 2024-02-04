@@ -206,7 +206,8 @@ section h2 {
     .mainNav .a {
         color: #fff;
         text-decoration: underline;
-        padding: 1em;
+        padding: auto;
+        margin: 100%, 50%;
     }
 }
     
