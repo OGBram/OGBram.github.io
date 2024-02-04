@@ -202,9 +202,9 @@ section h2 {
     #mainNav {
         flex-direction: column; 
         align-items: flex-start; 
+        padding: 1em;
     }
-    
+    /*
     #mainNav a {
-       padding: auto; /* Add spacing between vertical items */
-    }
+      ; /* Add spacing between vertical items */
 }
