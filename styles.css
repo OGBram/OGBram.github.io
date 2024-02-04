@@ -199,11 +199,11 @@ section h2 {
     transform: scale(3.5); 
     }
 
-    #mainNav {
+    .mainNav {
         flex-direction: column; 
         align-items: flex-start;
     }
-    nav a {
+    .mainNav .a {
         color: #fff;
         text-decoration: underline;
         padding: 1em;
