@@ -8,12 +8,12 @@ toggleBtn.addEventListener("click", () => {
     toggleBtn.classList.toggle('open');
 });
 
-toggleBtn.addEventListener("mouseout", () => {
+/*toggleBtn.addEventListener("mouseout", () => {
     setTimeout(() => {
      mainNav.style.display = "none";
    }, 15000); // Adjust the delay in milliseconds 
  }) 
- 
+*/ 
 
 function openAboutModal() {
     document.getElementById('aboutModal').style.display = 'block';
