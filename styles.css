@@ -202,10 +202,12 @@ section h2 {
     #mainNav {
         flex-direction: column; 
         align-items: flex-start;
-        margin: 15px;
     }
-    
-    #mainNav a {
-    
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 1em;
+        margin: 1em, 1em;
     }
 }
+    
