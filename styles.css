@@ -20,6 +20,10 @@ header {
         margin-top: 5px; 
         margin-bottom: 5px; 
     }
+    outline-color:invert;
+    outline-width: thin;
+    outline-style: groove;
+
 }
 body {
     font-family: 'Arial', sans-serif;
@@ -53,6 +57,7 @@ nav a {
     background-color: #555;
     color: #fff;
     padding: 1em;
+    margin-top: 23px;
     text-align: center;
     cursor: pointer;
     border: none;
@@ -104,6 +109,9 @@ section h2 {
     font-family: 'Bitter', sans-serif;
     font-weight: 100;
     font-size: 35px;
+    outline-color:invert;
+    outline-width: thin;
+    outline-style: groove;
 }
 
 .gallery {
