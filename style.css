@@ -13,7 +13,7 @@ body {
     background: rgb(66,63,111);
     background: linear-gradient(90deg, rgba(66,63,111,1) 0%, rgba(155,237,254,1) 18%, rgba(43,43,43,1) 21%); 
     max-width: 256px;
-    padding-left: 100px;
+    padding-left: 110px;
     padding-top: 200px;
     overflow: hidden;
 }
