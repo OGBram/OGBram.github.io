@@ -32,62 +32,48 @@ body {
     background-color: #111;
     color: #fff;
 }   
+.toggle-button {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Bitter', sans-serif;
+    display: flex;
+    align-items: center;
+}
+.toggle-button:hover {
+    color: cornflowerblue;
+}
 
-nav {
-    background-color: #444;
-    padding: 1em;
+.toggle-button i {
+    margin-right: 5px;
+}
+
+.mainNav {
+    background-color: transparent;
+    padding: 5px 5px;
     text-align: center;
-    display: none; 
     position: absolute;
+    display: none;
     justify-content: left;
     flex-direction: row;
-
-
 }
 
-nav a {
-    color: #fff;
+.nav-link {
     text-decoration: none;
-    padding: 1em;
-    margin: 0 1em;
-}
-
-.toggle-btn {
-    display: block;
-    background-color: #555;
     color: #fff;
-    padding: 1em;
-    margin-top: 23px;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
 }
-
-.toggle-btn::before {
-    content: "\2630"; /* Unicode hamburger */
+.nav-link:hover {
+    color: cornflowerblue;
+}
+.nav-link i {
     margin-right: 5px;
 }
-
-.toggle-btn::after {
-    content: "\2715"; /* Unicode close */
-    margin-right: 5px;
-}
-
-.toggle-btn.open::before {
-    display: none;
-}
-
-.toggle-btn.open::after {
-    display: inline;
-}
-
-.toggle-btn::after{
-    content: "\2715"; /* Unicode close icon  */
-    display: none;
-}
-
 footer {
     background-color: transparent;
     text-align: left;

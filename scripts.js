@@ -1,19 +1,9 @@
 /*scripts*/
-
-const toggleBtn = document.getElementById('toggleBtn');
-const mainNav = document.getElementById('mainNav');
-
-toggleBtn.addEventListener("click", () => {
-    mainNav.style.display = (mainNav.style.display === "block") ? "none" : "block";
-    toggleBtn.classList.toggle('open');
+document.getElementById("toggleNav").addEventListener("click", function() {
+    var nav = document.getElementById("mainNav");
+    nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
 });
 
-/*toggleBtn.addEventListener("mouseout", () => {
-    setTimeout(() => {
-     mainNav.style.display = "none";
-   }, 15000); // Adjust the delay in milliseconds 
- }) 
-*/ 
 
 function openAboutModal() {
     document.getElementById('aboutModal').style.display = 'block';

@@ -14,15 +14,21 @@
         <p>Phoenix Arizona</p>
         <p>Bramson042@yahoo.com</p>
     </header>
-
-    <button class="toggle-btn" id="toggleBtn">
-        See More
+    
+    <button id="toggleNav" class="toggle-button">
+        <i class="fas fa-bars"></i> See more
     </button>
 
-    <nav id="mainNav">
-        <a href="#contact" onclick="openContactsModal()"><p><i class="fas fa-envelope"></i> Contact</p></a>
-        <a href="#home"><p><i class="fas fa-home"></i> Home</p></a>
-        <a href="#about" onclick="openAboutModal()"><p><i class="fas fa-info-circle"></i> About</p></a>
+    <nav id="mainNav" class="mainNav">
+        <a href="#contact" onclick="openContactsModal()" class="nav-link">
+            <i class="fas fa-envelope"></i> <span>Contact</span>
+        </a>
+        <a href="#home" class="nav-link">
+            <i class="fas fa-home"></i> <span>Home</span>
+        </a>
+        <a href="#about" onclick="openAboutModal()" class="nav-link">
+            <i class="fas fa-info-circle"></i> <span>About</span>
+        </a>
     </nav>
 
     <section>
