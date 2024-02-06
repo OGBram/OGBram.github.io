@@ -186,9 +186,11 @@ section h2 {
         grid-template-columns: repeat(2, 1fr);
         gap: 1em;
         align-items: center;
+        margin-left: 1em;
     }
     .gallery .img {
         width: 100%;
+        height: fit-content;
         padding: 1em;
         transition: transform 0.3s ease-in-out;
     }
