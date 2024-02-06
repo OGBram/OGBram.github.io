@@ -189,5 +189,6 @@ body {
 @media only screen and (max-width: 600px) {
     body {
       background-color: rgb(66,63,111);
+      justify-content: center;
     }
   }
