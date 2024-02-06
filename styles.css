@@ -182,20 +182,18 @@ section h2 {
 
 @media screen and (max-width: 600px) {
     .gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1em;
-        align-items: center;
-        margin-left: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        width: auto;
     }
     .gallery .img {
-        width: 250;
-        height: auto;
-        padding: 1em;
-        transition: transform 0.3s ease-in-out;
+        width: 100%;
+        gap: 1em;
+        transition: transform 0.3s ease-in-out; /
     }
     .gallery img:hover {
-        transform: scale(1.5); /* Adjust the scale factor as needed */
+    transform: scale(3.5); 
     }
 }
     
