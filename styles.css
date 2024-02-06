@@ -189,8 +189,8 @@ section h2 {
         margin-left: 1em;
     }
     .gallery .img {
-        width: 100%;
-        height: fit-content;
+        width: 250;
+        height: auto;
         padding: 1em;
         transition: transform 0.3s ease-in-out;
     }
