@@ -15,7 +15,6 @@ body {
     max-width: 256px;
     padding-left: 110px;
     padding-top: 200px;
-    overflow: hidden;
 }
 
 .container {
@@ -176,7 +175,7 @@ body {
 }
 
 .pic i {
-    background-color:  rgba(66,63,111,1;
+    background-color: transparent;
 }
 
 .username a {
@@ -186,3 +185,15 @@ body {
 .about a {
     font-family: monospace;
 }
+
+@media screen {
+    body {
+        display: flex;
+        justify-content: left;
+        align-items: baseline;
+        min-height: 100vh;
+        background: rgb(66,63,111);
+        max-width: 256px;
+        padding-left: 110px;
+        padding-top: 200px;
+}}
