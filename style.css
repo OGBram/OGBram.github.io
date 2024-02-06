@@ -11,7 +11,7 @@ body {
     align-items: baseline;
     min-height: 100vh;
     background: rgb(66,63,111);
-    background: linear-gradient(90deg, rgba(66,63,111,1) 0%, rgba(155,237,254,1) 18%, rgba(43,43,43,1) 21%); 
+    background: linear-gradient(90deg, rgba(66,63,111,1) 0%, rgba(155,237,254,1) 20%, rgba(43,43,43,1) 23%); 
     max-width: 256px;
     padding-left: 140px;
     padding-top: 200px;
@@ -188,6 +188,6 @@ body {
 
 @media only screen and (max-width: 600px) {
     body {
-      background-color: lightblue;
+      background-color: rgb(66,63,111);
     }
   }
