@@ -182,19 +182,16 @@ section h2 {
 
 @media screen and (max-width: 600px),(max-height:100vh) {
     
-    .gallery {
+    .gallery .img {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         gap: 25px;
-    }
-    .gallery .img {
-        width: 100%;
-        gap: 1em;
+        width: 25vh;
         transition: transform 0.3s ease-in-out; /
     }
     .gallery img:hover {
-    transform: scale(3.5); 
+    transform: scale(1.5); 
     }
 }
     
