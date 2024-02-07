@@ -104,23 +104,40 @@ section h2 {
 .gallery {
     display: flex;
     justify-content: space-around;
-    flex-wrap: nowrap
+    flex-wrap: nowrap;
     padding: 2em;
-    flex: 2;
+    
 }
 
 .gallery img {
-    width: 15%;
+    width: 100%;
     margin-bottom: 1em;
     margin-top: 1em;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 .gallery img:hover {
-    transform: scale(1.3); 
+    transform: scale(1.3);
+    transform: translateY(-1em); 
+}
+.artwork-container {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
+.artwork-container p {
+    display: none; 
+}
+
+.artwork-container:hover p {
+    display: block;
+    color: #ff0000;
+    font-family: monospace;
+    font-size: 25px;
+    opacity: .5;
+
 /*modal for about and contact*/
+}
 
 .modal {
     display: none;
@@ -174,6 +191,35 @@ section h2 {
     line-height: 1.6;
     margin-bottom: 15px;
 }
+#artwork0:hover {
+    border-color: red;
+    opacity: 0.8;
+}
+#artwork1:hover {
+    border-color: red;
+    opacity: 0.8;
+}
+#artwork2:hover {
+    border-color: red;
+    opacity: 0.8;
+}
+#artwork3:hover {
+    border-color: red;
+    opacity: 0.8;
+}
+
+.artwork-container {
+    text-align: center; 
+    margin-bottom: 10px; /
+}
+
+
+
+
+
+
+
+/*
 
 @media screen and (max-width: 600px),(max-height:100vh) {
     
