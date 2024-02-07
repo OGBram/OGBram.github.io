@@ -180,7 +180,7 @@ section h2 {
     margin-bottom: 15px;
 }
 
-@media screen and (max-width: 600px)(max-height:100vh) {
+@media screen and (max-width: 600px),(max-height:100vh) {
     
     .gallery {
         display: flex;
