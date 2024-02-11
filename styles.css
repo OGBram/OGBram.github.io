@@ -211,11 +211,16 @@ section h2 {
     margin-bottom: 10px; /
 }
 
+#canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-
-
-
-
+#canvas {
+    border: 1px solid yellowgreen; 
+}
 
 /*
 

@@ -1,4 +1,33 @@
-/*scripts*/
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const background = new Image();
+background.onload = drawBackground;
+background.src = "/backgrounds/recgoth.jpg";
+
+const character = new Image();
+character.onload = drawCharacter;
+character.src = "/32x32/female_left.png";
+
+function drawBackground() {
+  canvas.width = background.naturalWidth;
+  canvas.height = background.naturalHeight;
+
+  ctx.drawImage(background, 0, 0);
+}
+
+function drawCharacter() {
+  const customWidth = 32;
+  const customHeight = 45;
+
+  // Center the character on the canvas
+  const x = (canvas.width - customWidth) / 2;
+  const y = (canvas.height - customHeight) / 1.1;
+
+  ctx.drawImage(character, x, y, customWidth, customHeight);
+}
+
+
 document.getElementById("toggleNav").addEventListener("click", function() {
     var nav = document.getElementById("mainNav");
     nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
