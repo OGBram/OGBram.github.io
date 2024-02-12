@@ -22,7 +22,7 @@ function drawCharacter() {
 
   // Center the character on the canvas
   const x = (canvas.width - customWidth) / 2;
-  const y = (canvas.height - customHeight) / 1.1;
+  const y = (canvas.height - customHeight) / 2;
 
   ctx.drawImage(character, x, y, customWidth, customHeight);
 }
@@ -34,7 +34,6 @@ if (canvas) {
     const x = event.clientX - canvas.getBoundingClientRect().left;
     const y = event.clientY - canvas.getBoundingClientRect().top;
 
-    // Assuming ctx is the 2D context of the canvas
     ctx.drawImage(character, x, y);
   });
 }
