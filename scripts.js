@@ -18,7 +18,7 @@ function drawBackground() {
 
 function drawCharacter() {
   const customWidth = 32;
-  const customHeight = 45;
+  const customHeight = 32;
 
   // Center the character on the canvas
   const x = (canvas.width - customWidth) / 2;
@@ -27,10 +27,23 @@ function drawCharacter() {
   ctx.drawImage(character, x, y, customWidth, customHeight);
 }
 
+if (canvas) {
+  
+  canvas.addEventListener("click", function (event) {
+ 
+    const x = event.clientX - canvas.getBoundingClientRect().left;
+    const y = event.clientY - canvas.getBoundingClientRect().top;
+
+    // Assuming ctx is the 2D context of the canvas
+    ctx.drawImage(character, x, y);
+  });
+}
 
 document.getElementById("toggleNav").addEventListener("click", function() {
-    var nav = document.getElementById("mainNav");
-    nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
+  var nav = document.getElementById("mainNav");
+  var navStyle = window.getComputedStyle(nav);
+
+  nav.style.display = (navStyle.getPropertyValue("display") === "flex") ? "none" : "flex";
 });
 
 function openAboutModal() {
