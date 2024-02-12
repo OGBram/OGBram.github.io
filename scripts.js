@@ -1,31 +1,29 @@
-  let canvas = document.querySelector('canvas');
-  let ctx = canvas.getContext('2d');
-  
-  
-  let backgroud = new Image();
-  backgroud.src = '/backgrounds/recgoth.jpg'
-  backgroud.onload = function() {
-    init();
-  }
- 
-  ctx.drawImage(backgroud, 0, 0);
-  let img = new Image();
-  img.src = '/animation/sheet_idle.png';
-  img.onload = function() {
-    init();
-  };
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
+    
+let backgroud = new Image();
+backgroud.src = '/backgrounds/recgoth.jpg'
+backgroud.onload = function() {
+  init();
+}
 
-  const scale = 2;
-  const width = 32;
-  const height = 32;
-  const scaledWidth = scale * width;
-  const scaledHeight = scale * height;
+let img = new Image();
+img.src = '/animation/sheet_idle.png';
+img.onload = function() {
+  init();
+};
 
-  function drawFrame(frameX, frameY, canvasX, canvasY) {
-    ctx.drawImage(img,
-                  frameX * width, frameY * height, width, height,
-                  canvasX, canvasY, scaledWidth, scaledHeight);
-  }
+const scale = 2;
+const width = 32;
+const height = 32;
+const scaledWidth = scale * width;
+const scaledHeight = scale * height;
+
+function drawFrame(frameX, frameY, canvasX, canvasY) {
+  ctx.drawImage(img,
+                frameX * width, frameY * height, width, height,
+                canvasX, canvasY, scaledWidth, scaledHeight);
+}
 
 const cycleLoop = [0, 1, 2, 1];
 let currentLoopIndex = 0;
@@ -38,30 +36,24 @@ function step() {
     return;
   }
   frameCount = 0;
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
   ctx.drawImage(backgroud, 0, 0);
+  
   drawFrame(cycleLoop[currentLoopIndex], 0, 600, 400);
   currentLoopIndex++;
   if (currentLoopIndex >= cycleLoop.length) {
     currentLoopIndex = 0;
   }
+  
   window.requestAnimationFrame(step);
   }
+  
   function init() {
     window.requestAnimationFrame(step);
   }
-  /*
-  if (canvas) {
-    
-    canvas.addEventListener("click", function (event) {
-  
-      const x = event.clientX - canvas.getBoundingClientRect().left;
-      const y = event.clientY - canvas.getBoundingClientRect().top;
 
-      ctx.drawImage(character, x, y);
-    });
-  }
-  */
   document.getElementById("toggleNav").addEventListener("click", function() {
     var nav = document.getElementById("mainNav");
     var navStyle = window.getComputedStyle(nav);
