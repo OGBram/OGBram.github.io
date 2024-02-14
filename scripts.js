@@ -5,7 +5,7 @@ const width = canvas.width = 300;
 const height = canvas.height = 300;
 
 let background = new Image(canvas.width, canvas.height);
-background.src = '/backgrounds/recgoth.jpg'
+background.src = '/backgrounds/smallgoth.jpg';
 document.body.appendChild(background);
 
 let img = new Image();
@@ -23,13 +23,14 @@ background.onload = img.onload = function () {
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(img,
                 frameX * 32, frameY, width, height,
-                canvasX+100, canvasY+10, width, height);
+                canvasX+115, canvasY-50, width, height);
 }
 
 function drawBackground(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(background,
                 frameX * width, frameY * height, width, height,
                 canvasX, canvasY, width, height);
+
 }
 
 const cycleLoop = [0, 1, 2,]
@@ -46,8 +47,8 @@ function step() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  drawBackground()
-
+  drawBackground();
+  
   drawFrame(cycleLoop[currentLoopIndex], 1, 0, 230, 0); 
   currentLoopIndex++;
   if (currentLoopIndex >= cycleLoop.length) {
@@ -79,7 +80,3 @@ function step() {
   function closeContactsModal() {
       document.getElementById('contactsModal').style.display = 'none';
   }
-
-  // function init() {
-  //   window.requestAnimationFrame(step);
-  // }
