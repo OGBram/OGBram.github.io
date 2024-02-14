@@ -1,12 +1,11 @@
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
+const canvas = document.getElementById('mycanvas');
+const ctx = canvas.getContext('2d');
 
 const width = canvas.width = 300;
 const height = canvas.height = 300;
 
 let background = new Image(canvas.width, canvas.height);
 background.src = '/backgrounds/smallgoth.jpg';
-document.body.appendChild(background);
 
 let img = new Image();
 img.src = '/animation/sheet_idle.png';
@@ -22,8 +21,8 @@ background.onload = img.onload = function () {
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(img,
-                frameX * 32, frameY, width, height,
-                canvasX+115, canvasY-50, width, height);
+                frameX, frameY, width, height,
+                canvasX, canvasY, width, height);
 }
 
 function drawBackground(frameX, frameY, canvasX, canvasY) {
@@ -47,9 +46,9 @@ function step() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  drawBackground();
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
-  drawFrame(cycleLoop[currentLoopIndex], 1, 0, 230, 0); 
+  drawFrame(cycleLoop[currentLoopIndex], 1, 150, 200, 0); 
   currentLoopIndex++;
   if (currentLoopIndex >= cycleLoop.length) {
     currentLoopIndex = 0;

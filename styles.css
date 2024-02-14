@@ -204,9 +204,12 @@ section h2 {
 }
 
 #mycanvas {
-    position: absolute;
-    width: 300px;
-    height: 300px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-25%);
+    width: 150px;
+    height: 150px;
     
 }
 
