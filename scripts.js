@@ -32,13 +32,13 @@ function drawBackground(frameX, frameY, canvasX, canvasY) {
                 canvasX, canvasY, width, height);
 }
 
-const cycleLoop = [0, 1, 2,];
+const cycleLoop = [0, 1, 2,]
 let currentLoopIndex = 0;
 let frameCount = 0;
 
 function step() {
   frameCount++;
-  if (frameCount < 45) {
+  if (frameCount < 40) {
     window.requestAnimationFrame(step);
     return;
   }
