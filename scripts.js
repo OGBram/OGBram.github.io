@@ -54,6 +54,9 @@ function step() {
     window.requestAnimationFrame(step);
   }
 
+
+
+  
   document.getElementById("toggleNav").addEventListener("click", function() {
     var nav = document.getElementById("mainNav");
     var navStyle = window.getComputedStyle(nav);

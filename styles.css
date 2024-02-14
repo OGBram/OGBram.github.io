@@ -78,7 +78,7 @@ body {
 footer {
     background-color: transparent;
     text-align: left;
-    padding: 1em;
+    padding-top: 1em;
     width: 100%;
 }
 
@@ -219,23 +219,11 @@ section h2 {
 }
 
 #canvas {
-    border: 1px solid yellowgreen; 
+    border: 1px solid darkslategrey;
 }
 
-/*
-
-@media screen and (max-width: 600px),(max-height:100vh) {
-    
-    .gallery .img {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 25px;
-        width: 25vh;
-        transition: transform 0.3s ease-in-out; /
-    }
-    .gallery img:hover {
-    transform: scale(1.5); 
+@media only screen and (max-width: 600px) {
+    .canvas {
+        width: 50px;
     }
 }
-    
