@@ -51,8 +51,6 @@ function step() {
   }
 
 
-
-  
   document.getElementById("toggleNav").addEventListener("click", function() {
     var nav = document.getElementById("mainNav");
     var navStyle = window.getComputedStyle(nav);
@@ -75,10 +73,4 @@ function step() {
   function closeContactsModal() {
       document.getElementById('contactsModal').style.display = 'none';
   }
-  var artwork3 = document.getElementById("artwork3");
-  var toggleNav = document.getElementById("toggleNav");
 
-
-  artwork3.addEventListener("mouseenter", function() {
-    toggleNav.style.color = "red";
-  });
