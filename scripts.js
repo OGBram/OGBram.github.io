@@ -1,21 +1,17 @@
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
+
+let width = canvas.width;
+let height = canvas.height;
     
-let backgroud = new Image();
+let backgroud = new Image(330,300);
 backgroud.src = '/backgrounds/recgoth.jpg'
-backgroud.onload = function() {
-  init();
-}
+document.body.appendChild(backgroud);
 
-let img = new Image();
+let img = new Image(32,32);
 img.src = '/animation/sheet_idle.png';
-img.onload = function() {
-  init();
-};
 
-const scale = 2;
-const width = 32;
-const height = 32;
+const scale = 1;
 const scaledWidth = scale * width;
 const scaledHeight = scale * height;
 
@@ -25,7 +21,7 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
                 canvasX, canvasY, scaledWidth, scaledHeight);
 }
 
-const cycleLoop = [0, 1, 2, 1];
+const cycleLoop = [0, 1, 2,];
 let currentLoopIndex = 0;
 let frameCount = 0;
 
@@ -41,7 +37,7 @@ function step() {
   
   ctx.drawImage(backgroud, 0, 0);
   
-  drawFrame(cycleLoop[currentLoopIndex], 0, 600, 400);
+  drawFrame(cycleLoop[currentLoopIndex], 32, 32, 25, 25);
   currentLoopIndex++;
   if (currentLoopIndex >= cycleLoop.length) {
     currentLoopIndex = 0;

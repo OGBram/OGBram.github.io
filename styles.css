@@ -25,6 +25,7 @@ header {
     outline-style: groove;
 
 }
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -32,6 +33,7 @@ body {
     background-color: #111;
     color: #fff;
 }   
+
 .toggle-button {
     background-color: #111;
     color: #fff;
@@ -44,6 +46,7 @@ body {
     align-items: center;
     margin-left: -1em;
 }
+
 .toggle-button:hover {
     color: cornflowerblue;
 }
@@ -69,12 +72,15 @@ body {
     align-items: center;
     margin-right: 20px;
 }
+
 .nav-link:hover {
     color: cornflowerblue;
 }
+
 .nav-link i {
     margin-right: 5px;
 }
+
 footer {
     background-color: transparent;
     text-align: left;
@@ -211,19 +217,9 @@ section h2 {
     margin-bottom: 10px; /
 }
 
-#canvas-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-#canvas {
+/* #canvas {
     border: 1px solid darkslategrey;
-}
+    
+} */
 
-@media only screen and (max-width: 600px) {
-    .canvas {
-        width: 50px;
-    }
-}
+@media only screen and (max-width: 600px) {}
