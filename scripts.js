@@ -1,19 +1,20 @@
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 
-let width = canvas.width; 
-let height = canvas.height;
+const width = canvas.width = 600;
+const height = canvas.height = 450;
 
-let backgroud = new Image(width, height);
+let backgroud = new Image(320, 280);
 backgroud.src = '/backgrounds/recgoth.jpg'
 document.body.appendChild(backgroud);
 
 let img = new Image(32,32);
 img.src = '/animation/sheet_idle.png';
 
+
 const scale = 1;
-const scaledWidth = scale * 32;
-const scaledHeight = scale * 32;
+const scaledWidth = scale;
+const scaledHeight = scale;
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(img,
