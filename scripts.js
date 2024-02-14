@@ -1,25 +1,35 @@
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 
-const width = canvas.width = 600;
-const height = canvas.height = 450;
+const width = canvas.width = 300;
+const height = canvas.height = 300;
 
-let backgroud = new Image(320, 280);
-backgroud.src = '/backgrounds/recgoth.jpg'
-document.body.appendChild(backgroud);
+let background = new Image(canvas.width, canvas.height);
+background.src = '/backgrounds/recgoth.jpg'
+document.body.appendChild(background);
 
-let img = new Image(32,32);
+let img = new Image();
 img.src = '/animation/sheet_idle.png';
 
-
-const scale = 1;
-const scaledWidth = scale;
-const scaledHeight = scale;
+let imagesLoaded = 0;
+background.onload = img.onload = function () {
+  imagesLoaded++;
+  if (imagesLoaded === 2) {
+   
+    step();
+  }
+};
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(img,
+                frameX * 32, frameY, width, height,
+                canvasX+100, canvasY+10, width, height);
+}
+
+function drawBackground(frameX, frameY, canvasX, canvasY) {
+  ctx.drawImage(background,
                 frameX * width, frameY * height, width, height,
-                canvasX, canvasY, scaledWidth, scaledHeight);
+                canvasX, canvasY, width, height);
 }
 
 const cycleLoop = [0, 1, 2,];
@@ -36,22 +46,17 @@ function step() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  ctx.drawImage(backgroud, 0, 0);
-  
-  drawFrame(cycleLoop[currentLoopIndex], 32, 32, 100, 100);
+  drawBackground()
+
+  drawFrame(cycleLoop[currentLoopIndex], 1, 0, 230, 0); 
   currentLoopIndex++;
   if (currentLoopIndex >= cycleLoop.length) {
     currentLoopIndex = 0;
   }
-  
+
   window.requestAnimationFrame(step);
   }
   
-  function init() {
-    window.requestAnimationFrame(step);
-  }
-
-
   document.getElementById("toggleNav").addEventListener("click", function() {
     var nav = document.getElementById("mainNav");
     var navStyle = window.getComputedStyle(nav);
@@ -75,3 +80,6 @@ function step() {
       document.getElementById('contactsModal').style.display = 'none';
   }
 
+  // function init() {
+  //   window.requestAnimationFrame(step);
+  // }
