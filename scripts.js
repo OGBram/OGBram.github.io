@@ -1,33 +1,16 @@
-const canvas = document.getElementById('mycanvas');
-const ctx = canvas.getContext('2d');
-
-const width = canvas.width = 300;
-const height = canvas.height = 300;
-
-let background = new Image(canvas.width, canvas.height);
-background.src = '/backgrounds/smallgoth.jpg';
+window.addEventListener('load', function(){
+  const canvas = this.document.getElementById('mycanvas')
+  const ctx = canvas.getContext('2d');
+  const width = canvas.width = 300;
+  const height = canvas.height = 300;
+});
 
 let img = new Image();
 img.src = '/animation/sheet_idle.png';
 
-let imagesLoaded = 0;
-background.onload = img.onload = function () {
-  imagesLoaded++;
-  if (imagesLoaded === 2) {
-   
-    step();
-  }
-};
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(img,
-                frameX * width, frameY * height, width, height,
-                canvasX, canvasY, width, height);
-
-}
-
-function drawBackground(frameX, frameY, canvasX, canvasY) {
-  ctx.drawImage(background,
                 frameX * width, frameY * height, width, height,
                 canvasX, canvasY, width, height);
 
@@ -47,9 +30,7 @@ function step() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  
-  drawFrame(cycleLoop[currentLoopIndex], 0, 0, 200, 100); 
+  drawFrame(cycleLoop[currentLoopIndex], 1, 1, 150, 150); 
   currentLoopIndex++;
   if (currentLoopIndex >= cycleLoop.length) {
     currentLoopIndex = 0;
@@ -58,6 +39,9 @@ function step() {
   window.requestAnimationFrame(step);
   }
   
+
+
+
   document.getElementById("toggleNav").addEventListener("click", function() {
     var nav = document.getElementById("mainNav");
     var navStyle = window.getComputedStyle(nav);
