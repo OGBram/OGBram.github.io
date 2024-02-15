@@ -10,6 +10,8 @@ header {
     background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
     height: auto;
     outline-color: #333;
+    outline-width: thin;
+    outline-style: groove;
     h1, p {
         margin: 0;
         padding: 0; 
@@ -25,12 +27,10 @@ header {
 body {
     font-family: 'Arial', sans-serif;
     margin: 1;
-    padding: 0;
     background-color: #111;
     color: #fff;
-    outline-color: #111;
-    outline-style: inset;
     outline-width: 1em;
+    outline-style: hidden;
     
 }   
 
@@ -111,27 +111,24 @@ section h2 {
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
-    padding: 2em;
-    
+    padding: 1em;
+    outline-style: hidden;
+    background: transparent;
 }
 
 .gallery img {
-    width: 100%;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    transition: transform 0.5s ease-in-out;
+    width: 75%;
+    margin-bottom: 2em;
+    transition: transform 0.7s ease-in-out;
 }
+
 
 .gallery img:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
     transform: translateY(-1em);
 }
-.artwork-container {
-    text-align: center;
-    margin-bottom: 10px;
-}
 
-.artwork-container p {
+/* .artwork-container p {
     display: none; 
 }
 
@@ -141,7 +138,7 @@ section h2 {
     font-family: monospace;
     font-size: 25px;
     opacity: .5;
-}
+} */
 
 .modal {
     display: none;
@@ -212,5 +209,5 @@ section h2 {
 
 @media only screen and (max-width: 600px) {}
     .gallery img:hover {
-    transform: scale(1.2);
+    transform: scale(2.0);
 }
