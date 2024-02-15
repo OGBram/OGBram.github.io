@@ -53,6 +53,11 @@ function step() {
   if (currentLoopIndex >= cycleLoop.length) {
     currentLoopIndex = 0;
   }
+  drawFrame(cycleLoop[currentLoopIndex], 1, 50, 200, 0); 
+  currentLoopIndex++;
+  if (currentLoopIndex >= cycleLoop.length) {
+    currentLoopIndex = 0;
+  }
 
   window.requestAnimationFrame(step);
   }
