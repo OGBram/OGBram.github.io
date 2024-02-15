@@ -3,7 +3,6 @@ window.addEventListener('load', function(){
   const ctx = canvas.getContext('2d');
   canvas.width = 300;
   canvas.height = 300;
-
   ctx.fillStyle = 'white';
   ctx.lineWidth = 3;
   ctx.strokeStyle = 'white';
@@ -56,7 +55,7 @@ window.addEventListener('load', function(){
         context.beginPath();
         context.arc(this.collisionX, this.collisionY, this.collisionRadius, 0, Math.PI * 2);
         context.save();
-        context.globalAlpha = 0.5;
+        context.globalAlpha = 0.3;
         context.fill();
         context.restore();
         context.stroke();
@@ -69,7 +68,7 @@ window.addEventListener('load', function(){
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.player = new Player(this);
-        this.numberOfObstacles = 2;
+        this.numberOfObstacles = 3;
         this.obstacles = [];
         this.mouse = {
           x: this.width * 0.5,
