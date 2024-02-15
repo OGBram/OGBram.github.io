@@ -21,8 +21,9 @@ background.onload = img.onload = function () {
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
   ctx.drawImage(img,
-                frameX, frameY, width, height,
+                frameX * width, frameY * height, width, height,
                 canvasX, canvasY, width, height);
+
 }
 
 function drawBackground(frameX, frameY, canvasX, canvasY) {
@@ -32,7 +33,7 @@ function drawBackground(frameX, frameY, canvasX, canvasY) {
 
 }
 
-const cycleLoop = [0, 1, 2,]
+const cycleLoop = [0, 1, 2, 1]
 let currentLoopIndex = 0;
 let frameCount = 0;
 
@@ -48,12 +49,7 @@ function step() {
   
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
-  drawFrame(cycleLoop[currentLoopIndex], 1, 150, 200, 0); 
-  currentLoopIndex++;
-  if (currentLoopIndex >= cycleLoop.length) {
-    currentLoopIndex = 0;
-  }
-  drawFrame(cycleLoop[currentLoopIndex], 1, 50, 200, 0); 
+  drawFrame(cycleLoop[currentLoopIndex], 0, 0, 200, 100); 
   currentLoopIndex++;
   if (currentLoopIndex >= cycleLoop.length) {
     currentLoopIndex = 0;
