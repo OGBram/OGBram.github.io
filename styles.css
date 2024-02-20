@@ -203,12 +203,12 @@ section h2 {
 }
 
 #mycanvas {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, +150%);
-
-    
+    transform: translate(-50%, -35%);
+    align-items: center;
+    border: 1px solid palevioletred;  
 }
 
 @media only screen and (max-width: 600px) {

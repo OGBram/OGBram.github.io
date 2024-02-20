@@ -1,8 +1,8 @@
 window.addEventListener('load', function(){
     const canvas = document.getElementById('mycanvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 300;
-    canvas.height = 150;
+    canvas.width = 400;
+    canvas.height = 100;
 
     class Player {
         constructor(game) {
@@ -18,8 +18,8 @@ window.addEventListener('load', function(){
             this.y = this.game.height * 0.5 - this.height * 0.5;
             this.image = document.getElementById("femsheet");
             this.frameX = 0;
-            this.frameY = 4;
-            this.maxFrame = 9;
+            this.frameY = 10;
+            this.maxFrame = 2;
         }
 
         draw(context,) {
@@ -34,7 +34,7 @@ window.addEventListener('load', function(){
                 this.x,
                 this.y,
                 this.width,
-                this.height
+                this.height,
             );
 
         }
