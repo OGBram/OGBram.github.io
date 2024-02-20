@@ -30,7 +30,7 @@ window.addEventListener('load', function(){
         this.direction = 0;
     }
     draw(context){
-        this.frameX < this.maxFrame ? this.frameX++ : this.frameX = 0;
+        this.frameX < this.maxFrame ? this.frameX = 1 : this.frameX = 0;
         context.drawImage(this.image, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x +50, this.y +50, this.width, this.height);
         context.beginPath();
         context.arc(this.collisionX, this.collisionY, this.collisionRadius, 0, Math.PI * 2);
@@ -41,7 +41,7 @@ window.addEventListener('load', function(){
         context.stroke();
     }
     update(){
-        this.x++;
+        
         this.dx = this.game.mouse.x - this.collisionX;
         this.dy = this.game.mouse.y - this.collisionY;
         const distance = Math.hypot(this.dy, this.dx);
@@ -91,7 +91,8 @@ window.addEventListener('load', function(){
           pressed : false} 
         this.spriteUpdate = false;
         this.spriteTimer = 0;
-        this.spriteInterval = 1000;
+        this.spriteInterval = 1;
+        
         // event listeneres
         window.addEventListener('mousedown', e => {
             this.mouse.x = e.offsetX;
@@ -114,14 +115,16 @@ window.addEventListener('load', function(){
         if (this.spriteTimer > this.spriteInterval){
             this.spriteUpdate = true;
             this.spriteTimer = 0;
+            
         } else {
             this.spriteUpdate = false;
-            this.spriteTimer += deltaTime;
+            
         }    
- 
+        if (this.spriteUpdate = true){
             this.player.draw(context);
             this.player.update();
             this.obstacles.forEach(obstacle => obstacle.draw(context));
+        }
     }
         init(){
         let attempts = 0;
@@ -149,7 +152,7 @@ window.addEventListener('load', function(){
   
     let lastTime = 0;
     function animate(timeStamp){
-        const deltaTime = timeStamp - lastTime;
+        const deltaTime = (timeStamp - lastTime) /16;
         lastTime = timeStamp;  
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         game.render(ctx, deltaTime);
