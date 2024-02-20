@@ -91,7 +91,7 @@ window.addEventListener('load', function(){
           pressed : false} 
         this.spriteUpdate = false;
         this.spriteTimer = 0;
-        this.spriteInterval = 1;
+        this.spriteInterval = 0;
         
         // event listeneres
         window.addEventListener('mousedown', e => {
@@ -118,6 +118,8 @@ window.addEventListener('load', function(){
             
         } else {
             this.spriteUpdate = false;
+            this.spriteInterval +- deltaTime;
+            console.log(deltaTime)
             
         }    
         if (this.spriteUpdate = true){
