@@ -1,14 +1,4 @@
-window.addEventListener('load', function(){
-  const canvas = this.document.getElementById('mycanvas')
-  const ctx = canvas.getContext('2d');
-  canvas.width = 300;
-  canvas.height = 300;
-  ctx.fillStyle = 'white';
-  ctx.lineWidth = 3;
-  ctx.strokeStyle = 'white';
-  
-
-  class Player {
+class Player {
     constructor(game){
         this.game = game;
         this.collisionX = this.game.width * 0.5;
@@ -27,10 +17,13 @@ window.addEventListener('load', function(){
         this.frameX = 0;
         this.frameY = 0;
         this.maxFrame = 1;
-        this.direction = 0;
+        this.spriteUpdate = true;
+        this.spriteTimer = 0;
+        this.spriteInterval = 50;
+        console.log(this.spriteUpdate)
     }
     draw(context){
-        this.frameX < this.maxFrame ? this.frameX = 1 : this.frameX = 0;
+        
         context.drawImage(this.image, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x +50, this.y +50, this.width, this.height);
         context.beginPath();
         context.arc(this.collisionX, this.collisionY, this.collisionRadius, 0, Math.PI * 2);
@@ -41,6 +34,9 @@ window.addEventListener('load', function(){
         context.stroke();
     }
     update(){
+        if (this.frameX < this.maxFrame){  
+            this.frameX++
+        } else { this.frameX = 0;}
         
         this.dx = this.game.mouse.x - this.collisionX;
         this.dy = this.game.mouse.y - this.collisionY;
@@ -57,27 +53,9 @@ window.addEventListener('load', function(){
         
     
       }  
-  }
-  class Obstacle {
-    constructor(game){
-        this.game = game;
-        this.collisionX = Math.random() * this.game.width;
-        this.collisionY = Math.random() * this.game.height;
-        this.collisionRadius = 100;
-    }
-   
-    draw(context){ 
-        context.beginPath();
-        context.arc(this.collisionX, this.collisionY, this.collisionRadius, 0, Math.PI * 2);
-        context.save();
-        context.globalAlpha = 0.3;
-        context.fill();
-        context.restore();
-        context.stroke();
-    }
-  }  
+}
 
-  class Game {
+class Game {
     constructor(canvas){
         this.canvas = canvas;
         this.width = this.canvas.width;
@@ -89,9 +67,7 @@ window.addEventListener('load', function(){
           x: this.width * 0.5,
           y: this.height * 0.5,
           pressed : false} 
-        this.spriteUpdate = false;
-        this.spriteTimer = 0;
-        this.spriteInterval = 0;
+
         
         // event listeneres
         window.addEventListener('mousedown', e => {
@@ -112,55 +88,39 @@ window.addEventListener('load', function(){
         });
     }
     render(context, deltaTime){
-        if (this.spriteTimer > this.spriteInterval){
-            this.spriteUpdate = true;
-            this.spriteTimer = 0;
+            if (this.spriteTimer < this.spriteInterval){
+                this.spriteTimer += deltaTime;
+                console.log(this.spriteTimer);
+            } else {
+                this.spriteTimer = 0;
+                this.player.draw(context);
+            }    
+                this.player.update();
             
-        } else {
-            this.spriteUpdate = false;
-            this.spriteInterval +- deltaTime;
-            console.log(deltaTime)
             
-        }    
-        if (this.spriteUpdate = true){
-            this.player.draw(context);
-            this.player.update();
-            this.obstacles.forEach(obstacle => obstacle.draw(context));
         }
-    }
-        init(){
-        let attempts = 0;
-        while (this.obstacles.length < this.numberOfObstacles && attempts <500){
-            let testObstacle = new Obstacle(this);
-            let overlap = false;
-            this.obstacles.forEach(obstacle => {
-                const dx = testObstacle.collisionX - obstacle.collisionX;
-                const dy = testObstacle.collisionY - obstacle.collisionY;
-                const distance = Math.hypot(dy, dx);
-                const sumOFRadii = testObstacle.collisionRadius + obstacle.collisionRadius;
-                if (distance < sumOFRadii){
-                    overlap = true;
-                }  
-            })
-            if (!overlap){
-                this.obstacles.push(testObstacle);
-            }
-            attempts++;
-        }
-    }} 
+  }
+ 
+window.addEventListener('load', function(){
+const canvas = this.document.getElementById('mycanvas')
+const ctx = canvas.getContext('2d');
+canvas.width = 300;
+canvas.height = 300;
+ctx.fillStyle = 'white';
+ctx.lineWidth = 3;
+ctx.strokeStyle = 'white'; 
+const game = new Game(canvas);
+
   
-    const game = new Game(canvas);
-    game.init();
-  
-    let lastTime = 0;
-    function animate(timeStamp){
-        const deltaTime = (timeStamp - lastTime) /16;
-        lastTime = timeStamp;  
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        game.render(ctx, deltaTime);
-        requestAnimationFrame(animate);
+let lastTime = 0;
+function animate(timeStamp){
+    const deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;  
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    game.render(ctx, deltaTime);
+    requestAnimationFrame(animate);
     }
-    animate(0);
+animate(0);
 
 });
 
