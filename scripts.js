@@ -18,8 +18,8 @@ window.addEventListener('load', function(){
             this.y = this.game.height * 0.5 - this.height * 0.5;
             this.image = document.getElementById("femsheet");
             this.frameX = 0;
-            this.frameY = 11;
-            this.maxFrame = 10;
+            this.frameY = 4;
+            this.maxFrame = 9;
         }
 
         draw(context,) {
@@ -92,42 +92,47 @@ window.addEventListener('load', function(){
         }
         
     }
-    
-    
     const game = new Game(canvas);
-    let lastTime = 0;
-
-    function animate(timeStamp) {
-        const deltaTime = timeStamp - lastTime;
-        lastTime = timeStamp;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        game.render(ctx, deltaTime);
-
-    requestAnimationFrame(animate);
+    
+    var lastTime;
+    var requiredElapsed = 1000 / 5; // desired interval is 10fps
+    
+    requestAnimationFrame(loop);
+    
+    function loop(now) {
+        requestAnimationFrame(loop);
+        
+        if (!lastTime) { lastTime = now; }
+        var elapsed = now - lastTime;
+    
+        if (elapsed > requiredElapsed) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            game.render(ctx);
+            lastTime = now;
+        }
+        
     }
-
-    animate(0);
 });
 
-document.getElementById("toggleNav").addEventListener("click", function() {
-  var nav = document.getElementById("mainNav");
-  var navStyle = window.getComputedStyle(nav);
+// document.getElementById("toggleNav").addEventListener("click", function() {
+//   var nav = document.getElementById("mainNav");
+//   var navStyle = window.getComputedStyle(nav);
 
-  nav.style.display = (navStyle.getPropertyValue("display") === "flex") ? "none" : "flex";
-});
+//   nav.style.display = (navStyle.getPropertyValue("display") === "flex") ? "none" : "flex";
+// });
 
-function openAboutModal() {
-    document.getElementById('aboutModal').style.display = 'block';
-}
+// function openAboutModal() {
+//     document.getElementById('aboutModal').style.display = 'block';
+// }
 
-function closeAboutModal() {
-    document.getElementById('aboutModal').style.display = 'none';
-}
+// function closeAboutModal() {
+//     document.getElementById('aboutModal').style.display = 'none';
+// }
 
-function openContactsModal() {
-    document.getElementById('contactsModal').style.display = 'block';
-}
+// function openContactsModal() {
+//     document.getElementById('contactsModal').style.display = 'block';
+// }
 
-function closeContactsModal() {
-    document.getElementById('contactsModal').style.display = 'none';
-}
+// function closeContactsModal() {
+//     document.getElementById('contactsModal').style.display = 'none';
+// }
