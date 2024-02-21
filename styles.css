@@ -125,7 +125,6 @@ section h2 {
 
 
 .gallery img:hover {
-    transform: scale(1.2);
     transform: translateY(-1em);
 }
 
@@ -211,7 +210,4 @@ section h2 {
     border: inset 1px grey;
 }
 
-@media only screen and (max-width: 600px) {
-    .gallery img:hover {
-    transform: scale(2.5);
-}}
+@media only screen and (max-width: 600px){}
