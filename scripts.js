@@ -1,8 +1,8 @@
 window.addEventListener('load', function(){
     const canvas = document.getElementById('mycanvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 400;
-    canvas.height = 100;
+    canvas.width = 350;
+    canvas.height = 130;
 
     class Player {
         constructor(game) {
@@ -10,16 +10,16 @@ window.addEventListener('load', function(){
             this.dx = 0;
             this.dy = 0;
             this.speedModifier = 1;
-            this.spriteWidth = 44;
-            this.spriteHeight = 44;
+            this.spriteWidth = 125;
+            this.spriteHeight = 135;
             this.width = this.spriteWidth;
             this.height = this.spriteHeight;
             this.x = this.game.width * 0.5 - this.width * 0.5;
             this.y = this.game.height * 0.5 - this.height * 0.5;
-            this.image = document.getElementById("femsheet");
+            this.image = document.getElementById("goku");
             this.frameX = 0;
-            this.frameY = 10;
-            this.maxFrame = 2;
+            this.frameY = 2;
+            this.maxFrame = 4;
         }
 
         draw(context,) {
@@ -31,21 +31,50 @@ window.addEventListener('load', function(){
                 this.frameY * this.spriteHeight,
                 this.spriteWidth,
                 this.spriteHeight,
-                this.x,
-                this.y,
-                this.width,
-                this.height,
+                this.x+210,
+                this.y+5,
+                this.width /5,
+                this.height /5,
             );
 
         }
+       // update() {}
+    } 
 
-        update(deltaTime) {
-            
-            
-
-            console.log("deltaTime")
-        }
-
+    class Player2 {
+            constructor(game) {
+                this.game = game;
+                this.dx = 0;
+                this.dy = 0;
+                this.speedModifier = 1;
+                this.spriteWidth = 82;
+                this.spriteHeight = 156;
+                this.width = this.spriteWidth;
+                this.height = this.spriteHeight;
+                this.x = this.game.width * 0.5 - this.width * 0.5;
+                this.y = this.game.height * 0.5 - this.height * 0.5;
+                this.image = document.getElementById("thirteen");
+                this.frameX = 0;
+                this.frameY = 65;
+                this.maxFrame = 10;
+            }
+    
+            draw(context,) {
+                this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
+    
+                context.drawImage(
+                    this.image,
+                    this.frameX * this.spriteWidth,
+                    this.frameY * this.spriteHeight,
+                    this.spriteWidth,
+                    this.spriteHeight,
+                    this.x,
+                    this.y+15,
+                    this.width /1,
+                    this.height /1,
+                );
+    
+            }
                 
         
     }
@@ -56,6 +85,7 @@ window.addEventListener('load', function(){
             this.width = this.canvas.width;
             this.height = this.canvas.height;
             this.player = new Player(this);
+            this.player2 = new Player2(this);
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -82,11 +112,12 @@ window.addEventListener('load', function(){
             });
         }
 
-        render(context, deltaTime) {
+        render(context) {
             
-            this.player.update(deltaTime);
+            // this.player.update();
             
             this.player.draw(context);
+            this.player2.draw(context);
         
             
         }
@@ -95,7 +126,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 5; // desired interval is 10fps
+    var requiredElapsed = 1000 / 6; // desired interval is 10fps
     
     requestAnimationFrame(loop);
     

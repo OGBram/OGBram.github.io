@@ -208,7 +208,7 @@ section h2 {
     left: 50%;
     transform: translate(-50%, -35%);
     align-items: center;
-    border: 1px solid palevioletred;  
+    border: inset 1px grey;
 }
 
 @media only screen and (max-width: 600px) {
