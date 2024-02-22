@@ -1,8 +1,8 @@
 window.addEventListener('load', function(){
     const canvas = document.getElementById('mycanvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 350;
-    canvas.height = 130;
+    canvas.width = 600;
+    canvas.height = 432;
 
     class Player {
         constructor(game) {
@@ -31,8 +31,8 @@ window.addEventListener('load', function(){
                 this.frameY * this.spriteHeight,
                 this.spriteWidth,
                 this.spriteHeight,
-                this.x+210,
-                this.y+5,
+                this.x+50,
+                this.y+50,
                 this.width /5,
                 this.height /5,
             );
@@ -74,11 +74,8 @@ window.addEventListener('load', function(){
                     this.height /1,
                 );
     
-            }
-                
-        
-    }
-
+            }     
+        }
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
@@ -113,20 +110,14 @@ window.addEventListener('load', function(){
         }
 
         render(context) {
-            
-            // this.player.update();
-            
             this.player.draw(context);
-            this.player2.draw(context);
-        
-            
         }
         
     }
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 6; // desired interval is 10fps
+    var requiredElapsed = 1000 / 8; // desired interval is 10fps
     
     requestAnimationFrame(loop);
     
