@@ -121,8 +121,8 @@ window.addEventListener('load', function(){
                 this.dx = 0;
                 this.dy = 0;
                 this.speedModifier = 1;
-                this.spriteWidth = 149;
-                this.spriteHeight = 103;
+                this.spriteWidth = 82;
+                this.spriteHeight = 40;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
                 this.x = this.game.width * 0.5 - this.width * 0.5;
@@ -142,8 +142,8 @@ window.addEventListener('load', function(){
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x-25,
-                    this.y+25,
+                    this.x+109,
+                    this.y+9,
                     this.width,
                     this.height,
                 );
@@ -189,10 +189,11 @@ window.addEventListener('load', function(){
 
         render(context) {
             this.player.draw(context);
-            this.cat.draw(context);
+            
             this.background.draw(context);
             this.background2.draw(context);
             this.cat.update(context);
+            this.cat.draw(context);
         }
 
     }
