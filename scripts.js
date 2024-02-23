@@ -79,8 +79,7 @@ window.addEventListener('load', function(){
                 
             }
 
-        }
-    
+        }        
         class Background {
             constructor(game) {
                 this.game = game;
@@ -115,8 +114,44 @@ window.addEventListener('load', function(){
                 );
     
             }
+        }
+        class Background2 {
+            constructor(game) {
+                this.game = game;
+                this.dx = 0;
+                this.dy = 0;
+                this.speedModifier = 1;
+                this.spriteWidth = 149;
+                this.spriteHeight = 103;
+                this.width = this.spriteWidth;
+                this.height = this.spriteHeight;
+                this.x = this.game.width * 0.5 - this.width * 0.5;
+                this.y = this.game.height * 0.5 - this.height * 0.5;
+                this.image = document.getElementById("waterA2");
+                this.frameX = 0;
+                this.frameY = 0;
+                this.maxFrame = 3;
+            }
+    
+            draw(context,) {
+                this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
+    
+                context.drawImage(
+                    this.image,
+                    this.frameX * this.spriteWidth,
+                    this.frameY * this.spriteHeight,
+                    this.spriteWidth,
+                    this.spriteHeight,
+                    this.x-25,
+                    this.y+25,
+                    this.width,
+                    this.height,
+                );
+    
+            }
                  // update() {}
-        }    
+        }
+
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
@@ -125,6 +160,7 @@ window.addEventListener('load', function(){
             this.player = new Player(this);
             this.cat = new Cats(this);
             this.background = new Background(this);
+            this.background2 = new Background2(this);
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -155,7 +191,8 @@ window.addEventListener('load', function(){
             this.player.draw(context);
             this.cat.draw(context);
             this.background.draw(context);
-            this.cat.update(context)
+            this.background2.draw(context);
+            this.cat.update(context);
         }
 
     }
