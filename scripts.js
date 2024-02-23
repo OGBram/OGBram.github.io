@@ -198,7 +198,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 5; // desired interval is 10fps
+    var requiredElapsed = 1000 / 6; // desired interval is 10fps
     
     requestAnimationFrame(loop);
     
