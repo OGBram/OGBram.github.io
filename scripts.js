@@ -38,7 +38,6 @@ window.addEventListener('load', function(){
             );
 
         }
-             // update() {}
     } 
     class Cats {
             constructor(game) {
@@ -115,8 +114,8 @@ window.addEventListener('load', function(){
     
             }
         }
-        class Background2 {
-            constructor(game) {
+    class Background2 {
+        constructor(game) {
                 this.game = game;
                 this.dx = 0;
                 this.dy = 0;
@@ -130,12 +129,13 @@ window.addEventListener('load', function(){
                 this.image = document.getElementById("waterA2");
                 this.frameX = 0;
                 this.frameY = 0;
-                this.maxFrame = 3;
-            }
+                this.maxFrame = 20;
+        }
     
-            draw(context,) {
+        draw(context,) {
                 this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
-    
+                context.save();
+                ctx.globalAlpha = 0.3;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -147,11 +147,9 @@ window.addEventListener('load', function(){
                     this.width,
                     this.height,
                 );
-    
-            }
-                 // update() {}
+                context.restore();
         }
-
+    }
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
@@ -189,9 +187,9 @@ window.addEventListener('load', function(){
 
         render(context) {
             this.player.draw(context);
-            
+
             this.background.draw(context);
-            this.background2.draw(context);
+            this.background2.draw(context, 0.5);
             this.cat.update(context);
             this.cat.draw(context);
         }
@@ -200,7 +198,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 6; // desired interval is 10fps
+    var requiredElapsed = 1000 / 5; // desired interval is 10fps
     
     requestAnimationFrame(loop);
     
