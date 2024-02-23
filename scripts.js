@@ -81,6 +81,42 @@ window.addEventListener('load', function(){
 
         }
     
+        class Background {
+            constructor(game) {
+                this.game = game;
+                this.dx = 0;
+                this.dy = 0;
+                this.speedModifier = 1;
+                this.spriteWidth = 149;
+                this.spriteHeight = 103;
+                this.width = this.spriteWidth;
+                this.height = this.spriteHeight;
+                this.x = this.game.width * 0.5 - this.width * 0.5;
+                this.y = this.game.height * 0.5 - this.height * 0.5;
+                this.image = document.getElementById("waterA");
+                this.frameX = 0;
+                this.frameY = 0;
+                this.maxFrame = 4;
+            }
+    
+            draw(context,) {
+                this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
+    
+                context.drawImage(
+                    this.image,
+                    this.frameX * this.spriteWidth,
+                    this.frameY * this.spriteHeight,
+                    this.spriteWidth,
+                    this.spriteHeight,
+                    this.x-124,
+                    this.y+46,
+                    this.width,
+                    this.height,
+                );
+    
+            }
+                 // update() {}
+        }    
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
@@ -88,8 +124,7 @@ window.addEventListener('load', function(){
             this.height = this.canvas.height;
             this.player = new Player(this);
             this.cat = new Cats(this);
-            this.cat2 = new Cats(this);
-            this.cat3 = new Cats(this);
+            this.background = new Background(this);
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -119,6 +154,7 @@ window.addEventListener('load', function(){
         render(context) {
             this.player.draw(context);
             this.cat.draw(context);
+            this.background.draw(context);
             this.cat.update(context)
         }
 
@@ -126,7 +162,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 8; // desired interval is 10fps
+    var requiredElapsed = 1000 / 6; // desired interval is 10fps
     
     requestAnimationFrame(loop);
     
