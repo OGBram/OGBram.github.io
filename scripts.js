@@ -38,27 +38,30 @@ window.addEventListener('load', function(){
             );
 
         }
-       // update() {}
+             // update() {}
     } 
-
-    class Player2 {
+    class Cats {
             constructor(game) {
                 this.game = game;
                 this.dx = 0;
                 this.dy = 0;
                 this.speedModifier = 1;
-                this.spriteWidth = 82;
-                this.spriteHeight = 156;
+                this.spriteWidth = 32;
+                this.spriteHeight = 32;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
                 this.x = this.game.width * 0.5 - this.width * 0.5;
                 this.y = this.game.height * 0.5 - this.height * 0.5;
-                this.image = document.getElementById("thirteen");
+                this.image = document.getElementById("catTan");
                 this.frameX = 0;
-                this.frameY = 65;
-                this.maxFrame = 10;
+                this.frameY = 1;
+                this.maxFrame = 8;
             }
-    
+            update(){
+                
+                this.y = this.y - 1;;
+                
+            }
             draw(context,) {
                 this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
     
@@ -68,21 +71,25 @@ window.addEventListener('load', function(){
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x,
-                    this.y+15,
-                    this.width /1,
-                    this.height /1,
+                    this.x+90,
+                    this.y+30,
+                    this.width/2,
+                    this.height/2,
                 );
-    
-            }     
+                
+            }
+
         }
+    
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
             this.width = this.canvas.width;
             this.height = this.canvas.height;
             this.player = new Player(this);
-            this.player2 = new Player2(this);
+            this.cat = new Cats(this);
+            this.cat2 = new Cats(this);
+            this.cat3 = new Cats(this);
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -111,8 +118,10 @@ window.addEventListener('load', function(){
 
         render(context) {
             this.player.draw(context);
+            this.cat.draw(context);
+            this.cat.update(context)
         }
-        
+
     }
     const game = new Game(canvas);
     
@@ -129,6 +138,7 @@ window.addEventListener('load', function(){
     
         if (elapsed > requiredElapsed) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
             game.render(ctx);
             lastTime = now;
         }
