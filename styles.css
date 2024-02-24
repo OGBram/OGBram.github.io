@@ -83,13 +83,17 @@ body {
 
 footer {
     background-color: transparent;
-    text-align: left;
+    text-align: center;
     width: 100%;
     font-family: 'Bitter', sans-serif;
-    
+}
+footer h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    color: transparent;
 }
 
-footer::before {
+  footer::before {
     content: "\00a0"; 
     display: block;
     height: 40px; 
