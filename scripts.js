@@ -52,8 +52,8 @@ window.addEventListener('load', function(){
                 this.y = this.game.height * 0.5 - this.height * 0.5;
                 this.image = document.getElementById("catTan");
                 this.frameX = 0;
-                this.frameY = 1;
-                this.maxFrame = 8;
+                this.frameY = 2;
+                this.maxFrame = 10;
                 this.start();
             }
 
@@ -87,8 +87,9 @@ window.addEventListener('load', function(){
             }
             start() {
                 if (this.free) {
-                    this.x = Math.random() * this.game.width;
-                    this.y = Math.random() * this.game.height;
+                    this.x = Math.random() * this.game.width /1.5;
+                    this.y = Math.random() * this.game.height /1.5;
+                
                     this.free = false;
                 }           
             }    
@@ -174,7 +175,7 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.catPool = [];
-            this.max = 15;
+            this.max = 5;
             this.createCatPool();
             this.getCat();
             
