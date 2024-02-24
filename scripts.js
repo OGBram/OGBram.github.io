@@ -175,7 +175,7 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.catPool = [];
-            this.max = 5;
+            this.max = 10;
             this.createCatPool();
             this.getCat();
             
@@ -236,7 +236,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
 
     var lastTime;
-    var requiredElapsed = 1000 / 6; 
+    var requiredElapsed = 1000 / 5; 
     
     requestAnimationFrame(loop);
     
