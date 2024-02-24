@@ -85,12 +85,12 @@ footer {
     background-color: transparent;
     text-align: center;
     width: 100%;
-    font-family: 'Bitter', sans-serif;
+
 }
 footer h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    color: transparent;
+    /* color: transparent; */
 }
 
   footer::before {
