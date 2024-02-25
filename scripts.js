@@ -55,6 +55,9 @@ window.addEventListener('load', function(){
                 this.frameY = 2;
                 this.maxFrame = 10;
                 this.start();
+                this.speedX = Math.floor(Math.random()* 3);
+                this.speedY = Math.floor(Math.random()* 3);
+
             }
 
             draw(context,) {
@@ -79,6 +82,8 @@ window.addEventListener('load', function(){
                      this.reset(); 
                     }
                 }
+                this.x += this.speedX;
+                this.y += this.speedY;
             }        
             reset(){
 
@@ -179,30 +184,30 @@ window.addEventListener('load', function(){
             this.createCatPool();
             this.getCat();
             
-            // this.mouse = {
-            //     x: this.width * 0.5,
-            //     y: this.height * 0.5,
-            //     pressed: false            
-            // }
+            this.mouse = {
+                x: this.width * 0.5,
+                y: this.height * 0.5,
+                pressed: false            
+            }
 
-            // window.addEventListener('mousedown', e => {
-            //     this.mouse.x = e.offsetX;
-            //     this.mouse.y = e.offsetY;
-            //     this.mouse.pressed = true;
-            // });
+            window.addEventListener('mousedown', e => {
+                this.mouse.x = e.offsetX;
+                this.mouse.y = e.offsetY;
+                this.mouse.pressed = true;
+            });
 
-            // window.addEventListener('mouseup', e => {
-            //     this.mouse.x = e.offsetX;
-            //     this.mouse.y = e.offsetY;
-            //     this.mouse.pressed = true;
-            // });
+            window.addEventListener('mouseup', e => {
+                this.mouse.x = e.offsetX;
+                this.mouse.y = e.offsetY;
+                this.mouse.pressed = true;
+            });
 
-            // window.addEventListener('mousemove', e => {
-            //     if (this.mouse.pressed) {
-            //         this.mouse.x = e.offsetX;
-            //         this.mouse.y = e.offsetY;
-            //     }
-            // });
+            window.addEventListener('mousemove', e => {
+                if (this.mouse.pressed) {
+                    this.mouse.x = e.offsetX;
+                    this.mouse.y = e.offsetY;
+                }
+            });
         }
         createCatPool(){
             for (let i = 0; i < this.max; i++){
