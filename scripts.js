@@ -4,41 +4,6 @@ window.addEventListener('load', function(){
     canvas.width = 600;
     canvas.height = 432;
 
-    class Player {
-        constructor(game) {
-            this.game = game;
-            this.dx = 0;
-            this.dy = 0;
-            this.speedModifier = 1;
-            this.spriteWidth = 125;
-            this.spriteHeight = 135;
-            this.width = this.spriteWidth;
-            this.height = this.spriteHeight;
-            this.x = this.game.width * 0.5 - this.width * 0.5;
-            this.y = this.game.height * 0.5 - this.height * 0.5;
-            this.image = document.getElementById("goku");
-            this.frameX = 0;
-            this.frameY = 2;
-            this.maxFrame = 4;
-        }
-
-        draw(context,) {
-            this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
-
-            context.drawImage(
-                this.image,
-                this.frameX * this.spriteWidth,
-                this.frameY * this.spriteHeight,
-                this.spriteWidth,
-                this.spriteHeight,
-                this.x+50,
-                this.y+50,
-                this.width /5,
-                this.height /5,
-            );
-
-        }
-    } 
     class Cats {
             constructor(game) {
                 this.game = game;
@@ -137,6 +102,7 @@ window.addEventListener('load', function(){
                 context.restore();    
             }
         }
+
     class Background2 {
         constructor(game) {
                 this.game = game;
@@ -173,12 +139,12 @@ window.addEventListener('load', function(){
                 context.restore();
         }
     }
+
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
             this.width = this.canvas.width;
             this.height = this.canvas.height;
-            this.player = new Player(this);
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.catPool = [];
@@ -197,6 +163,7 @@ window.addEventListener('load', function(){
                 game.mouse.y = e.offsetY;
                 game.mouse.pressed = true;
             });
+            
             // window.addEventListener('mouseup', e => {
             //     this.mouse.x = e.offsetX;
             //     this.mouse.y = e.offsetY;
