@@ -130,6 +130,8 @@ section h2 {
 
 .gallery img:hover {
     transform: translateY(-1em);
+    opacity: .4;
+
 }
 
 /* .artwork-container p {
