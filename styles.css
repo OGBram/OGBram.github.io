@@ -100,7 +100,7 @@ footer::before {
     background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
 }
 
-section h2 {
+div h2 {
     text-align: center;
     font-family: 'Bitter', sans-serif;
     font-weight: 100;
@@ -109,7 +109,7 @@ section h2 {
     outline-width: thin;
     outline-style: groove;
     background: linear-gradient(to top, rgba(51, 51, 51, 0), #333);
-    
+    margin: 0;   
 }
 
 .gallery {
@@ -131,7 +131,6 @@ section h2 {
 .gallery img:hover {
     transform: translateY(-1em);
     opacity: .4;
-
 }
 
 /* .artwork-container p {
