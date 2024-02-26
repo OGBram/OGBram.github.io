@@ -84,6 +84,7 @@ window.addEventListener('load', function(){
                 }
                 this.x += this.speedX;
                 this.y += this.speedY;
+                
             }        
             reset(){
 
@@ -188,27 +189,32 @@ window.addEventListener('load', function(){
                 x: this.width * 0.5,
                 y: this.height * 0.5,
                 pressed: false            
-            }
+            };
 
             window.addEventListener('mousedown', e => {
-                this.mouse.x = e.offsetX;
-                this.mouse.y = e.offsetY;
-                this.mouse.pressed = true;
+                game.mouse.x = e.offsetX;
+                game.mouse.y = e.offsetY;
+                game.mouse.pressed = true;
             });
+            // window.addEventListener('mouseup', e => {
+            //     this.mouse.x = e.offsetX;
+            //     this.mouse.y = e.offsetY;
+            //     this.mouse.pressed = true;
+            // });
 
-            window.addEventListener('mouseup', e => {
-                this.mouse.x = e.offsetX;
-                this.mouse.y = e.offsetY;
-                this.mouse.pressed = true;
-            });
-
-            window.addEventListener('mousemove', e => {
-                if (this.mouse.pressed) {
-                    this.mouse.x = e.offsetX;
-                    this.mouse.y = e.offsetY;
-                }
-            });
+            // window.addEventListener('mousemove', e => {
+            //     if (this.mouse.pressed) {
+            //         this.mouse.x = e.offsetX;
+            //         this.mouse.y = e.offsetY;
+            //     }
+            // });
         }
+        mousedown = (event) => {
+            if (event.code === "mousedown") {
+                this.mouse.pressed = true;
+            }
+        }
+
         createCatPool(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
@@ -227,11 +233,15 @@ window.addEventListener('load', function(){
         render(context) {
             this.catPool.forEach(cat => {
                 if (!cat.free) {
-                    cat.update(); 
-                    cat.draw(context);
+                    if (this.mouse.pressed) {
+                    cat.x = this.mouse.x;
+                    cat.y = this.mouse.y;
+                    }
+                cat.update();
+                cat.draw(context);
                 }
             });
-        
+            this.mouse.pressed = false; 
             this.background.draw(context);
             this.background2.draw(context, 0.5);
         }
