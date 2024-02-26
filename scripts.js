@@ -55,8 +55,8 @@ window.addEventListener('load', function(){
                 this.frameY = 2;
                 this.maxFrame = 10;
                 this.start();
-                this.speedX = Math.floor(Math.random()* 3);
-                this.speedY = Math.floor(Math.random()* 3);
+                this.speedX = Math.floor(Math.random()* 4);
+                this.speedY = Math.floor(Math.random()* 4);
 
             }
 
@@ -121,7 +121,8 @@ window.addEventListener('load', function(){
     
             draw(context,) {
                 this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
-    
+                context.save();
+                ctx.globalAlpha = 0.5;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -133,7 +134,7 @@ window.addEventListener('load', function(){
                     this.width,
                     this.height,
                 );
-    
+                context.restore();    
             }
         }
     class Background2 {
