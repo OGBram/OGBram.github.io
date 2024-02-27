@@ -22,6 +22,8 @@ window.addEventListener('load', function(){
                 this.start();
                 this.speedX = Math.floor(Math.random()* 4);
                 this.speedY = Math.floor(Math.random()* 4);
+                this.maxY = 300;
+                this.minY = 50;
 
             }
 
@@ -47,8 +49,14 @@ window.addEventListener('load', function(){
                      this.reset(); 
                     }
                 }
-                this.x += this.speedX;
-                this.y += this.speedY;
+
+                if(this.y >= this.maxY){
+                    this.y += this.speedY-15;
+                
+                }else {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                }
                 
             }        
             reset(){
