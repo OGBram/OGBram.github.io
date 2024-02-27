@@ -52,6 +52,7 @@ window.addEventListener('load', function(){
 
                 if(this.y >= this.maxY){
                     this.y += this.speedY-15;
+                    this.x += this.speedX+5;
                 
                 }else {
                     this.x += this.speedX;
