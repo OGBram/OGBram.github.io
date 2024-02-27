@@ -157,7 +157,7 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.catPool = [];
-            this.max = 10;
+            this.max = 8;
             this.createCatPool();
             this.getCat();
             
@@ -186,8 +186,8 @@ window.addEventListener('load', function(){
             //     }
             // });
         }
-        mousedown = (event) => {
-            if (event.code === "mousedown") {
+        mousedown = (e) => {
+            if (e.code === "mousedown") {
                 this.mouse.pressed = true;
             }
         }
@@ -211,8 +211,8 @@ window.addEventListener('load', function(){
             this.catPool.forEach(cat => {
                 if (!cat.free) {
                     if (this.mouse.pressed) {
-                    cat.x = this.mouse.x;
-                    cat.y = this.mouse.y;
+                    cat.x = this.mouse.x + Math.random() * 35;
+                    cat.y = this.mouse.y + Math.random() * 10; 
                     }
                 cat.update();
                 cat.draw(context);
