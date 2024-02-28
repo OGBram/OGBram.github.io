@@ -9,7 +9,7 @@ window.addEventListener('load', function(){
                 this.game = game;
                 this.catspeed = 1;
                 this.spriteWidth = 32;
-                this.spriteHeight = 32;
+                this.spriteHeight = 33;
                 this.free = true;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
@@ -50,7 +50,7 @@ window.addEventListener('load', function(){
                     }
                 }
                 //bottem of screen and jump values//
-                if(this.x > 300){
+                if(this.x > 290){
                     
                     this.y += -15;
                     this.x += this.speedX+1;
