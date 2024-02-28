@@ -24,7 +24,6 @@ window.addEventListener('load', function(){
                 this.speedY = Math.floor(Math.random()* 3);
                 this.maxY = 300;
                 this.minY = 50;
-                this.excedeY = game.canvas.height;
 
             }
 
@@ -65,13 +64,6 @@ window.addEventListener('load', function(){
                     this.x += this.speedX;
                     this.y += this.speedY;
                 }
-                if(this.y > this.excedeY){
-                    if(this.h1.getBoundingClientRect >= this.y)
-                    this.h1 = document.getElementById("contact2");
-                    this.h1.opacity = 100;
-                }
-                     
-                
             }
 
             reset(){
