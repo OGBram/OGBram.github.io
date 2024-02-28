@@ -20,7 +20,7 @@ window.addEventListener('load', function(){
                 this.frameY = 2;
                 this.maxFrame = 6;
                 this.start();
-                this.speedX = Math.floor(Math.random()* 3);
+                this.speedX = Math.floor(Math.random()* 5);
                 this.speedY = Math.floor(Math.random()* 3);
                 this.maxY = 300;
                 this.minY = 50;
@@ -157,7 +157,7 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.catPool = [];
-            this.max = 8;
+            this.max = Math.random()*15;
             this.createCatPool();
             this.getCat();
             
@@ -211,8 +211,8 @@ window.addEventListener('load', function(){
             this.catPool.forEach(cat => {
                 if (!cat.free) {
                     if (this.mouse.pressed) {
-                    cat.x = this.mouse.x + Math.random();
-                    cat.y = this.mouse.y + Math.random(); 
+                    cat.free = true;
+                    cat.start();
                     }
                 cat.update();
                 cat.draw(context);
@@ -228,7 +228,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
 
     var lastTime;
-    var requiredElapsed = 1000 / 5; 
+    var requiredElapsed = 1000 / 6; 
     
     requestAnimationFrame(loop);
     
