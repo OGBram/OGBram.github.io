@@ -27,7 +27,7 @@ window.addEventListener('load', function(){
 
             }
 
-            draw(context,) {
+            draw(context) {
                 // this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                 if (!this.free){
                 context.drawImage(
@@ -49,7 +49,7 @@ window.addEventListener('load', function(){
                      this.reset(); 
                     }
                 }
-                //bottem of screen and jump values//
+                //bot of screen and jump values//
                 if(this.x > 290){
                     
                     this.y += -15;
@@ -219,7 +219,7 @@ window.addEventListener('load', function(){
                     if (this.mouse.pressed) {
                     cat.free = true;
                     cat.start();
-                    console.log(this.mouse.x, this.mouse.y)
+                    // console.log(this.mouse.x, this.mouse.y)
                     }
                 cat.update();
                 cat.draw(context);
