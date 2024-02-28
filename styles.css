@@ -132,7 +132,13 @@ div h2 {
     transform: translateY(-1em);
     opacity: .4;
 }
-
+#contact h1 {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    text-align: center;
+    color: transparent;
+    opacity: 10%;
+    display: hidden;
+}
 /* .artwork-container p {
     display: none; 
 }
