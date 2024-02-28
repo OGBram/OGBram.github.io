@@ -18,10 +18,10 @@ window.addEventListener('load', function(){
                 this.image = document.getElementById("catTan");
                 this.frameX = 0;
                 this.frameY = 2;
-                this.maxFrame = 10;
+                this.maxFrame = 6;
                 this.start();
-                this.speedX = Math.floor(Math.random()* 4);
-                this.speedY = Math.floor(Math.random()* 4);
+                this.speedX = Math.floor(Math.random()* 3);
+                this.speedY = Math.floor(Math.random()* 3);
                 this.maxY = 300;
                 this.minY = 50;
 
@@ -211,8 +211,8 @@ window.addEventListener('load', function(){
             this.catPool.forEach(cat => {
                 if (!cat.free) {
                     if (this.mouse.pressed) {
-                    cat.x = this.mouse.x + Math.random() * 35;
-                    cat.y = this.mouse.y + Math.random() * 10; 
+                    cat.x = this.mouse.x + Math.random();
+                    cat.y = this.mouse.y + Math.random(); 
                     }
                 cat.update();
                 cat.draw(context);
