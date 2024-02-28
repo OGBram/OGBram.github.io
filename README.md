@@ -2,5 +2,5 @@ Bryan Blackburn
 Personal website for art
 & learning code
 In development
-Temple Cats v.01
+Temple Cats version 0.11
 @2024
