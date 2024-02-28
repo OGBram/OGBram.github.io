@@ -214,7 +214,7 @@ div h2 {
     transform: translate(-50%, -10%);
     align-items: center;
     /* border: 1px solid yellowgreen; */
-    background: url(/backgrounds/600432back.png);
+    background: url(/backgrounds/urlbackwithjump.png);
 }
 
 @media only screen and (max-width: 600px){}

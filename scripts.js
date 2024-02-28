@@ -49,17 +49,23 @@ window.addEventListener('load', function(){
                      this.reset(); 
                     }
                 }
+                //bottem of screen and jump values//
+                if(this.x > 300){
+                    
+                    this.y += -15;
+                    this.x += this.speedX+1;
 
-                if(this.y >= this.maxY){
+                }if(this.y >= this.maxY){
+                    
                     this.y += this.speedY-15;
                     this.x += this.speedX+5;
-                
-                }else {
+                }
+                if(!this.free){
                     this.x += this.speedX;
                     this.y += this.speedY;
                 }
-                
-            }        
+            }
+
             reset(){
 
                 this.frameX = 0;
@@ -67,8 +73,8 @@ window.addEventListener('load', function(){
             }
             start() {
                 if (this.free) {
-                    this.x = Math.random() * this.game.width /1.5;
-                    this.y = Math.random() * this.game.height /1.5;
+                    this.x = Math.random() * this.game.width /1.5-100;
+                    this.y = Math.random() * this.game.height /1.5+125;
                 
                     this.free = false;
                 }           
@@ -213,6 +219,7 @@ window.addEventListener('load', function(){
                     if (this.mouse.pressed) {
                     cat.free = true;
                     cat.start();
+                    console.log(this.mouse.x, this.mouse.y)
                     }
                 cat.update();
                 cat.draw(context);
