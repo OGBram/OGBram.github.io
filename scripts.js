@@ -50,15 +50,20 @@ window.addEventListener('load', function(){
                     }
                 }
                 //bot of screen and jump values//
-                if(this.x > 290){
+                if(this.x > 290 && this.y >200){
                     
                     this.y += -15;
-                    this.x += this.speedX+1;
+                    this.x += this.speedX;
 
                 }if(this.y >= this.maxY){
                     
                     this.y += this.speedY-15;
-                    this.x += this.speedX+5;
+                    this.x += this.speedX;
+                }
+                if(this.x >= 450){
+                    this.speedX --;
+                    this.frameY = 1;
+                    
                 }
                 if(!this.free){
                     this.x += this.speedX;
