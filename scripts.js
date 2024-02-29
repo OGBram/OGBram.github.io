@@ -73,7 +73,7 @@ window.addEventListener('load', function(){
             }
             start() {
                 if (this.free) {
-                    this.x = Math.random() * this.game.width /1.5-100;
+                    this.x = this.game.width - this.game.width - 25;
                     this.y = Math.random() * this.game.height /1.5+125;
                 
                     this.free = false;
