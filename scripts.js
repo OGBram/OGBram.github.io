@@ -80,7 +80,7 @@ window.addEventListener('load', function(){
             }
             start() {
                 if (this.free) {
-                    this.x = this.game.width - this.game.width - 25;
+                    this.x = this.game.width - this.game.width - 30;
                     this.y = Math.random() * this.game.height /1.5+50;
                 
                     this.free = false;
