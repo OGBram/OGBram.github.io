@@ -20,8 +20,8 @@ window.addEventListener('load', function(){
                 this.frameY = 1;
                 this.maxFrame = 11;
                 this.start();
-                this.speedX = Math.floor(Math.random()* 5);
-                this.speedY = Math.floor(Math.random()* 3);
+                this.speedX = 1;
+                this.speedY = 1;
                 this.maxY = 300;
                 this.minY = 50;
 
@@ -82,7 +82,9 @@ window.addEventListener('load', function(){
                 if (this.free) {
                     this.x = this.game.width - this.game.width - 30;
                     this.y = Math.random() * this.game.height /1.5+50;
-                
+                    this.speedX = Math.floor(Math.random()* 5);
+                    this.speedY = Math.floor(Math.random()* 3);
+                    this.frameY = 1;
                     this.free = false;
                 }           
             }    
