@@ -73,8 +73,8 @@ window.addEventListener('load', function(){
             catSleep(cat){ 
                 this.free = false;
                 this.frameY = 2;
-                this.frameX = 0;
-                this.maxFrame = 3;
+                this.frameX = Math.floor(Math.random(5));
+                this.maxFrame = 11;
                 this.speedX = 0;
                 this.speedY = 0;
             }
@@ -258,7 +258,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
 
     var lastTime;
-    var requiredElapsed = 1000 / 8; 
+    var requiredElapsed = 1000 / 7; 
     
     requestAnimationFrame(loop);
     
