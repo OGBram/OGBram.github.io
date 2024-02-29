@@ -42,36 +42,43 @@ window.addEventListener('load', function(){
                 );}
             }
             update(){
-                if (!this.free){
-                    this.frameX += this.catspeed;
-                    if(this.frameX >= this.maxFrame){
-                     this.reset(); 
-                    }
+                this.frameX += this.catspeed;
+                if(this.frameX >= this.maxFrame){
+                this.reset(); 
                 }
-                //bot of screen and jump values//
-                if(this.x > 290 && this.y >200){
-                    
-                    this.y += -15;
-                    this.x += this.speedX;
-                  
-
-                }if(this.y >= this.maxY){
-                    
-                    this.y += this.speedY-15;
-                    this.x += this.speedX++;
-                    this.frameY = 1;
-                }
-                if(this.x >= 450){
-                    this.speedX --;
-                    this.frameY = 0;
-                    
-                }
+                 
                 if(!this.free){
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                }
-            }
+                    if(this.x > 290 && this.y >200){
+                        this.y += -15;
+                        this.x += this.speedX;
+                        }
+                        if(this.y >= this.maxY){
+                    
+                        this.y += this.speedY-15;
+                        this.x += this.speedX++;
+                        this.frameY = 1;
+                         }
+                        if(this.x >= 450){
+                        this.speedX --;
+                         this.frameY = 0;
+                    
+                        }
+                         if(!this.free){
+                          this.x += this.speedX;
+                          this.y += this.speedY;
+                         }
+                    }
+             }
 
+            catSleep(cat){ 
+                this.free = false;
+                this.frameY = 2;
+                this.frameX = 0;
+                this.maxFrame = 3;
+                this.speedX = 0;
+                this.speedY = 0;
+            }
+            
             reset(){
 
                 this.frameX = 0;
@@ -84,7 +91,7 @@ window.addEventListener('load', function(){
                     this.speedX = Math.floor(Math.random()* 5);
                     this.speedY = Math.floor(Math.random()* 3);
                     this.frameY = 1;
-                    this.free = false;
+                    this.free = false
                 }           
             }    
     }
@@ -220,24 +227,32 @@ window.addEventListener('load', function(){
             }
             return null; 
         }
+        
+        isMouseOverCat(cat) {
+            return (
+                this.mouse.x >= cat.x &&
+                this.mouse.x <= cat.x + cat.width &&
+                this.mouse.y >= cat.y &&
+                this.mouse.y <= cat.y + cat.height
+            );
+        }
 
         render(context) {
             this.catPool.forEach(cat => {
                 if (!cat.free) {
-                    if (this.mouse.pressed) {
-                    cat.free = true;
-                    cat.start();
-                    // console.log(this.mouse.x, this.mouse.y)
+                    if (this.mouse.pressed && this.isMouseOverCat(cat)) {
+                        cat.free = true;
+                        cat.catSleep();
                     }
-                cat.update();
-                cat.draw(context);
+                    cat.update();
+                    cat.draw(context);
                 }
             });
-            this.mouse.pressed = false; 
+            this.mouse.pressed = false;
             this.background.draw(context);
             this.background2.draw(context, 0.5);
         }
-
+        
     }
 
     const game = new Game(canvas);
