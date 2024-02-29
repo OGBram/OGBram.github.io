@@ -19,12 +19,11 @@ window.addEventListener('load', function(){
                 this.frameX = 0;
                 this.frameY = 1;
                 this.maxFrame = 11;
-                this.start();
                 this.speedX = 1;
                 this.speedY = 1;
                 this.maxY = 300;
                 this.minY = 50;
-
+                this.start();
             }
 
             draw(context) {
