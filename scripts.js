@@ -17,8 +17,8 @@ window.addEventListener('load', function(){
                 this.y = this.game.height * 0.5 - this.height * 0.5;
                 this.image = document.getElementById("catTan");
                 this.frameX = 0;
-                this.frameY = 2;
-                this.maxFrame = 6;
+                this.frameY = 0;
+                this.maxFrame = 11;
                 this.start();
                 this.speedX = Math.floor(Math.random()* 5);
                 this.speedY = Math.floor(Math.random()* 3);
