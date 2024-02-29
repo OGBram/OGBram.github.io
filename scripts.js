@@ -17,7 +17,7 @@ window.addEventListener('load', function(){
                 this.y = this.game.height * 0.5 - this.height * 0.5;
                 this.image = document.getElementById("catTan");
                 this.frameX = 0;
-                this.frameY = 0;
+                this.frameY = 1;
                 this.maxFrame = 11;
                 this.start();
                 this.speedX = Math.floor(Math.random()* 5);
@@ -54,15 +54,17 @@ window.addEventListener('load', function(){
                     
                     this.y += -15;
                     this.x += this.speedX;
+                  
 
                 }if(this.y >= this.maxY){
                     
                     this.y += this.speedY-15;
-                    this.x += this.speedX;
+                    this.x += this.speedX++;
+                    this.frameY = 1;
                 }
                 if(this.x >= 450){
                     this.speedX --;
-                    this.frameY = 1;
+                    this.frameY = 0;
                     
                 }
                 if(!this.free){
@@ -79,7 +81,7 @@ window.addEventListener('load', function(){
             start() {
                 if (this.free) {
                     this.x = this.game.width - this.game.width - 25;
-                    this.y = Math.random() * this.game.height /1.5+125;
+                    this.y = Math.random() * this.game.height /1.5+50;
                 
                     this.free = false;
                 }           
