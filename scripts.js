@@ -76,7 +76,7 @@ window.addEventListener('load', function(){
                 this.frameX = Math.floor(Math.random(5));
                 this.maxFrame = 11;
                 this.speedX = 0;
-                this.speedY = 0;
+                this.speedY ++;
             }
             
             reset(){
@@ -258,7 +258,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
 
     var lastTime;
-    var requiredElapsed = 1000 / 7; 
+    var requiredElapsed = 1000 / 8; 
     
     requestAnimationFrame(loop);
     
