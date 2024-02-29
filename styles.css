@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100&display=swap');
-/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'); */
 
 header {
     background-color: transparent;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
     font-family: 'Bitter', sans-serif;
     font-weight: 100;
     padding-left: .5em;
@@ -14,7 +14,7 @@ header {
     outline-style: groove;
     h1, p {
         margin: 0;
-        padding: 0; 
+        padding: 0;
     }
 
     p {
@@ -22,7 +22,6 @@ header {
         margin-bottom: 5px; 
     }
 }
-
 
 body {
     font-family: 'Arial', sans-serif;
@@ -120,6 +119,7 @@ div h2 {
     background: transparent;
     margin-bottom: 6em;
 }
+
 .artwork-container {
     display: flex;
 
@@ -129,12 +129,15 @@ div h2 {
     margin: 2em;
     width: 35%;
     max-width: 200px;
+    opacity: 0.4;
     transition: transform 0.5s ease-in-out;
 }
 
 .gallery img:hover {
-    transform: translateY(-2em);
-    opacity: 0.5;
+
+    transform: scale(1.2);
+    opacity: 1.0;
+    
 }
 
 #imageContainer {
