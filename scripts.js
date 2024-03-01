@@ -243,7 +243,6 @@ window.addEventListener('load', function(){
     }}
     //start///
     const game = new Game(canvas);
-    
     startCatButton = document.getElementById("Hi");
     startCatButton.addEventListener('click', e => {
         game.catPool.forEach(cat => {
@@ -265,7 +264,17 @@ window.addEventListener('load', function(){
     
         if (elapsed > requiredElapsed) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+            function setValues() {
+                // Get values from elements
+                var sliderValue = document.getElementById('slider').value;
+                var textInputValue = document.getElementById('textInput').value;
+                var dropdownValue = document.getElementById('dropdown').value;
+            
+                // Use the values as needed (for now, just log them)
+                console.log('Slider Value:', sliderValue);
+                console.log('Text Input Value:', textInputValue);
+                console.log('Dropdown Value:', dropdownValue);
+              }
             game.render(ctx);
             game.catPool.forEach(cat => {
                 cat.update();

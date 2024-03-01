@@ -160,4 +160,36 @@ div h2 {
     background: url(/backgrounds/urlbackwithjump.png);
 }
 
+.containerstats {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
 @media only screen and (max-width: 600px){}

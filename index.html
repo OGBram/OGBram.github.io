@@ -21,13 +21,50 @@
                 <img id="artwork0" src="/imgArt/Gandalf.jpeg" alt="Artwork 0">
                 <img id="artwork1" src="/imgArt/Gandalf.jpeg" alt="Artwork 1">
              </div>         
-        </div>
+             <div class="containerstats">
+                <label for="slider">Energy:</label>
+                <input type="range" id="slider" min="0" max="100" step="1">
+              
+                <label for="dropdown">Size:</label>
+                <select name="dropdown2" id="dropdown">
+                   <option value="option1">Option 1</option>
+                   <option value="option2">Option 2</option>
+                   <option value="option3">Option 3</option>
+                 </select>
+                <label for="dropdown">Color:</label>
+                <select id="dropdown">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                  <option value="option3">Option 3</option>
+                </select>
+                <button onclick="setValues()">New Cat</button>
+              </div>
+            </div>
     </div>
      <div id="imageContainer">
         <img src="/backgrounds/background3.png" id="clouds" alt="clouds"></img>
         <img src="/backgrounds/waveA2.png" id= "waterA2" alt="waterA2"></img>
         <img src="/backgrounds/waterAnimation.png" id="waterA" alt="waterA"></img>
         <img src="/cats/cattansheet.png" id="catTan" alt="catTan"></img>
+        <div class="containerstats">
+
+            <label for="slider">Energy:</label>
+            <input type="range" id="slider" min="0" max="100" step="1">
+          
+            <label for="dropdown">Size:</label>
+            <select name="dropdown2" id="dropdown">
+               <option value="option1">Option 1</option>
+               <option value="option2">Option 2</option>
+               <option value="option3">Option 3</option>
+             </select>
+            <label for="dropdown">Color:</label>
+            <select id="dropdown">
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+           <button onclick="setValues()">New Cat</button>
+          </div>
     </div>
     <canvas id="mycanvas"></canvas>
     <script src="scripts.js"></script>
