@@ -26,19 +26,19 @@
                 <input type="range" id="slider" min="0" max="100" step="1"> -->
               
                 <label for="dropdown2">Size:</label>
-                <select id="dropdown">
+                <select id="dropdown2" name="dropdown2">
                    <option value="option1">mini</option>
                    <option value="option2">normal</option>
                    <option value="option3">jumbo</option>
                  </select>
 
                 <label for="dropdown">Color:</label>
-                <select id="dropdown">
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
+                <select id="dropdown" name="dropdown">
+                  <option value="option1">Tan</option>
+                  <option value="option2">Yellow</option>
+                  <option value="option3">Black</option>
                 </select>
-                <button onclick="setValues()">New Cat</button>
+                <button name="addcatb" onclick="setValues()">New Cat</button>
               </div>
             </div>
     </div>
@@ -47,25 +47,7 @@
         <img src="/backgrounds/waveA2.png" id= "waterA2" alt="waterA2"></img>
         <img src="/backgrounds/waterAnimation.png" id="waterA" alt="waterA"></img>
         <img src="/cats/cattansheet.png" id="catTan" alt="catTan"></img>
-        <div class="containerstats">
-
-            <label for="slider">Energy:</label>
-            <input type="range" id="slider" min="0" max="100" step="1">
-          
-            <label for="dropdown">Size:</label>
-            <select name="dropdown2" id="dropdown">
-               <option value="option1">Option 1</option>
-               <option value="option2">Option 2</option>
-               <option value="option3">Option 3</option>
-             </select>
-            <label for="dropdown">Color:</label>
-            <select id="dropdown">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select>
-           <button onclick="setValues()">New Cat</button>
-          </div>
+      
     </div>
     <canvas id="mycanvas"></canvas>
     <script src="scripts.js"></script>

@@ -182,26 +182,35 @@ window.addEventListener('load', function(){
             this.max = 50;
             this.createCatPool();
             this.getCat();
-            this.startCatButton = document.getElementById("Hi");
+            this.startCatButton = document.getElementById('Hi');
+            this.dropdown1 = document.getElementById('dropdown').value; 
+            this.dropdown2 = document.getElementById('dropdown2').value;
+            
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
-                pressed: false            
+                pressed: false
             };
+            // this.newCatButton = 0;
+            // this.newCatButton = document.getElementById('addcatb');
+            // this.newCatButton.addEventListener('click', setValues);
+            this.newCatButton = document.addEventListener('click', this.setValues())
+
+            
+            this.startCatButton = document.getElementById('Hi');
+            this.startCatButton.addEventListener('click', () => {
+                this.catPool.forEach(cat => {
+                    cat.free = true;
+                    cat.start();
+                });
+            });
 
             window.addEventListener('mousedown', e => {
-                game.mouse.x = e.offsetX;
-                game.mouse.y = e.offsetY;
-                game.mouse.pressed = true;
-            });
-            
-        }
-        mousedown = (e) => {
-            if (e.code === "mousedown") {
+                this.mouse.x = e.offsetX;
+                this.mouse.y = e.offsetY;
                 this.mouse.pressed = true;
-            }
+            });
         }
-
         createCatPool(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
@@ -225,7 +234,11 @@ window.addEventListener('load', function(){
                 this.mouse.y <= cat.y + cat.height
             );
         }
+        setValues() {
 
+            console.log(this.dropdownValue2);
+            console.log(this.dropdownValue);
+          }
         render(context) {
             this.catPool.forEach(cat => {
                 if (!cat.free) {
@@ -264,17 +277,7 @@ window.addEventListener('load', function(){
     
         if (elapsed > requiredElapsed) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            function setValues() {
-                // Get values from elements
-                // var sliderValue = document.getElementById('slider').value;
-                var dropdownValue2 = document.getElementById('dropdown2').value;
-                var dropdownValue = document.getElementById('dropdown').value;
-            
-                // Use the values as needed (for now, just log them)
-                // console.log('Slider Value:', sliderValue);
-                console.log('Text Input Value:', dropdownValue2);
-                console.log('Dropdown Value:', dropdownValue);
-              }
+
             game.render(ctx);
             game.catPool.forEach(cat => {
                 cat.update();
