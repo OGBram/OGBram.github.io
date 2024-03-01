@@ -73,10 +73,10 @@ window.addEventListener('load', function(){
             catSleep(cat){ 
                 this.free = false;
                 this.frameY = 2;
-                this.frameX = Math.floor(Math.random(5));
-                this.maxFrame = 11;
+                this.frameX = 0;
+                this.maxFrame = 0;
                 this.speedX = 0;
-                this.speedY ++;
+                this.speedY = 0;
             }
             
             reset(){
@@ -181,7 +181,7 @@ window.addEventListener('load', function(){
             this.max = 50;
             this.createCatPool();
             this.getCat();
-            
+            this.startCatButton = document.getElementById("startCatButton")
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -194,18 +194,16 @@ window.addEventListener('load', function(){
                 game.mouse.pressed = true;
             });
             
-            // window.addEventListener('mouseup', e => {
-            //     this.mouse.x = e.offsetX;
-            //     this.mouse.y = e.offsetY;
-            //     this.mouse.pressed = true;
-            // });
+            startCatButton.addEventListener('click', e => {
+                this.catPool.forEach(cat => {
 
-            // window.addEventListener('mousemove', e => {
-            //     if (this.mouse.pressed) {
-            //         this.mouse.x = e.offsetX;
-            //         this.mouse.y = e.offsetY;
-            //     }
-            // });
+                        this.free = true;
+                        Cats.start(context)
+                    })   
+                    
+                }
+                
+            );
         }
         mousedown = (e) => {
             if (e.code === "mousedown") {
@@ -213,7 +211,7 @@ window.addEventListener('load', function(){
             }
         }
 
-        createCatPool(){
+            createCatPool(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
             }
@@ -254,8 +252,9 @@ window.addEventListener('load', function(){
         }
         
     }
-
+    
     const game = new Game(canvas);
+    
 
     var lastTime;
     var requiredElapsed = 1000 / 8; 
