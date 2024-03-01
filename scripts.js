@@ -24,6 +24,7 @@ window.addEventListener('load', function(){
                 this.maxY = 300;
                 this.minY = 50;
                 this.start();
+                
             }
 
             draw(context) {
@@ -181,7 +182,7 @@ window.addEventListener('load', function(){
             this.max = 50;
             this.createCatPool();
             this.getCat();
-            this.startCatButton = document.getElementById("Hi")
+            this.startCatButton = document.getElementById("Hi");
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -194,14 +195,6 @@ window.addEventListener('load', function(){
                 game.mouse.pressed = true;
             });
             
-            // startCatButton.addEventListener('click', e => {
-            //     this.catPool.forEach(cat => {
-
-            //         })   
-                    
-            //     }
-                
-            // );
         }
         mousedown = (e) => {
             if (e.code === "mousedown") {
@@ -247,13 +240,18 @@ window.addEventListener('load', function(){
             this.mouse.pressed = false;
             this.background.draw(context);
             this.background2.draw(context, 0.5);
-        }
-        
-    }
-    
+    }}
+    //start///
     const game = new Game(canvas);
     
-
+    startCatButton = document.getElementById("Hi");
+    startCatButton.addEventListener('click', e => {
+        game.catPool.forEach(cat => {
+            cat.free = true;
+            cat.start();
+            })   
+        });
+    
     var lastTime;
     var requiredElapsed = 1000 / 8; 
     
