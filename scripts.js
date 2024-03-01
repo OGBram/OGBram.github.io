@@ -181,7 +181,7 @@ window.addEventListener('load', function(){
             this.max = 50;
             this.createCatPool();
             this.getCat();
-            this.startCatButton = document.getElementById("startCatButton")
+            this.startCatButton = document.getElementById("Hi")
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -194,16 +194,14 @@ window.addEventListener('load', function(){
                 game.mouse.pressed = true;
             });
             
-            startCatButton.addEventListener('click', e => {
-                this.catPool.forEach(cat => {
+            // startCatButton.addEventListener('click', e => {
+            //     this.catPool.forEach(cat => {
 
-                        this.free = true;
-                        Cats.start(context)
-                    })   
+            //         })   
                     
-                }
+            //     }
                 
-            );
+            // );
         }
         mousedown = (e) => {
             if (e.code === "mousedown") {
@@ -211,7 +209,7 @@ window.addEventListener('load', function(){
             }
         }
 
-            createCatPool(){
+        createCatPool(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
             }
@@ -279,26 +277,3 @@ window.addEventListener('load', function(){
         }
     } 
 });
-
-// document.getElementById("toggleNav").addEventListener("click", function() {
-//   var nav = document.getElementById("mainNav");
-//   var navStyle = window.getComputedStyle(nav);
-
-//   nav.style.display = (navStyle.getPropertyValue("display") === "flex") ? "none" : "flex";
-// });
-
-// function openAboutModal() {
-//     document.getElementById('aboutModal').style.display = 'block';
-// }
-
-// function closeAboutModal() {
-//     document.getElementById('aboutModal').style.display = 'none';
-// }
-
-// function openContactsModal() {
-//     document.getElementById('contactsModal').style.display = 'block';
-// }
-
-// function closeContactsModal() {
-//     document.getElementById('contactsModal').style.display = 'none';
-// }
