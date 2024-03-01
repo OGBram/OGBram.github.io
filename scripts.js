@@ -266,13 +266,13 @@ window.addEventListener('load', function(){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             function setValues() {
                 // Get values from elements
-                var sliderValue = document.getElementById('slider').value;
-                var textInputValue = document.getElementById('textInput').value;
+                // var sliderValue = document.getElementById('slider').value;
+                var dropdownValue2 = document.getElementById('dropdown2').value;
                 var dropdownValue = document.getElementById('dropdown').value;
             
                 // Use the values as needed (for now, just log them)
-                console.log('Slider Value:', sliderValue);
-                console.log('Text Input Value:', textInputValue);
+                // console.log('Slider Value:', sliderValue);
+                console.log('Text Input Value:', dropdownValue2);
                 console.log('Dropdown Value:', dropdownValue);
               }
             game.render(ctx);
