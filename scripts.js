@@ -26,6 +26,7 @@ window.addEventListener('load', function(){
                 this.speedY = 1;
                 this.maxY = 300;
                 this.minY = 50;
+                this.selectCat = false;
                 this.start();
                 
             }
@@ -108,6 +109,7 @@ window.addEventListener('load', function(){
                     this.frameY = 6;
 
                     this.free = false;
+
                 }           
             }    
     }
@@ -198,37 +200,39 @@ window.addEventListener('load', function(){
             this.createCatPool();
             this.getCat();
             this.startCatButton = document.getElementById('Hi');
-            this.newCatButton = document.getElementById('catMenuB');
-
+            // this.selectCatButton = document.getElementById("selectAll");
             
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
                 pressed: false
             };
-            // this.newCatButton = 0;
-            // this.newCatButton = document.getElementById('addcatb');
-            // this.newCatButton.addEventListener('click', setValues);
-            this.newCatButton = document.addEventListener('click', () => {
-                this.setValues()
-            });
 
-            
-            this.startCatButton = document.getElementById('Hi');
             this.startCatButton.addEventListener('click', () => {
+                this.max = 12;
+                this.catPool.splice(this.max, this.catPool.length);
+                
                 this.catPool.forEach(cat => {
                     cat.free = true;
                     cat.start();
                 });
             });
+                
+            
+            // this.selectCatButton.addEventListener('click', () => {
+                
+                 
+            // });
 
             window.addEventListener('mousedown', e => {
                 this.mouse.x = e.offsetX;
                 this.mouse.y = e.offsetY;
                 this.mouse.pressed = true;
+                this.catPool.push(new Cats(this));
+                
             });
-        }
 
+        }
         createCatPool(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
@@ -252,16 +256,6 @@ window.addEventListener('load', function(){
                 this.mouse.y <= cat.y + cat.height
             );
         }
-        setValues() {
-            if(this.newCatButton = "mini"){
-                this.max = +1;
-                this.catPool.push(new Cats(this))
-            }
-            
-            this.y = this.canvas.height;
-            this.x = this.canvas.width;
-
-          }
 
         render(context) {
             this.catPool.forEach(cat => {
@@ -277,16 +271,11 @@ window.addEventListener('load', function(){
             this.mouse.pressed = false;
             this.background.draw(context);
             this.background2.draw(context, 0.5);
-    }}
-    //start///
+
+            
+        }
+    }
     const game = new Game(canvas);
-    startCatButton = document.getElementById("Hi");
-    startCatButton.addEventListener('click', e => {
-        game.catPool.forEach(cat => {
-            cat.free = true;
-            cat.start();
-            })   
-        });
     
     var lastTime;
     var requiredElapsed = 1000 / 10; 
@@ -301,7 +290,8 @@ window.addEventListener('load', function(){
     
         if (elapsed > requiredElapsed) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -55, canvas.height,);
+            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -55, canvas.height);
+            
             game.render(ctx);
             game.catPool.forEach(cat => {
                 cat.update();
