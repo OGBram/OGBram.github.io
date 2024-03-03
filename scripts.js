@@ -3,6 +3,8 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 432;
+    ctx.font = "30px 'Comic Sans MS', cursive, sans-serif";
+    ctx.fillStyle = "hsla(125, 100%, 50%, 1.0)";
 
     class Cats {
             constructor(game) {
@@ -299,7 +301,7 @@ window.addEventListener('load', function(){
     
         if (elapsed > requiredElapsed) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -55, canvas.height,);
             game.render(ctx);
             game.catPool.forEach(cat => {
                 cat.update();
