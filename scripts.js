@@ -32,7 +32,6 @@ window.addEventListener('load', function(){
             }
 
             draw(context) {
-                // this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                 if (!this.free){
                 context.drawImage(
                     this.image,
@@ -46,6 +45,7 @@ window.addEventListener('load', function(){
                     this.height*.8,
                 );}
             }
+            
             update(){
                 this.frameX += this.catspeed;
                 if(this.frameX > this.maxFrame){
@@ -63,8 +63,8 @@ window.addEventListener('load', function(){
                          this.frameY = 6;
                          }
                         if(this.y <= this.minY){
-                          this.y += this.speedY+6;
-                          this.x += this.speedX+1;  
+                         this.y += this.speedY+6;
+                         this.x += this.speedX+1;  
                         }
                         if(this.x >= 450){
                          this.speedX = Math.random(4) * -2;
@@ -74,8 +74,8 @@ window.addEventListener('load', function(){
                     
                         }
                         if(!this.free){
-                          this.x += this.speedX;
-                          this.y += this.speedY;
+                         this.x += this.speedX;
+                         this.y += this.speedY;
                          }
                         if(this.x < 100){
                         this.speedX = Math.random(4) * 2;
@@ -83,9 +83,7 @@ window.addEventListener('load', function(){
                           this.x ++;
                           this.frameY = 6;  
                         }
-                    
                     }
-
              }
 
             catSleep(cat){ 
