@@ -8,17 +8,18 @@ window.addEventListener('load', function(){
             constructor(game) {
                 this.game = game;
                 this.catspeed = 1;
-                this.spriteWidth = 32;
-                this.spriteHeight = 33;
+                this.spriteWidth = 31.3;
+                this.spriteHeight = 32;
                 this.free = true;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
                 this.x = this.game.width * 0.5 - this.width * 0.5;
                 this.y = this.game.height * 0.5 - this.height * 0.5;
-                this.image = document.getElementById("catTan");
-                this.frameX = 0;
-                this.frameY = 1;
-                this.maxFrame = 11;
+                this.image = document.getElementById("catsMulti");
+                this.frameX = 6;
+                this.frameY = 6;
+                this.minFrame = 6;
+                this.maxFrame = 8;
                 this.speedX = 1;
                 this.speedY = 1;
                 this.maxY = 300;
@@ -38,13 +39,13 @@ window.addEventListener('load', function(){
                     this.spriteHeight,
                     this.x,
                     this.y,
-                    this.width,
-                    this.height,
+                    this.width*.8,
+                    this.height*.8,
                 );}
             }
             update(){
                 this.frameX += this.catspeed;
-                if(this.frameX >= this.maxFrame){
+                if(this.frameX > this.maxFrame){
                 this.reset(); 
                 }
                  
@@ -56,7 +57,7 @@ window.addEventListener('load', function(){
                         if(this.y >= this.maxY){
                          this.y += this.speedY-15;
                          this.x += this.speedX++;
-                         this.frameY = 1;
+                         this.frameY = 6;
                          }
                         if(this.y <= this.minY){
                           this.y += this.speedY+6;
@@ -66,7 +67,7 @@ window.addEventListener('load', function(){
                          this.speedX = Math.random(4) * -2;
                          this.speedY = Math.random(4) * -2;
                          this.speedX --;
-                         this.frameY = 0;
+                         this.frameY = 5;
                     
                         }
                         if(!this.free){
@@ -77,7 +78,7 @@ window.addEventListener('load', function(){
                         this.speedX = Math.random(4) * 2;
                         this.speedY = Math.random(4) * 2;
                           this.x ++;
-                          this.frameY = 1;  
+                          this.frameY = 6;  
                         }
                     
                     }
@@ -86,26 +87,25 @@ window.addEventListener('load', function(){
 
             catSleep(cat){ 
                 this.free = false;
-                this.frameY = 2;
-                this.frameX = 0;
-                this.maxFrame = 0;
-                this.speedX = 0;
-                this.speedY = 0;
+                this.minFrame = 0;
+                this.maxFrame = 2;
             }
             
             reset(){
 
-                this.frameX = 0;
+                this.frameX = this.minFrame;
+                this.free = false;
             
             }
             start() {
                 if (this.free) {
                     this.x = this.game.width - this.game.width +200;
                     this.y = Math.random() * this.game.height /1.5+50;
-                    this.speedX = Math.floor(Math.random()* 5);
+                    this.speedX = Math.floor(Math.random()* 3);
                     this.speedY = Math.floor(Math.random()* 3);
-                    this.frameY = 1;
-                    this.free = false
+                    this.frameY = 6;
+
+                    this.free = false;
                 }           
             }    
     }
@@ -192,7 +192,7 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.catPool = [];
-            this.max = 10;
+            this.max = 12;
             this.createCatPool();
             this.getCat();
             this.startCatButton = document.getElementById('Hi');
@@ -287,7 +287,7 @@ window.addEventListener('load', function(){
         });
     
     var lastTime;
-    var requiredElapsed = 1000 / 8; 
+    var requiredElapsed = 1000 / 10; 
     
     requestAnimationFrame(loop);
     
