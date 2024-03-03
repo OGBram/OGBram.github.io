@@ -3,7 +3,7 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 432;
-    ctx.font = "30px 'Comic Sans MS', cursive, sans-serif";
+    ctx.font = "30px 'Comic Sans MS', sans-serif";
     ctx.fillStyle = "hsla(125, 100%, 50%, 1.0)";
 
     class Cats {
@@ -200,7 +200,7 @@ window.addEventListener('load', function(){
             this.createCatPool();
             this.getCat();
             this.startCatButton = document.getElementById('Hi');
-            // this.selectCatButton = document.getElementById("selectAll");
+            this.selectCatButton = document.getElementById("selectAll");
             
             this.mouse = {
                 x: this.width * 0.5,
