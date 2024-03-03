@@ -50,25 +50,38 @@ window.addEventListener('load', function(){
                  
                 if(!this.free){
                     if(this.x > 290 && this.y >200){
-                        this.y += -15;
-                        this.x += this.speedX;
+                         this.y += -15;
+                         this.x += this.speedX;
                         }
                         if(this.y >= this.maxY){
-                    
-                        this.y += this.speedY-15;
-                        this.x += this.speedX++;
-                        this.frameY = 1;
+                         this.y += this.speedY-15;
+                         this.x += this.speedX++;
+                         this.frameY = 1;
                          }
+                        if(this.y <= this.minY){
+                          this.y += this.speedY+6;
+                          this.x += this.speedX+1;  
+                        }
                         if(this.x >= 450){
-                        this.speedX --;
+                         this.speedX = Math.random(4) * -2;
+                         this.speedY = Math.random(4) * -2;
+                         this.speedX --;
                          this.frameY = 0;
                     
                         }
-                         if(!this.free){
+                        if(!this.free){
                           this.x += this.speedX;
                           this.y += this.speedY;
                          }
+                        if(this.x < 100){
+                        this.speedX = Math.random(4) * 2;
+                        this.speedY = Math.random(4) * 2;
+                          this.x ++;
+                          this.frameY = 1;  
+                        }
+                    
                     }
+
              }
 
             catSleep(cat){ 
@@ -87,7 +100,7 @@ window.addEventListener('load', function(){
             }
             start() {
                 if (this.free) {
-                    this.x = this.game.width - this.game.width - 30;
+                    this.x = this.game.width - this.game.width +200;
                     this.y = Math.random() * this.game.height /1.5+50;
                     this.speedX = Math.floor(Math.random()* 5);
                     this.speedY = Math.floor(Math.random()* 3);
@@ -179,12 +192,12 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.catPool = [];
-            this.max = 50;
+            this.max = 10;
             this.createCatPool();
             this.getCat();
             this.startCatButton = document.getElementById('Hi');
-            this.dropdown1 = document.getElementById('dropdown').value; 
-            this.dropdown2 = document.getElementById('dropdown2').value;
+            this.newCatButton = document.getElementById('catMenuB');
+
             
             this.mouse = {
                 x: this.width * 0.5,
@@ -194,7 +207,9 @@ window.addEventListener('load', function(){
             // this.newCatButton = 0;
             // this.newCatButton = document.getElementById('addcatb');
             // this.newCatButton.addEventListener('click', setValues);
-            this.newCatButton = document.addEventListener('click', this.setValues())
+            this.newCatButton = document.addEventListener('click', () => {
+                this.setValues()
+            });
 
             
             this.startCatButton = document.getElementById('Hi');
@@ -211,6 +226,7 @@ window.addEventListener('load', function(){
                 this.mouse.pressed = true;
             });
         }
+
         createCatPool(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
@@ -235,10 +251,16 @@ window.addEventListener('load', function(){
             );
         }
         setValues() {
+            if(this.newCatButton = "mini"){
+                this.max = +1;
+                this.catPool.push(new Cats(this))
+            }
+            
+            this.y = this.canvas.height;
+            this.x = this.canvas.width;
 
-            console.log(this.dropdownValue2);
-            console.log(this.dropdownValue);
           }
+
         render(context) {
             this.catPool.forEach(cat => {
                 if (!cat.free) {
