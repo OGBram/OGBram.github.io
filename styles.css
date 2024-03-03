@@ -92,12 +92,12 @@ div h2 {
     opacity: 1.0;
     
 }
+
 #Hi {
     position: relative;
     align-items: center;
     transform: translateY(-125px);
 }
-
 
 #imageContainer {
     display: none;
@@ -109,7 +109,6 @@ div h2 {
     left: 50%;
     transform: translate(-50%, -10%);
     align-items: center;
-    /* border: 1px solid yellowgreen; */
     background: url(/backgrounds/urlbackwithjump.png);
 }
 
@@ -121,17 +120,17 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin: 2px;
-  }
+}
 
 button:hover {
     background-color: #45a049;
-  }
+}
 
 #catMenuA {
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
     transform: translateY(-2em)
-  } 
+} 
 
 @media only screen and (max-width: 600px){}
