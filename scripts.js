@@ -58,13 +58,13 @@ window.addEventListener('load', function(){
                          this.x += this.speedX;
                         }
                         if(this.y >= this.maxY){
-                         this.y += this.speedY-10;
+                         this.y += this.speedY-5;
                          this.x += this.speedX++;
                          this.frameY = 6;
                          }
-                        if(this.y <= this.minY){
-                         this.y += this.speedY+6;
-                         this.x += this.speedX+1;  
+                        if(this.y <= this.minY && this.x < 490){
+                         this.y += this.speedY+12;
+                         this.x += this.speedX++;  
                         }
                         if(this.x >= 450){
                          this.speedX = (Math.random() * 4 -2);
