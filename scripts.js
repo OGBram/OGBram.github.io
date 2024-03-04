@@ -25,7 +25,7 @@ window.addEventListener('load', function(){
                 this.speedX = 1;
                 this.speedY = 1;
                 this.maxY = 300;
-                this.minY = 50;
+                this.minY = 75;
                 this.selectCat = false;
                 this.start();
                 
@@ -58,7 +58,7 @@ window.addEventListener('load', function(){
                          this.x += this.speedX;
                         }
                         if(this.y >= this.maxY){
-                         this.y += this.speedY-15;
+                         this.y += this.speedY-10;
                          this.x += this.speedX++;
                          this.frameY = 6;
                          }
@@ -67,8 +67,8 @@ window.addEventListener('load', function(){
                          this.x += this.speedX+1;  
                         }
                         if(this.x >= 450){
-                         this.speedX = Math.random(4) * -2;
-                         this.speedY = Math.random(4) * -2;
+                         this.speedX = (Math.random() * 4 -2);
+                         this.speedY = (Math.random() * 5 -2);
                          this.speedX --;
                          this.frameY = 5;
                     
@@ -77,9 +77,9 @@ window.addEventListener('load', function(){
                          this.x += this.speedX;
                          this.y += this.speedY;
                          }
-                        if(this.x < 100){
-                        this.speedX = Math.random(4) * 2;
-                        this.speedY = Math.random(4) * 2;
+                        if(this.x < 110){
+                        this.speedX = (Math.random() * 5 -2);
+                        this.speedY = (Math.random() * 4 -2);
                           this.x ++;
                           this.frameY = 6;  
                         }
@@ -100,10 +100,10 @@ window.addEventListener('load', function(){
             }
             start() {
                 if (this.free) {
-                    this.x = this.game.width - this.game.width +200;
-                    this.y = Math.random() * this.game.height /1.5+50;
-                    this.speedX = Math.floor(Math.random()* 3);
-                    this.speedY = Math.floor(Math.random()* 3);
+                    this.x = this.game.width - this.game.width +200 - (Math.random()*100-10);
+                    this.y = this.game.height - this.game.height - (Math.random()*100-200);
+                    this.speedX = (Math.random()* 4 - 2);
+                    this.speedY = (Math.random()* 4 - 2);
                     this.frameY = 6;
 
                     this.free = false;
