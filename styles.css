@@ -130,7 +130,11 @@ button:hover {
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
-    transform: translateY(-2em)
-} 
+    transform: translateY(-2em);
+}
+
+#detonateb {
+    background-color: lightcoral;
+}
 
 @media only screen and (max-width: 600px){}

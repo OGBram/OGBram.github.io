@@ -4,7 +4,7 @@ window.addEventListener('load', function(){
     canvas.width = 600;
     canvas.height = 432;
     ctx.font = "30px 'Comic Sans MS', sans-serif";
-    ctx.fillStyle = "hsla(125, 100%, 50%, 1.0)";
+    ctx.fillStyle = "#45a049";
 
     class Cats {
             constructor(game) {
@@ -111,6 +111,43 @@ window.addEventListener('load', function(){
                 }           
             }    
     }
+    class Detonate {
+        constructor(game) {
+                this.game = game;
+                this.speedModifier = 1;
+                this.spriteWidth = 300;
+                this.spriteHeight = 300;
+                this.width = this.spriteWidth*2;
+                this.height = this.spriteHeight*2;
+                this.image = document.getElementById("detonate");
+                this.frameX = 23;
+                this.frameY = 1;
+                this.maxFrame = 22;
+                this.x = game.width/10;
+                this.y = game.height/10;
+                this.ispressed = false;
+            }
+    
+            draw(context,) {
+          
+                this.frameX <= this.maxFrame ? this.frameX++ :
+                
+                context.save();
+                ctx.globalAlpha = .85;
+                context.drawImage(
+                    this.image,
+                    this.frameX * this.spriteWidth,
+                    this.frameY * this.spriteHeight,
+                    this.spriteWidth,
+                    this.spriteHeight,
+                    this.x-75,
+                    this.y-150,
+                    this.width,
+                    this.height,
+                );
+                context.restore();    
+            }
+        }
             
     class Background {
         constructor(game) {
@@ -191,35 +228,34 @@ window.addEventListener('load', function(){
             this.canvas = canvas;
             this.width = this.canvas.width;
             this.height = this.canvas.height;
+            this.ispressed = false;
             this.background = new Background(this);
             this.background2 = new Background2(this);
+            this.detonate = new Detonate(this);
             this.catPool = [];
             this.max = 12;
             this.createCatPool();
             this.getCat();
             this.startCatButton = document.getElementById('Hi');
-            this.selectCatButton = document.getElementById("selectAll");
-            
+            this.selectCatButton = document.getElementById('selectAll');
+            // this.detonateButton = document.getElementById('detonateb');
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
                 pressed: false
             };
-
-            this.startCatButton.addEventListener('click', () => {
+            this.startCatButton.addEventListener('click', e => {
+                this.detonate.frameX = 0;
                 this.max = 12;
                 this.catPool.splice(this.max, this.catPool.length);
-                
                 this.catPool.forEach(cat => {
                     cat.free = true;
                     cat.start();
                 });
             });
-                
             
-            // this.selectCatButton.addEventListener('click', () => {
-                
-                 
+            // this.detonateButton.addEventListener('click', () => {
+            //     this.detonate.ispressed = true;
             // });
 
             window.addEventListener('mousedown', e => {
@@ -269,8 +305,9 @@ window.addEventListener('load', function(){
             this.mouse.pressed = false;
             this.background.draw(context);
             this.background2.draw(context, 0.5);
+            this.detonate.draw(context);
 
-            
+
         }
     }
     const game = new Game(canvas);
