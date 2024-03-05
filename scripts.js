@@ -25,7 +25,7 @@ window.addEventListener('load', function(){
                 this.speedX = 1;
                 this.speedY = 1;
                 this.maxY = 300;
-                this.minY = 75;
+                this.minY = 65;
                 this.selectCat = false;
                 this.start();
                 
@@ -53,19 +53,22 @@ window.addEventListener('load', function(){
                 }
                  
                 if(!this.free){
-                    if(this.x > 290 && this.y >200){
+                    if(this.x > 290 && this.y >220 && this.x <375){
                          this.y += -15;
                          this.x += this.speedX;
                         }
+                        
                         if(this.y >= this.maxY){
                          this.y += this.speedY-5;
                          this.x += this.speedX++;
                          this.frameY = 6;
                          }
-                        if(this.y <= this.minY && this.x < 490){
+                        
+                         if(this.y <= this.minY && this.x < 490){
                          this.y += this.speedY+12;
                          this.x += this.speedX++;  
                         }
+                        
                         if(this.x >= 450){
                          this.speedX = (Math.random() * 4 -2);
                          this.speedY = (Math.random() * 5 -2);
@@ -77,7 +80,8 @@ window.addEventListener('load', function(){
                          this.x += this.speedX;
                          this.y += this.speedY;
                          }
-                        if(this.x < 110){
+                        
+                         if(this.x < 110){
                         this.speedX = (Math.random() * 5 -2);
                         this.speedY = (Math.random() * 4 -2);
                           this.x ++;
