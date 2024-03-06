@@ -79,13 +79,13 @@ window.addEventListener('load', function(){
                         if(!this.free){
                          this.x += this.speedX;
                          this.y += this.speedY;
-                         }
+                        }
                         
-                         if(this.x < 110){
-                        this.speedX = (Math.random() * 5 -2);
-                        this.speedY = (Math.random() * 4 -2);
-                          this.x ++;
-                          this.frameY = 6;  
+                        if(this.x < 110){
+                         this.speedX = (Math.random() * 5 -2);
+                         this.speedY = (Math.random() * 4 -2);
+                         this.x ++;
+                         this.frameY = 6;  
                         }
                     }
              }
@@ -242,7 +242,6 @@ window.addEventListener('load', function(){
             this.getCat();
             this.startCatButton = document.getElementById('Hi');
             this.selectCatButton = document.getElementById('selectAll');
-            // this.detonateButton = document.getElementById('detonateb');
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -257,10 +256,6 @@ window.addEventListener('load', function(){
                     cat.start();
                 });
             });
-            
-            // this.detonateButton.addEventListener('click', () => {
-            //     this.detonate.ispressed = true;
-            // });
 
             window.addEventListener('mousedown', e => {
                 this.mouse.x = e.offsetX;

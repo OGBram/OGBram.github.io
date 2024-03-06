@@ -73,11 +73,6 @@ div h2 {
     margin-bottom: 6em;
 }
 
-.artwork-container {
-    display: flex;
-
-}
-
 .gallery img {
     margin: 2em;
     width: 35%;
