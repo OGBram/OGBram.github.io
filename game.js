@@ -92,8 +92,10 @@ window.addEventListener('load', function(){
 
             catSleep(cat){ 
                 this.free = false;
-                this.minFrame = 0;
-                this.maxFrame = 2;
+                this.minFrame = 9;
+                this.maxFrame = 11;
+                this.frameY = 0;
+                this.frameX = 9;
             }
             
             reset(){
