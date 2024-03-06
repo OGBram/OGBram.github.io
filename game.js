@@ -206,7 +206,7 @@ window.addEventListener('load', function(){
                 this.frameX = 0;
                 this.frameY = 0;
                 this.maxFrame = 20;
-        }
+            }
     
         draw(context,) {
                 this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
@@ -224,7 +224,7 @@ window.addEventListener('load', function(){
                     this.height,
                 );
                 context.restore();
-        }
+            }
     }
 
     class Game {
@@ -309,6 +309,7 @@ window.addEventListener('load', function(){
 
         }
     }
+    
     const game = new Game(canvas);
     
     var lastTime;

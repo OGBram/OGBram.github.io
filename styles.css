@@ -128,8 +128,4 @@ button:hover {
     transform: translateY(-2em);
 }
 
-#detonateb {
-    background-color: lightcoral;
-}
-
 @media only screen and (max-width: 600px){}
