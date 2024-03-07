@@ -260,8 +260,8 @@ window.addEventListener('load', function(){
                         this.spriteHeight,
                         this.x--,
                         this.y,
-                        this.width,
-                        this.height,
+                        this.width/2,
+                        this.height/2,
                     );
                     context.restore();    
                 }
