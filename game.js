@@ -179,7 +179,7 @@ window.addEventListener('load', function(){
                 this.image = document.getElementById("waterA");
                 this.frameX = 0;
                 this.frameY = 0;
-                this.maxFrame = 4;
+                this.maxFrame = 3;
             }
     
             draw(context,) {
