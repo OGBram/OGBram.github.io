@@ -234,21 +234,22 @@ window.addEventListener('load', function(){
                     this.dx = 0;
                     this.dy = 0;
                     this.speedModifier = 1;
-                    this.spriteWidth = 30;
-                    this.spriteHeight = 700;
-                    this.width = 1900;
+                    this.spriteWidth = 1920;
+                    this.spriteHeight = 1200;
+                    this.width = this.spriteWidth;
                     this.height = this.spriteHeight;
                     this.x = 0;
                     this.y = 0;
                     this.image = document.getElementById("starFeild");
                     this.frameX = 0;
-                    this.frameY = 1;
-                    this.maxFrame = 60;
-                    this.count = 0;
+                    this.frameY = 0;
+                    this.maxFrame = 0;
 
             }
                 draw(context,) {
-                    if(this.count = 1){this.frameX < this.maxFrame ? this.frameX++ : this.frameX = 0}
+                    if(this.x >= .5) {
+                        reset()
+                    }
                     context.save();
                     ctx.globalAlpha = 1;
                     context.drawImage(
@@ -257,12 +258,16 @@ window.addEventListener('load', function(){
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x,
-                        this.y,
+                        this.x--,
+                        this.y--,
                         this.width,
                         this.height,
                     );
                     context.restore();    
+                }
+                reset(){
+                    this.x = 0;
+                    this.y = 0;
                 }
             }    
 
