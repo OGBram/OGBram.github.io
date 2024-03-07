@@ -3,8 +3,8 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 432;
-    ctx.font = "25px 'math', sans-serif";
-    ctx.fillStyle = "hsl(215, 100%, 55%)";
+    ctx.font = "17px 'math', sans-serif";
+    ctx.fillStyle = "white";
     ctx.globalAlpha = 1.0;
 
     class Cats {
@@ -247,7 +247,7 @@ window.addEventListener('load', function(){
 
             }
                 draw(context,) {
-                    if(this.x >= .5) {
+                    if(this.x >= 8000) {
                         reset()
                     }
                     context.save();
@@ -278,29 +278,29 @@ window.addEventListener('load', function(){
                 this.dy = 0;
                 this.speedModifier = 1;
                 this.spriteWidth = 82;
-                this.spriteHeight = 40;
+                this.spriteHeight = 120;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
                 this.x = this.game.width * 0.5 - this.width * 0.5;
                 this.y = this.game.height * 0.5 - this.height * 0.5;
-                this.image = document.getElementById("waterA2");
-                this.frameX = 0;
+                this.image = document.getElementById("player");
+                this.frameX = 2;
                 this.frameY = 0;
-                this.maxFrame = 20;
+                this.maxFrame = 2;
             }
     
         draw(context,) {
-                this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
+                // this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                 context.save();
-                ctx.globalAlpha = .3;
+                ctx.globalAlpha = 0.7;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x+109,
-                    this.y+9,
+                    this.x-15,
+                    this.y+55,
                     this.width,
                     this.height,
                 );
@@ -313,29 +313,29 @@ window.addEventListener('load', function(){
                 this.dx = 0;
                 this.dy = 0;
                 this.speedModifier = 1;
-                this.spriteWidth = 31.3;
-                this.spriteHeight = 32;
+                this.spriteWidth = 320;
+                this.spriteHeight = 80;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
-                this.x = 400;
-                this.y = 5;
-                this.image = document.getElementById("catsMulti");
-                this.frameX = 3;
-                this.frameY = 0;
-                this.maxFrame = 5;
+                this.x = 285;
+                this.y = 350;
+                this.image = document.getElementById("box");
+                this.frameX = 0;
+                this.frameY = 3;
+                this.maxFrame = 0;
 
         }
             draw(context,) {
-                this.frameX < this.maxFrame ? this.frameX++ : this.frameX = 3;
+                // this.frameX < this.maxFrame ? this.frameX++ : this.frameX = 3;
                 context.save();
-                ctx.globalAlpha = 1;
+                ctx.globalAlpha = .7;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x,
+                    this.x-150,
                     this.y,
                     this.width,
                     this.height,
@@ -380,13 +380,13 @@ window.addEventListener('load', function(){
                 });
             });
 
-            window.addEventListener('mousedown', e => {
-                this.mouse.x = e.offsetX;
-                this.mouse.y = e.offsetY;
-                this.mouse.pressed = true;
-                this.catPool.push(new Cats(this));
+            // window.addEventListener('mousedown', e => {
+            //     this.mouse.x = e.offsetX;
+            //     this.mouse.y = e.offsetY;
+            //     this.mouse.pressed = true;
+            //     this.catPool.push(new Cats(this));
                 
-            });
+            // });
 
         }
         createCatPool(){
@@ -439,7 +439,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 10; 
+    var requiredElapsed = 1000 / 8; 
     
     requestAnimationFrame(loop);
     
@@ -455,6 +455,9 @@ window.addEventListener('load', function(){
             game.catPool.forEach(cat => {
                 cat.update();
             });
+            ctx.fillText("\"Birds migrating,", 200, 375);
+            ctx.fillText("Ah-where they are headed,", 200, 395);
+            ctx.fillText("must be my homeland\"", 205, 415);
             lastTime = now;
         }
     } 

@@ -122,6 +122,7 @@ button:hover {
 } */
 
 #catMenuA {
+    display: none;
     position: relative;
     top: 50%;
     bottom: 50%;
