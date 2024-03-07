@@ -3,8 +3,8 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 432;
-    ctx.font = "30px 'Comic Sans MS', sans-serif";
-    ctx.fillStyle = "hsl(120, 100%, 50%)";
+    ctx.font = "25px 'math', sans-serif";
+    ctx.fillStyle = "hsl(215, 100%, 55%)";
     ctx.globalAlpha = 1.0;
 
     class Cats {
@@ -307,6 +307,46 @@ window.addEventListener('load', function(){
                 context.restore();
             }
     }
+    class Ui {
+        constructor(game) {
+                this.game = game;
+                this.dx = 0;
+                this.dy = 0;
+                this.speedModifier = 1;
+                this.spriteWidth = 31.3;
+                this.spriteHeight = 32;
+                this.width = this.spriteWidth;
+                this.height = this.spriteHeight;
+                this.x = 400;
+                this.y = 5;
+                this.image = document.getElementById("catsMulti");
+                this.frameX = 3;
+                this.frameY = 0;
+                this.maxFrame = 5;
+
+        }
+            draw(context,) {
+                this.frameX < this.maxFrame ? this.frameX++ : this.frameX = 3;
+                context.save();
+                ctx.globalAlpha = 1;
+                context.drawImage(
+                    this.image,
+                    this.frameX * this.spriteWidth,
+                    this.frameY * this.spriteHeight,
+                    this.spriteWidth,
+                    this.spriteHeight,
+                    this.x,
+                    this.y,
+                    this.width,
+                    this.height,
+                );
+                context.restore();    
+            }
+            reset(){
+                this.x = 0;
+                this.y = 0;
+            }
+        }
 
     class Game {
         constructor(canvas) {
@@ -319,12 +359,13 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.detonate = new Detonate(this);
+            this.Ui = new Ui(this);
             this.catPool = [];
             this.max = 1;
             this.createCatPool();
             this.getCat();
-            this.startCatButton = document.getElementById('Hi');
-            this.selectCatButton = document.getElementById('selectAll');
+            this.startCatButton = document.getElementById('return');
+            // this.selectCatButton = document.getElementById('selectAll');
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -390,6 +431,7 @@ window.addEventListener('load', function(){
             this.background.draw(context);
             this.background2.draw(context);
             this.detonate.draw(context);
+            this.Ui.draw(context);
 
 
         }
@@ -414,7 +456,7 @@ window.addEventListener('load', function(){
             game.catPool.forEach(cat => {
                 cat.update();
             });
-            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -45, canvas.height);
+            // ctx.fillText(`${game.catPool.length}`, canvas.width-73, canvas.height/2 -162);
             lastTime = now;
         }
     } 

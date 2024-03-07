@@ -88,11 +88,11 @@ div h2 {
     
 }
 
-#Hi {
+/* #Hi {
     position: relative;
     align-items: center;
     transform: translateY(-125px);
-}
+} */
 
 #imageContainer {
     display: none;
@@ -107,7 +107,7 @@ div h2 {
 
 }
 
-button {
+/* button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
@@ -119,13 +119,17 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
+} */
 
 #catMenuA {
-    display: flex;
-    align-items: center;
-    flex-direction: column-reverse;
-    transform: translateY(-2em);
+    position: relative;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(+87%, -480px);
+    opacity: 50%;
+    transition: transform 0.3s ease-in-out;
 }
+
+
 
 @media only screen and (max-width: 600px){}
