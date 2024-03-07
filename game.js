@@ -332,7 +332,7 @@ window.addEventListener('load', function(){
             };
             this.startCatButton.addEventListener('click', e => {
                 this.detonate.frameX = 0;
-                this.max = 12;
+                this.max = 1;
                 this.catPool.splice(this.max, this.catPool.length);
                 this.catPool.forEach(cat => {
                     cat.free = true;
