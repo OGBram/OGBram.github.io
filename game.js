@@ -414,7 +414,7 @@ window.addEventListener('load', function(){
             game.catPool.forEach(cat => {
                 cat.update();
             });
-            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -55, canvas.height);
+            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -45, canvas.height);
             lastTime = now;
         }
     } 
