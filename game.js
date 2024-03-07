@@ -213,7 +213,7 @@ window.addEventListener('load', function(){
                 draw(context,) {
                     // this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                     context.save();
-                    ctx.globalAlpha = 1.0;
+                    ctx.globalAlpha = .5;
                     context.drawImage(
                         this.image,
                         this.frameX * this.spriteWidth,
@@ -365,7 +365,6 @@ window.addEventListener('load', function(){
             this.createCatPool();
             this.getCat();
             this.startCatButton = document.getElementById('return');
-            // this.selectCatButton = document.getElementById('selectAll');
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
@@ -456,7 +455,6 @@ window.addEventListener('load', function(){
             game.catPool.forEach(cat => {
                 cat.update();
             });
-            // ctx.fillText(`${game.catPool.length}`, canvas.width-73, canvas.height/2 -162);
             lastTime = now;
         }
     } 
