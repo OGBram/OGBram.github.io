@@ -26,7 +26,7 @@ header {
 body {
     font-family: 'Arial', sans-serif;
     margin: 1;
-    background-color: #111;
+    background-color: black;
     color: #fff;
     outline-width: 1em;
     outline-style: hidden;
@@ -104,7 +104,7 @@ div h2 {
     left: 50%;
     transform: translate(-50%, -10%);
     align-items: center;
-    background: url(/backgrounds/urlbackwithjump.png);
+
 }
 
 button {

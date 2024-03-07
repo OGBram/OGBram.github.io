@@ -4,7 +4,8 @@ window.addEventListener('load', function(){
     canvas.width = 600;
     canvas.height = 432;
     ctx.font = "30px 'Comic Sans MS', sans-serif";
-    ctx.fillStyle = "#45a049";
+    ctx.fillStyle = "hsl(120, 100%, 50%)";
+    ctx.globalAlpha = 1.0;
 
     class Cats {
             constructor(game) {
@@ -139,7 +140,7 @@ window.addEventListener('load', function(){
                 this.frameX <= this.maxFrame ? this.frameX++ :
                 
                 context.save();
-                ctx.globalAlpha = .85;
+                ctx.globalAlpha = 1.0;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -191,6 +192,79 @@ window.addEventListener('load', function(){
                 context.restore();    
             }
         }
+    class Stage {
+        constructor(game) {
+                    this.game = game;
+                    this.dx = 0;
+                    this.dy = 0;
+                    this.speedModifier = 1;
+                    this.spriteWidth = 600;
+                    this.spriteHeight = 432;
+                    this.width = this.spriteWidth;
+                    this.height = this.spriteHeight;
+                    this.x = this.game.width * 0.5 - this.width * 0.5;
+                    this.y = this.game.height * 0.5 - this.height * 0.5;
+                    this.image = document.getElementById("stage");
+                    this.frameX = 0;
+                    this.frameY = 0;
+                    this.maxFrame = 0;
+                }
+        
+                draw(context,) {
+                    // this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
+                    context.save();
+                    ctx.globalAlpha = 1.0;
+                    context.drawImage(
+                        this.image,
+                        this.frameX * this.spriteWidth,
+                        this.frameY * this.spriteHeight,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        this.x,
+                        this.y,
+                        this.width,
+                        this.height,
+                    );
+                    context.restore();    
+                }
+            }    
+    class Starfeild {
+            constructor(game) {
+                    this.game = game;
+                    this.dx = 0;
+                    this.dy = 0;
+                    this.speedModifier = 1;
+                    this.spriteWidth = 30;
+                    this.spriteHeight = 700;
+                    this.width = 1900;
+                    this.height = this.spriteHeight;
+                    this.x = 0;
+                    this.y = 0;
+                    this.image = document.getElementById("starFeild");
+                    this.frameX = 0;
+                    this.frameY = 1;
+                    this.maxFrame = 60;
+                    this.count = 0;
+
+            }
+                draw(context,) {
+                    if(this.count = 1){this.frameX < this.maxFrame ? this.frameX++ : this.frameX = 0}
+                    context.save();
+                    ctx.globalAlpha = 1;
+                    context.drawImage(
+                        this.image,
+                        this.frameX * this.spriteWidth,
+                        this.frameY * this.spriteHeight,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        this.x,
+                        this.y,
+                        this.width,
+                        this.height,
+                    );
+                    context.restore();    
+                }
+            }    
 
     class Background2 {
         constructor(game) {
@@ -213,7 +287,7 @@ window.addEventListener('load', function(){
         draw(context,) {
                 this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                 context.save();
-                ctx.globalAlpha = 0.3;
+                ctx.globalAlpha = .3;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -235,6 +309,8 @@ window.addEventListener('load', function(){
             this.width = this.canvas.width;
             this.height = this.canvas.height;
             this.ispressed = false;
+            this.starFeild = new Starfeild(this);
+            this.stage = new Stage(this);
             this.background = new Background(this);
             this.background2 = new Background2(this);
             this.detonate = new Detonate(this);
@@ -293,6 +369,8 @@ window.addEventListener('load', function(){
         }
 
         render(context) {
+            this.starFeild.draw(context);
+            this.stage.draw(context);
             this.catPool.forEach(cat => {
                 if (!cat.free) {
                     if (this.mouse.pressed && this.isMouseOverCat(cat)) {
@@ -305,7 +383,7 @@ window.addEventListener('load', function(){
             });
             this.mouse.pressed = false;
             this.background.draw(context);
-            this.background2.draw(context, 0.5);
+            this.background2.draw(context);
             this.detonate.draw(context);
 
 
@@ -315,7 +393,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 10; 
+    var requiredElapsed = 1000 / 15; 
     
     requestAnimationFrame(loop);
     
@@ -327,13 +405,11 @@ window.addEventListener('load', function(){
     
         if (elapsed > requiredElapsed) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -55, canvas.height);
-            
             game.render(ctx);
             game.catPool.forEach(cat => {
                 cat.update();
             });
-    
+            ctx.fillText(`cats:${game.catPool.length}`, canvas.width/2 -55, canvas.height);
             lastTime = now;
         }
     } 
