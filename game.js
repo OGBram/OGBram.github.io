@@ -234,8 +234,8 @@ window.addEventListener('load', function(){
                     this.dx = 0;
                     this.dy = 0;
                     this.speedModifier = 1;
-                    this.spriteWidth = 1920;
-                    this.spriteHeight = 1200;
+                    this.spriteWidth = 9000;
+                    this.spriteHeight = 630;
                     this.width = this.spriteWidth;
                     this.height = this.spriteHeight;
                     this.x = 0;
@@ -259,7 +259,7 @@ window.addEventListener('load', function(){
                         this.spriteWidth,
                         this.spriteHeight,
                         this.x--,
-                        this.y--,
+                        this.y,
                         this.width,
                         this.height,
                     );
@@ -398,7 +398,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 15; 
+    var requiredElapsed = 1000 / 10; 
     
     requestAnimationFrame(loop);
     
