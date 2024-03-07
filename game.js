@@ -88,8 +88,16 @@ window.addEventListener('load', function(){
                          this.x ++;
                          this.frameY = 6;  
                         }
+                        if(this.speedX > 2){
+                            this.speedX = 1;
+                        }
+                            if(this.speedY > 2){
+                            this.speedY--;
+                        }    
+                        
                     }
-             }
+
+                }
 
             catSleep(cat){ 
                 this.free = false;
