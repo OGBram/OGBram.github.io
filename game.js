@@ -320,7 +320,7 @@ window.addEventListener('load', function(){
             this.background2 = new Background2(this);
             this.detonate = new Detonate(this);
             this.catPool = [];
-            this.max = 12;
+            this.max = 1;
             this.createCatPool();
             this.getCat();
             this.startCatButton = document.getElementById('Hi');
