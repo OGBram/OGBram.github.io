@@ -58,7 +58,7 @@ window.addEventListener('load', function(){
                         this.speedY+=5;
                         this.speedX = Math.random()*4 -2;
                     }
-                    if(this.x >= 485){
+                    if(this.x >= 450){
                         this.speedX--;
 
                     }
@@ -66,7 +66,7 @@ window.addEventListener('load', function(){
                         this.speedX++;
          
                     }
-                    if(this.y > 315){
+                    if(this.y > 300){
                         this.speedY--;
                         this.speedX = Math.random()*4 -2;
           
@@ -382,9 +382,6 @@ window.addEventListener('load', function(){
             });
             this.mouse.pressed = false;
             this.background.draw(context);
-    
-            // this.detonate.draw(context);
-            // this.Ui.draw(context);
 
 
         }
