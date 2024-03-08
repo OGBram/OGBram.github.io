@@ -54,51 +54,34 @@ window.addEventListener('load', function(){
                 }
                  
                 if(!this.free){
-                    if(this.x > 290 && this.y >220 && this.x <375){
-                         this.y += -15;
-                         this.x += this.speedX;
-                        }
-                        
-                        if(this.y >= this.maxY){
-                         this.y += this.speedY-5;
-                         this.x += this.speedX++;
-                         this.frameY = 6;
-                         }
-                        
-                         if(this.y <= this.minY && this.x < 490){
-                         this.y += this.speedY+12;
-                         this.x += this.speedX++;  
-                        }
-                        
-                        if(this.x >= 450){
-                         this.speedX = (Math.random() * 4 -2);
-                         this.speedY = (Math.random() * 5 -2);
-                         this.speedX --;
-                         this.frameY = 5;
-                    
-                        }
-                        if(!this.free){
-                         this.x += this.speedX;
-                         this.y += this.speedY;
-                        }
-                        
-                        if(this.x < 110){
-                         this.speedX = (Math.random() * 5 -2);
-                         this.speedY = (Math.random() * 4 -2);
-                         this.x ++;
-                         this.frameY = 6;  
-                        }
-                        if(this.speedX > 2){
-                            this.speedX = 1;
-                        }
-                            if(this.speedY > 2){
-                            this.speedY--;
-                        }    
-                        
+                    if(this.y <= 100){
+                        this.speedY+=5;
+                        this.speedX = Math.random()*4 -2;
                     }
+                    if(this.x >= 550){
+                        this.speedX--;
 
+                    }
+                    if(this.x < 50){
+                        this.speedX++;
+         
+                    }
+                    if(this.y > 315){
+                        this.speedY--;
+                        this.speedX = Math.random()*4 -2;
+          
+                    }
+                    if(this.speedY > 3){
+                        this.speedX = 1;
+                        this.speedY = 1;
+                    }
+                    this.x+=this.speedX;
+                    this.y+=this.speedY;
+                    if(this.speedX > 0){
+                        this.frameY = 6;
+                    }else this.frameY = 5;
                 }
-
+            }
             catSleep(cat){ 
                 this.free = false;
                 this.minFrame = 0;
@@ -279,42 +262,6 @@ window.addEventListener('load', function(){
                 }
             }    
 
-    class Background2 {
-        constructor(game) {
-                this.game = game;
-                this.dx = 0;
-                this.dy = 0;
-                this.speedModifier = 1;
-                this.spriteWidth = 82;
-                this.spriteHeight = 120;
-                this.width = this.spriteWidth;
-                this.height = this.spriteHeight;
-                this.x = this.game.width * 0.5 - this.width * 0.5;
-                this.y = this.game.height * 0.5 - this.height * 0.5;
-                this.image = document.getElementById("player");
-                this.frameX = 2;
-                this.frameY = 0;
-                this.maxFrame = 2;
-            }
-    
-        draw(context,) {
-                // this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
-                context.save();
-                ctx.globalAlpha = 0.7;
-                context.drawImage(
-                    this.image,
-                    this.frameX * this.spriteWidth,
-                    this.frameY * this.spriteHeight,
-                    this.spriteWidth,
-                    this.spriteHeight,
-                    this.x-15,
-                    this.y+55,
-                    this.width,
-                    this.height,
-                );
-                context.restore();
-            }
-    }
     class Ui {
         constructor(game) {
                 this.game = game;
@@ -365,9 +312,8 @@ window.addEventListener('load', function(){
             this.starFeild = new Starfeild(this);
             this.stage = new Stage(this);
             this.background = new Background(this);
-            this.background2 = new Background2(this);
-            this.detonate = new Detonate(this);
-            this.Ui = new Ui(this);
+            // this.detonate = new Detonate(this);
+            // this.Ui = new Ui(this);
             this.catPool = [];
             this.max = 1;
             this.createCatPool();
@@ -436,8 +382,8 @@ window.addEventListener('load', function(){
             });
             this.mouse.pressed = false;
             this.background.draw(context);
-            // this.background2.draw(context);
-            this.detonate.draw(context);
+    
+            // this.detonate.draw(context);
             // this.Ui.draw(context);
 
 
@@ -447,7 +393,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 8; 
+    var requiredElapsed = 1000 / 6; 
     
     requestAnimationFrame(loop);
     
