@@ -7,3 +7,7 @@ Temple Cats version 0.11
 
 CanvasRenderingContext2D.arc()
 CanvasRenderingContext2D.rotate()
+
+A soldier, yet a priest
+clasping my hands in prayer
+toward the moon
