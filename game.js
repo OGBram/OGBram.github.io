@@ -3,7 +3,7 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 432;
-    ctx.font = "17px 'math', sans-serif";
+    ctx.font = "17px 'Times New Roman', san-serif";
     ctx.fillStyle = "white";
     ctx.globalAlpha = 1.0;
 
