@@ -3,9 +3,9 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 432;
-    ctx.font = "17px 'Times New Roman', sans-serif";
+    ctx.font = "16px monospace"
     ctx.fillStyle = "white";
-    ctx.globalAlpha = 1.0;
+    ctx.globalAlpha = .9;
 
     class Cats {
             constructor(game) {
@@ -109,44 +109,7 @@ window.addEventListener('load', function(){
                 }           
             }    
     }
-    class Detonate {
-        constructor(game) {
-                this.game = game;
-                this.speedModifier = 1;
-                this.spriteWidth = 300;
-                this.spriteHeight = 300;
-                this.width = this.spriteWidth*2;
-                this.height = this.spriteHeight*2;
-                this.image = document.getElementById("detonate");
-                this.frameX = 23;
-                this.frameY = 1;
-                this.maxFrame = 22;
-                this.x = game.width/10;
-                this.y = game.height/10;
-                this.ispressed = false;
-            }
     
-            draw(context,) {
-          
-                this.frameX <= this.maxFrame ? this.frameX++ :
-                
-                context.save();
-                ctx.globalAlpha = 1.0;
-                context.drawImage(
-                    this.image,
-                    this.frameX * this.spriteWidth,
-                    this.frameY * this.spriteHeight,
-                    this.spriteWidth,
-                    this.spriteHeight,
-                    this.x-75,
-                    this.y-150,
-                    this.width,
-                    this.height,
-                );
-                context.restore();    
-            }
-        }
-            
     class Background {
         constructor(game) {
                 this.game = game;
@@ -241,8 +204,6 @@ window.addEventListener('load', function(){
                     if(this.x >= 8000) {
                         reset()
                     }
-                    context.save();
-                    ctx.globalAlpha = 1;
                     context.drawImage(
                         this.image,
                         this.frameX * this.spriteWidth,
@@ -254,7 +215,7 @@ window.addEventListener('load', function(){
                         this.width/2,
                         this.height/2,
                     );
-                    context.restore();    
+  
                 }
                 reset(){
                     this.x = 0;
@@ -312,7 +273,6 @@ window.addEventListener('load', function(){
             this.starFeild = new Starfeild(this);
             this.stage = new Stage(this);
             this.background = new Background(this);
-            // this.detonate = new Detonate(this);
             // this.Ui = new Ui(this);
             this.catPool = [];
             this.max = 1;
@@ -325,7 +285,6 @@ window.addEventListener('load', function(){
                 pressed: false
             };
             this.startCatButton.addEventListener('click', e => {
-                this.detonate.frameX = 0;
                 this.max = 1;
                 this.catPool.splice(this.max, this.catPool.length);
                 this.catPool.forEach(cat => {
@@ -368,6 +327,7 @@ window.addEventListener('load', function(){
         }
 
         render(context) {
+            
             this.starFeild.draw(context);
             this.stage.draw(context);
             this.catPool.forEach(cat => {
@@ -382,6 +342,14 @@ window.addEventListener('load', function(){
             });
             this.mouse.pressed = false;
             this.background.draw(context);
+
+            ctx.fillText("\"Birds migrating,", 205, 354);
+            ctx.fillText("Ah—where they are headed,", 207, 376);
+            ctx.fillText("must be my homeland\"", 232, 397);
+            context.save()
+            ctx.font = "10px monospace"
+            ctx.fillText("-Murakami 1938.", 325, 420);
+            context.restore()
 
 
         }
@@ -406,9 +374,6 @@ window.addEventListener('load', function(){
             game.catPool.forEach(cat => {
                 cat.update();
             });
-            ctx.fillText("\"Birds migrating,", 200, 375);
-            ctx.fillText("Ah—where they are headed,", 200, 395);
-            ctx.fillText("must be my homeland\"", 205, 415);
             lastTime = now;
         }
     } 
