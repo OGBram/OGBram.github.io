@@ -2,10 +2,10 @@ window.addEventListener('load', function(){
     const canvas = document.getElementById('mycanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
-    canvas.height = 432;
+    canvas.height = 500;
     ctx.font = "16px monospace"
     ctx.fillStyle = "white";
-    ctx.globalAlpha = .9;
+    ctx.globalAlpha = .75;
 
     class Cats {
             constructor(game) {
@@ -204,6 +204,8 @@ window.addEventListener('load', function(){
                     if(this.x >= 8000) {
                         reset()
                     }
+                    context.save()
+                    context.globalAlpha = 1.0;
                     context.drawImage(
                         this.image,
                         this.frameX * this.spriteWidth,
@@ -214,7 +216,8 @@ window.addEventListener('load', function(){
                         this.y,
                         this.width/2,
                         this.height/2,
-                    );
+                    
+                    );context.restore();
   
                 }
                 reset(){
