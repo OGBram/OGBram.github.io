@@ -58,7 +58,7 @@ window.addEventListener('load', function(){
                         this.speedY+=5;
                         this.speedX = Math.random()*4 -2;
                     }
-                    if(this.x >= 550){
+                    if(this.x >= 485){
                         this.speedX--;
 
                     }
