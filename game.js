@@ -436,9 +436,9 @@ window.addEventListener('load', function(){
             });
             this.mouse.pressed = false;
             this.background.draw(context);
-            this.background2.draw(context);
+            // this.background2.draw(context);
             this.detonate.draw(context);
-            this.Ui.draw(context);
+            // this.Ui.draw(context);
 
 
         }
