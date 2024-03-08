@@ -3,7 +3,7 @@ window.addEventListener('load', function(){
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 432;
-    ctx.font = "17px 'Times New Roman', san-serif";
+    ctx.font = "17px 'Times New Roman', sans-serif";
     ctx.fillStyle = "white";
     ctx.globalAlpha = 1.0;
 
@@ -407,7 +407,7 @@ window.addEventListener('load', function(){
                 cat.update();
             });
             ctx.fillText("\"Birds migrating,", 200, 375);
-            ctx.fillText("Ah-where they are headed,", 200, 395);
+            ctx.fillText("Ah—where they are headed,", 200, 395);
             ctx.fillText("must be my homeland\"", 205, 415);
             lastTime = now;
         }
