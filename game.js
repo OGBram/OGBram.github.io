@@ -225,7 +225,7 @@ window.addEventListener('load', function(){
                     this.y = 0;
                 }
         }    
-        class FireSheet {
+    class FireSheet {
             constructor(game) {
                     this.game = game;
                     this.dx = 0;
@@ -371,15 +371,15 @@ window.addEventListener('load', function(){
             this.stage.draw(context);
             this.catPool.forEach(cat => {
                 if (!cat.free) {
-                    if (this.mouse.pressed && this.isMouseOverCat(cat)) {
-                        cat.free = true;
-                        cat.catSleep();
-                    }
+                    // if (this.mouse.pressed && this.isMouseOverCat(cat)) {
+                    //     cat.free = true;
+                    //     cat.catSleep();
+                    // }
                     cat.update();
                     cat.draw(context);
                 }
             });
-            this.mouse.pressed = false;
+            // this.mouse.pressed = false;
             this.background.draw(context);
             this.fireSheet.draw(context);
 
@@ -411,9 +411,6 @@ window.addEventListener('load', function(){
         if (elapsed > requiredElapsed) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             game.render(ctx);
-            game.catPool.forEach(cat => {
-                cat.update();
-            });
             lastTime = now;
         }
     } 
