@@ -54,6 +54,7 @@ window.addEventListener('load', function(){
                 }
                 if(this.y <= 110 && this.x <= 150){
                     game.createHeartPool();
+                    this.frameX = 6;
                 } 
                 if(!this.free){
                     if(this.y <= 100){
@@ -295,8 +296,8 @@ window.addEventListener('load', function(){
                     this.spriteHeight,
                     this.x,
                     this.y,
-                    this.width/2,
-                    this.height/2,
+                    this.width/1.8,
+                    this.height/1.8,
                 );
                 context.restore();    
             }
