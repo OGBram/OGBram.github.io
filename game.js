@@ -26,7 +26,7 @@ window.addEventListener('load', function(){
                 this.speedX = 1;
                 this.speedY = 1;
                 this.maxY = 300;
-                this.minY = 65;
+                this.minY = 100;
                 this.selectCat = false;
                 this.start();
                 
@@ -52,7 +52,9 @@ window.addEventListener('load', function(){
                 if(this.frameX > this.maxFrame){
                 this.reset(); 
                 }
-                 
+                if(this.y <= 110 && this.x <= 150){
+                    game.createHeartPool();
+                } 
                 if(!this.free){
                     if(this.y <= 100){
                         this.speedY+=5;
@@ -261,40 +263,49 @@ window.addEventListener('load', function(){
                     context.restore();    
                 }
             }
-    class Ui {
+    class Heart {
         constructor(game) {
                 this.game = game;
                 this.dx = 0;
                 this.dy = 0;
                 this.speedModifier = 1;
-                this.spriteWidth = 320;
-                this.spriteHeight = 80;
+                this.spriteWidth = 16;
+                this.spriteHeight = 16;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
-                this.x = 285;
-                this.y = 350;
-                this.image = document.getElementById("box");
+                this.x = 50 + Math.random()*100;
+                this.y = 75 + Math.random()*100;
+                this.image = document.getElementById("hearts");
                 this.frameX = 0;
-                this.frameY = 3;
+                this.frameY = Math.floor(Math.random()*3);
                 this.maxFrame = 0;
+                this.speedX = 0;
+                this.speedY = 0;
 
         }
             draw(context,) {
-                // this.frameX < this.maxFrame ? this.frameX++ : this.frameX = 3;
+
                 context.save();
-                ctx.globalAlpha = .7;
+                ctx.globalAlpha = .9;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x-150,
+                    this.x,
                     this.y,
-                    this.width,
-                    this.height,
+                    this.width/2,
+                    this.height/2,
                 );
                 context.restore();    
+            }
+            update(){
+                this.speedX = Math.floor(Math.random()*25);
+                this.speedY = -3;
+                this.x += this.speedX;
+                this.y += this.speedY;
+
             }
             reset(){
                 this.x = 0;
@@ -312,14 +323,16 @@ window.addEventListener('load', function(){
             this.stage = new Stage(this);
             this.background = new Background(this);
             this.fireSheet = new FireSheet(this);
+            this.hearts = new Heart(this);
             this.catPool = [];
+            this.heartPool = [];
             this.max = 1;
             this.createCatPool();
-            this.mouse = {
-                x: this.width * 0.5,
-                y: this.height * 0.5,
-                pressed: false
-            };
+            // this.mouse = {
+            //     x: this.width * 0.5,
+            //     y: this.height * 0.5,
+            //     pressed: false
+            // };
             // this.startCatButton.addEventListener('click', e => {
             //     this.max = 1;
             //     this.catPool.splice(this.max, this.catPool.length);
@@ -338,21 +351,17 @@ window.addEventListener('load', function(){
             // });
 
         }
+        createHeartPool(){
+            for (let i = 0; i < 6; i++){
+                this.heartPool.push(new Heart(this));
+            }
+        }
         createCatPool(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
             }
         }   
 
-        getCat() {
-            for (let i = 0; i < this.catPool.length; i++) {
-                if (this.catPool[i].free) {
-                    return this.catPool[i];
-                }
-            }
-            return null; 
-        }
-        
         isMouseOverCat(cat) {
             return (
                 this.mouse.x >= cat.x &&
@@ -376,9 +385,14 @@ window.addEventListener('load', function(){
                     cat.draw(context);
                 }
             });
-            // this.mouse.pressed = false;
+
+            this.heartPool.forEach(hearts => {
+                hearts.draw(context)
+                hearts.update();
+            });
             this.background.draw(context);
             this.fireSheet.draw(context);
+
 
             ctx.fillText("\"Birds migrating,", 205, 354);
             ctx.fillText("Ah—where they are headed,", 207, 376);
@@ -395,7 +409,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 6; 
+    var requiredElapsed = 1000 / 8; 
     
     requestAnimationFrame(loop);
     
