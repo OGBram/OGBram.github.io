@@ -201,7 +201,7 @@ window.addEventListener('load', function(){
 
             }
                 draw(context,) {
-                    if(this.x >= 8000) {
+                    if(this.x >= 7000) {
                         reset()
                     }
                     context.save()
