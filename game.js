@@ -2,7 +2,7 @@ window.addEventListener('load', function(){
     const canvas = document.getElementById('mycanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
-    canvas.height = 500;
+    canvas.height = 600;
     ctx.font = "16px monospace"
     ctx.fillStyle = "white";
     ctx.globalAlpha = .75;
@@ -312,12 +312,9 @@ window.addEventListener('load', function(){
             this.stage = new Stage(this);
             this.background = new Background(this);
             this.fireSheet = new FireSheet(this);
-            // this.Ui = new Ui(this);
             this.catPool = [];
             this.max = 1;
             this.createCatPool();
-            // this.getCat();
-            // this.startCatButton = document.getElementById('return');
             this.mouse = {
                 x: this.width * 0.5,
                 y: this.height * 0.5,
