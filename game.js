@@ -131,7 +131,7 @@ window.addEventListener('load', function(){
             draw(context,) {
                 this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                 context.save();
-                ctx.globalAlpha = 0.5;
+                ctx.globalAlpha = 0.4;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
