@@ -314,6 +314,57 @@ window.addEventListener('load', function(){
             }
         }
 
+    class StageHeart {
+            constructor(game) {
+                    this.game = game;
+                    this.dx = 0;
+                    this.dy = 0;
+                    this.speedModifier = 1;
+                    this.spriteWidth = 16;
+                    this.spriteHeight = 16;
+                    this.width = this.spriteWidth;
+                    this.height = this.spriteHeight;
+                    this.x = game.width * .1 + Math.floor(Math.random()*600);
+                    this.y = game.height * .3 + Math.floor(Math.random()*100);
+                    this.image = document.getElementById("hearts");
+                    this.frameX = 0;
+                    this.frameY = Math.floor(Math.random()*3);
+                    this.maxFrame = 0;
+                    this.pickup = false;
+                    this.cat = game.catPool[0];
+
+            }
+                draw(context,) {
+    
+                    context.save();
+                    ctx.globalAlpha = .9;
+                    context.drawImage(
+                        this.image,
+                        this.frameX * this.spriteWidth,
+                        this.frameY * this.spriteHeight,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        this.x,
+                        this.y,
+                        this.width/1.5,
+                        this.height/1.5,
+                    );
+                    context.restore();    
+                }
+                // update(){
+                //     this.stageHeartPool.forEach(hearts => {
+                //         if(this.x === this.cat.x){
+                //             this.frameY = 2;
+                //         }
+                //     });
+                // }
+                reset(){
+                    this.x = 0;
+                    this.y = 0;
+                }
+            }
+
+
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
@@ -327,8 +378,10 @@ window.addEventListener('load', function(){
             this.hearts = new Heart(this);
             this.catPool = [];
             this.heartPool = [];
+            this.stageHeartPool = [];
             this.max = 1;
             this.createCatPool();
+            this.createStagePool();
             // this.mouse = {
             //     x: this.width * 0.5,
             //     y: this.height * 0.5,
@@ -362,7 +415,11 @@ window.addEventListener('load', function(){
                 this.catPool.push(new Cats(this));
             }
         }   
-
+        createStagePool(){
+            for (let i = 0; i < 25; i++){
+                this.heartPool.push(new StageHeart(this));
+            }
+        }
         isMouseOverCat(cat) {
             return (
                 this.mouse.x >= cat.x &&
@@ -375,7 +432,9 @@ window.addEventListener('load', function(){
         render(context) {
             
             this.starFeild.draw(context);
+            
             this.stage.draw(context);
+            
             this.catPool.forEach(cat => {
                 if (!cat.free) {
                     // if (this.mouse.pressed && this.isMouseOverCat(cat)) {
@@ -387,10 +446,13 @@ window.addEventListener('load', function(){
                 }
             });
 
+            
             this.heartPool.forEach(hearts => {
                 hearts.draw(context)
-                hearts.update();
+
             });
+
+
             this.background.draw(context);
             this.fireSheet.draw(context);
 
