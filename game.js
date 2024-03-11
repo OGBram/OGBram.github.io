@@ -52,7 +52,7 @@ window.addEventListener('load', function(){
                 if(this.frameX > this.maxFrame){
                 this.reset(); 
                 }
-                if(this.y <= 120 && this.x <= 150) /*|| this.y <130 && this.x >325)*/{
+                if(this.y <= 120 && this.x <= 150) {
                     game.createHeartPool();
                     this.frameX = 6;
                 } 
@@ -204,9 +204,12 @@ window.addEventListener('load', function(){
 
             }
                 draw(context,) {
-                    if(this.x >= 7000) {
-                        reset()
-                    }
+                    let timer = 0;
+                    
+                    if(timer>9000){
+                        this.reset();
+                        timer = 0;
+                    }else timer++;
                     context.save()
                     context.globalAlpha = 1.0;
                     context.drawImage(
