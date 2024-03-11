@@ -324,14 +324,13 @@ window.addEventListener('load', function(){
                     this.spriteHeight = 16;
                     this.width = this.spriteWidth;
                     this.height = this.spriteHeight;
-                    this.x = game.width * .1 + Math.floor(Math.random()*600);
-                    this.y = game.height * .3 + Math.floor(Math.random()*100);
+                    this.x = game.width  - Math.floor(Math.random()*600);
+                    this.y = game.height * .5 + Math.floor(Math.random()*100);
                     this.image = document.getElementById("hearts");
                     this.frameX = 0;
                     this.frameY = Math.floor(Math.random()*3);
                     this.maxFrame = 0;
                     this.pickup = false;
-                    this.cat = game.catPool[0];
 
             }
                 draw(context,) {
@@ -351,13 +350,9 @@ window.addEventListener('load', function(){
                     );
                     context.restore();    
                 }
-                // update(){
-                //     this.stageHeartPool.forEach(hearts => {
-                //         if(this.x === this.cat.x){
-                //             this.frameY = 2;
-                //         }
-                //     });
-                // }
+                update(){
+
+                }
                 reset(){
                     this.x = 0;
                     this.y = 0;
@@ -376,6 +371,7 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.fireSheet = new FireSheet(this);
             this.hearts = new Heart(this);
+            this.stageHeart = new StageHeart(this);
             this.catPool = [];
             this.heartPool = [];
             this.stageHeartPool = [];
@@ -416,8 +412,8 @@ window.addEventListener('load', function(){
             }
         }   
         createStagePool(){
-            for (let i = 0; i < 25; i++){
-                this.heartPool.push(new StageHeart(this));
+            for (let i = 0; i < 20; i++){
+                this.stageHeartPool.push(new StageHeart(this));
             }
         }
         isMouseOverCat(cat) {
@@ -445,11 +441,16 @@ window.addEventListener('load', function(){
                     cat.draw(context);
                 }
             });
-
             
-            this.heartPool.forEach(hearts => {
-                hearts.draw(context)
+            this.stageHeartPool.forEach(stageHeart => {
+                stageHeart.draw(context);
+            })
+            
 
+
+            this.heartPool.forEach(hearts => {
+                hearts.draw(context)                                                    
+                hearts.update();
             });
 
 
