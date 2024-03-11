@@ -206,10 +206,11 @@ window.addEventListener('load', function(){
             }
                 draw(context,) {
                 
-                    if(this.timer>9000){
+                    if(this.timer>1000){
                         this.reset();
                         this.timer = 0;
                     }else this.timer++;
+                    console.log(this.timer)
                     context.save()
                     context.globalAlpha = 1.0;
                     context.drawImage(
@@ -229,6 +230,8 @@ window.addEventListener('load', function(){
                 reset(){
                     this.x = 0;
                     this.y = 0;
+                    this.frameX = 0;
+                    this.frameY = 0;
                 }
         }    
     class FireSheet {
