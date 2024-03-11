@@ -52,7 +52,7 @@ window.addEventListener('load', function(){
                 if(this.frameX > this.maxFrame){
                 this.reset(); 
                 }
-                if(this.y <= 110 && this.x <= 150){
+                if(this.y <= 120 && this.x <= 150){
                     game.createHeartPool();
                     this.frameX = 6;
                 } 
@@ -287,7 +287,7 @@ window.addEventListener('load', function(){
             draw(context,) {
 
                 context.save();
-                ctx.globalAlpha = .9;
+                ctx.globalAlpha = 1.0;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -325,12 +325,12 @@ window.addEventListener('load', function(){
                     this.width = this.spriteWidth;
                     this.height = this.spriteHeight;
                     this.x = game.width  - Math.floor(Math.random()*600);
-                    this.y = game.height * .5 + Math.floor(Math.random()*100);
+                    this.y = game.height * .5 + Math.floor(Math.random()*100-100);
                     this.image = document.getElementById("hearts");
                     this.frameX = 0;
                     this.frameY = Math.floor(Math.random()*3);
                     this.maxFrame = 0;
-                    this.pickup = false;
+                    this.cat = this.game.catPool[0];
 
             }
                 draw(context,) {
@@ -351,8 +351,18 @@ window.addEventListener('load', function(){
                     context.restore();    
                 }
                 update(){
-
+                    // Define a range or tolerance (e.g., 5 units)
+                    const range = 5;
+                
+                    // Check if the x and y values are within the specified range
+                    if (
+                        Math.abs(this.x - this.cat.x-10) <= range &&
+                        Math.abs(this.y - this.cat.y-10) <= range
+                    ) {
+                        this.frameY = 5;
+                    }
                 }
+                
                 reset(){
                     this.x = 0;
                     this.y = 0;
@@ -371,11 +381,11 @@ window.addEventListener('load', function(){
             this.background = new Background(this);
             this.fireSheet = new FireSheet(this);
             this.hearts = new Heart(this);
-            this.stageHeart = new StageHeart(this);
             this.catPool = [];
             this.heartPool = [];
             this.stageHeartPool = [];
             this.max = 1;
+            this.stageHeart = new StageHeart(this);
             this.createCatPool();
             this.createStagePool();
             // this.mouse = {
@@ -444,6 +454,7 @@ window.addEventListener('load', function(){
             
             this.stageHeartPool.forEach(stageHeart => {
                 stageHeart.draw(context);
+                stageHeart.update()
             })
             
 
@@ -473,7 +484,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 8; 
+    var requiredElapsed = 1000 / 20; 
     
     requestAnimationFrame(loop);
     
