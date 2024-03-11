@@ -201,15 +201,15 @@ window.addEventListener('load', function(){
                     this.frameX = 0;
                     this.frameY = 0;
                     this.maxFrame = 0;
+                    this.timer = 0;
 
             }
                 draw(context,) {
-                    let timer = 0;
-                    
-                    if(timer>9000){
+                
+                    if(this.timer>9000){
                         this.reset();
-                        timer = 0;
-                    }else timer++;
+                        this.timer = 0;
+                    }else this.timer++;
                     context.save()
                     context.globalAlpha = 1.0;
                     context.drawImage(
@@ -487,7 +487,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 20; 
+    var requiredElapsed = 1000 / 10; 
     
     requestAnimationFrame(loop);
     
