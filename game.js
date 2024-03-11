@@ -52,7 +52,7 @@ window.addEventListener('load', function(){
                 if(this.frameX > this.maxFrame){
                 this.reset(); 
                 }
-                if(this.y <= 120 && this.x <= 150) {
+                if(this.y <= 122 && this.x <= 250) {
                     game.createHeartPool();
                     this.frameX = 6;
                 } 
@@ -358,12 +358,12 @@ window.addEventListener('load', function(){
                 }
                 update(){
                     // Define a range or tolerance (e.g., 5 units)
-                    const range = 5;
+                    const range = 10;
                 
                     // Check if the x and y values are within the specified range
                     if (
-                        Math.abs(this.x - this.cat.x-10) <= range &&
-                        Math.abs(this.y - this.cat.y-10) <= range
+                        Math.abs(this.x - this.cat.x-12) <= range &&
+                        Math.abs(this.y - this.cat.y-12) <= range
                     ) {
                         this.frameY = 5;
                     }
@@ -490,7 +490,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 10; 
+    var requiredElapsed = 1000 / 9; 
     
     requestAnimationFrame(loop);
     
