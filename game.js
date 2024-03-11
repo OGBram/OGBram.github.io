@@ -75,8 +75,8 @@ window.addEventListener('load', function(){
           
                     }
                     if(this.speedY > 3){
-                        this.speedX = 1;
-                        this.speedY = 1;
+                        this.speedX = 2;
+                        this.speedY = 2;
                     }
                     this.x+=this.speedX;
                     this.y+=this.speedY;
@@ -206,7 +206,7 @@ window.addEventListener('load', function(){
             }
                 draw(context,) {
                 
-                    if(this.timer>1000){
+                    if(this.timer>5000){
                         this.reset();
                         this.timer = 0;
                     }else this.timer++;
