@@ -422,7 +422,7 @@ window.addEventListener('load', function(){
             }
         }   
         createStagePool(){
-            for (let i = 0; i < 20; i++){
+            for (let i = 0; i < 30; i++){
                 this.stageHeartPool.push(new StageHeart(this));
             }
         }
