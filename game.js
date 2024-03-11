@@ -52,7 +52,7 @@ window.addEventListener('load', function(){
                 if(this.frameX > this.maxFrame){
                 this.reset(); 
                 }
-                if(this.y <= 120 && this.x <= 150){
+                if(this.y <= 120 && this.x <= 150) /*|| this.y <130 && this.x >325)*/{
                     game.createHeartPool();
                     this.frameX = 6;
                 } 
