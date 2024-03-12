@@ -391,7 +391,7 @@ window.addEventListener('load', function(){
             this.createStagePool();
             setInterval(() => {
                 this.stageHeartPool.push(new StageHeart(this));
-            }, 100000);
+            }, 60000);
         
         }
         createHeartPool(){
