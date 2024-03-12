@@ -206,11 +206,11 @@ window.addEventListener('load', function(){
             }
                 draw(context,) {
                 
-                    if(this.timer>8000){
+                    if(this.timer>7000){
                         this.reset();
                         this.timer = 0;
                     }else this.timer++;
-                    console.log(this.timer)
+                    
                     context.save()
                     context.globalAlpha = 1.0;
                     context.drawImage(
