@@ -342,7 +342,7 @@ window.addEventListener('load', function(){
                 draw(context,) {
     
                     context.save();
-                    ctx.globalAlpha = .9;
+                    ctx.globalAlpha = 1.0;
                     context.drawImage(
                         this.image,
                         this.frameX * this.spriteWidth,
@@ -357,10 +357,9 @@ window.addEventListener('load', function(){
                     context.restore();    
                 }
                 update(){
-                    // Define a range or tolerance (e.g., 5 units)
+
                     const range = 10;
                 
-                    // Check if the x and y values are within the specified range
                     if (
                         Math.abs(this.x - this.cat.x-12) <= range &&
                         Math.abs(this.y - this.cat.y-12) <= range
