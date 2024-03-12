@@ -1,4 +1,3 @@
-
 class FireSheet {
     constructor(game) {
             this.game = game;
@@ -20,7 +19,7 @@ class FireSheet {
         draw(context,) {
             this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
             context.save();
-            context.GlobalAlpha = 1.0;
+            ctx.globalAlpha = 0.5;
             context.drawImage(
                 this.image,
                 this.frameX * this.spriteWidth,
@@ -32,7 +31,7 @@ class FireSheet {
                 this.width/3,
                 this.height/3,
             );
-        context.restore();
+            context.restore();    
         }
-}
+    }
 export default FireSheet;
