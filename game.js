@@ -165,6 +165,7 @@ window.addEventListener('load', function(){
                     this.frameX = 0;
                     this.frameY = 0;
                     this.maxFrame = 0;
+                    this.timer = 0;
                 }
         
                 draw(context,) {
@@ -184,6 +185,11 @@ window.addEventListener('load', function(){
                     );
                     context.restore();    
                 }
+                update() {
+                    if(this.timer = 4000) {
+                        game.stageHeartPool.push(new StageHeart(this));
+                        }else this.timer++;
+                    } 
         }    
     class Starfeild {
             constructor(game) {
@@ -210,7 +216,6 @@ window.addEventListener('load', function(){
                         this.reset();
                         this.timer = 0;
                     }else this.timer++;
-                    console.log(this.timer)
                     context.save()
                     context.globalAlpha = 1.0;
                     context.drawImage(
@@ -224,9 +229,10 @@ window.addEventListener('load', function(){
                         this.width/2,
                         this.height/2,
                     
-                    );context.restore();
-  
-                }
+                    );
+                    context.restore();
+                }                    
+   
                 reset(){
                     this.x = 0;
                     this.y = 0;
@@ -337,7 +343,6 @@ window.addEventListener('load', function(){
                     this.frameY = Math.floor(Math.random()*3);
                     this.maxFrame = 0;
                     this.cat = this.game.catPool[0];
-
             }
                 draw(context,) {
     
@@ -357,7 +362,6 @@ window.addEventListener('load', function(){
                     context.restore();    
                 }
                 update(){
-
                     const range = 10;
                 
                     if (
@@ -366,6 +370,8 @@ window.addEventListener('load', function(){
                     ) {
                         this.frameY = 5;
                     }
+                    
+
                 }
                 
                 reset(){
@@ -393,27 +399,11 @@ window.addEventListener('load', function(){
             this.stageHeart = new StageHeart(this);
             this.createCatPool();
             this.createStagePool();
-            // this.mouse = {
-            //     x: this.width * 0.5,
-            //     y: this.height * 0.5,
-            //     pressed: false
-            // };
-            // this.startCatButton.addEventListener('click', e => {
-            //     this.max = 1;
-            //     this.catPool.splice(this.max, this.catPool.length);
-            //     this.catPool.forEach(cat => {
-            //         cat.free = true;
-            //         cat.start();
-            //     });
-            // });
+            setInterval(() => {
+                this.stageHeartPool.push(new StageHeart(this));
+            }, 100000);
+        
 
-            // window.addEventListener('mousedown', e => {
-            //     this.mouse.x = e.offsetX;
-            //     this.mouse.y = e.offsetY;
-            //     this.mouse.pressed = true;
-            //     this.catPool.push(new Cats(this));
-                
-            // });
 
         }
         createHeartPool(){
@@ -445,13 +435,10 @@ window.addEventListener('load', function(){
             this.starFeild.draw(context);
             
             this.stage.draw(context);
+
             
             this.catPool.forEach(cat => {
                 if (!cat.free) {
-                    // if (this.mouse.pressed && this.isMouseOverCat(cat)) {
-                    //     cat.free = true;
-                    //     cat.catSleep();
-                    // }
                     cat.update();
                     cat.draw(context);
                 }
@@ -472,6 +459,7 @@ window.addEventListener('load', function(){
 
             this.background.draw(context);
             this.fireSheet.draw(context);
+            
 
 
             ctx.fillText("\"Birds migrating,", 205, 354);
