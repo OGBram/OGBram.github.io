@@ -1,3 +1,4 @@
+
 class Cats {
     constructor(game) {
         this.game = game;
