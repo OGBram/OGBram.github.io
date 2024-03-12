@@ -1,4 +1,3 @@
-import Game from "/Game.js";
 import Starfeild from './Starfeild.js';
 import Stage from './Stage.js';
 import Background from './Background.js';
@@ -6,8 +5,6 @@ import FireSheet from './FireSheet.js';
 import Heart from './Heart.js';
 import StageHeart from './StageHeart.js';
 import Cats from './Cats.js';
-
-
 
 window.addEventListener('load', function(){
     const canvas = document.getElementById('mycanvas');
@@ -36,27 +33,11 @@ window.addEventListener('load', function(){
             this.stageHeart = new StageHeart(this);
             this.createCatPool();
             this.createStagePool();
-            // this.mouse = {
-            //     x: this.width * 0.5,
-            //     y: this.height * 0.5,
-            //     pressed: false
-            // };
-            // this.startCatButton.addEventListener('click', e => {
-            //     this.max = 1;
-            //     this.catPool.splice(this.max, this.catPool.length);
-            //     this.catPool.forEach(cat => {
-            //         cat.free = true;
-            //         cat.start();
-            //     });
-            // });
-
-            // window.addEventListener('mousedown', e => {
-            //     this.mouse.x = e.offsetX;
-            //     this.mouse.y = e.offsetY;
-            //     this.mouse.pressed = true;
-            //     this.catPool.push(new Cats(this));
-                
-            // });
+            this.mouse = {
+                x: this.width * 0.5,
+                y: this.height * 0.5,
+                pressed: false
+            };
 
         }
         createHeartPool(){
@@ -91,10 +72,6 @@ window.addEventListener('load', function(){
             
             this.catPool.forEach(cat => {
                 if (!cat.free) {
-                    // if (this.mouse.pressed && this.isMouseOverCat(cat)) {
-                    //     cat.free = true;
-                    //     cat.catSleep();
-                    // }
                     cat.update();
                     cat.draw(context);
                 }
@@ -144,5 +121,3 @@ window.addEventListener('load', function(){
         }
     } 
 });
-
-export default Game;
