@@ -23,8 +23,8 @@ window.addEventListener('load', function(){
                 this.frameY = 6;
                 this.minFrame = 6;
                 this.maxFrame = 8;
-                this.speedX = 1;
-                this.speedY = 1;
+                this.speedX = 2;
+                this.speedY = 2;
                 this.maxY = 300;
                 this.minY = 100;
                 this.selectCat = false;
@@ -74,9 +74,9 @@ window.addEventListener('load', function(){
                         this.speedX = Math.random()*4 -2;
           
                     }
-                    if(this.speedY > 3 || this.speedX >1){
-                        this.speedX = 2;
-                        this.speedY = 2;
+                    if(this.speedY > 3){
+                    
+                        this.speedY = 3;
                     }
                     this.x+=this.speedX;
                     this.y+=this.speedY;
