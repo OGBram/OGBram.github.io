@@ -74,7 +74,7 @@ window.addEventListener('load', function(){
                         this.speedX = Math.random()*4 -2;
           
                     }
-                    if(this.speedY > 3){
+                    if(this.speedY > 3 || this.speedX >1){
                         this.speedX = 2;
                         this.speedY = 2;
                     }
