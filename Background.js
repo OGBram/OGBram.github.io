@@ -19,7 +19,7 @@ class Background {
         draw(context,) {
             this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
             context.save();
-            ctx.globalAlpha = 0.4;
+            context.globalAlpha = 0.3;
             context.drawImage(
                 this.image,
                 this.frameX * this.spriteWidth,
@@ -31,7 +31,7 @@ class Background {
                 this.width,
                 this.height,
             );
-            context.restore();    
+            context.restore();
         }
     }
 export default Background;

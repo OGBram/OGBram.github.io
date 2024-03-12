@@ -1,3 +1,4 @@
+
 class Cats {
     constructor(game) {
         this.game = game;
@@ -44,7 +45,7 @@ class Cats {
         this.reset(); 
         }
         if(this.y <= 122 && this.x <= 235) {
-            game.createHeartPool();
+            this.game.createHeartPool();
             this.frameX = 6;
         } 
         if(!this.free){

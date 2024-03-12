@@ -1,10 +1,13 @@
-import Cats from './Cats.js';
-import Background from './Background.js';
-import Stage from './Stage.js';
+import Game from "/Game.js";
 import Starfeild from './Starfeild.js';
+import Stage from './Stage.js';
+import Background from './Background.js';
 import FireSheet from './FireSheet.js';
 import Heart from './Heart.js';
 import StageHeart from './StageHeart.js';
+import Cats from './Cats.js';
+
+
 
 window.addEventListener('load', function(){
     const canvas = document.getElementById('mycanvas');
@@ -13,14 +16,14 @@ window.addEventListener('load', function(){
     canvas.height = 600;
     ctx.font = "16px monospace"
     ctx.fillStyle = "white";
-    ctx.globalAlpha = .75;
-
+    
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
             this.width = this.canvas.width;
             this.height = this.canvas.height;
             this.ispressed = false;
+            this.ctx = this.canvas.getContext('2d');
             this.starFeild = new Starfeild(this);
             this.stage = new Stage(this);
             this.background = new Background(this);
@@ -102,17 +105,13 @@ window.addEventListener('load', function(){
                 stageHeart.update()
             })
             
-
-
             this.heartPool.forEach(hearts => {
                 hearts.draw(context)                                                    
                 hearts.update();
             });
 
-
             this.background.draw(context);
             this.fireSheet.draw(context);
-
 
             ctx.fillText("\"Birds migrating,", 205, 354);
             ctx.fillText("Ah—where they are headed,", 207, 376);
@@ -121,9 +120,8 @@ window.addEventListener('load', function(){
             ctx.font = "10px monospace"
             ctx.fillText("-Murakami 1938.", 325, 420);
             context.restore()
-
-
         }
+
     }
     
     const game = new Game(canvas);

@@ -19,7 +19,7 @@ class Stage {
             draw(context,) {
                 // this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                 context.save();
-                ctx.globalAlpha = .5;
+                context.globalAlpha = .5;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -33,5 +33,5 @@ class Stage {
                 );
                 context.restore();    
             }
-    }    
+}    
 export default Stage;

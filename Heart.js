@@ -21,7 +21,7 @@ class Heart {
         draw(context,) {
 
             context.save();
-            ctx.globalAlpha = 1.0;
+            context.globalAlpha = 1.0;
             context.drawImage(
                 this.image,
                 this.frameX * this.spriteWidth,
@@ -33,7 +33,7 @@ class Heart {
                 this.width/1.8,
                 this.height/1.8,
             );
-            context.restore();    
+            context.restore();             
         }
         update(){
             this.speedX = Math.floor(Math.random()*25);

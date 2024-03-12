@@ -20,7 +20,7 @@ class StageHeart {
         draw(context,) {
 
             context.save();
-            ctx.globalAlpha = 1.0;
+
             context.drawImage(
                 this.image,
                 this.frameX * this.spriteWidth,
@@ -32,7 +32,7 @@ class StageHeart {
                 this.width/1.5,
                 this.height/1.5,
             );
-            context.restore();    
+
         }
         update(){
 
