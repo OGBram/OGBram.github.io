@@ -185,12 +185,8 @@ window.addEventListener('load', function(){
                     );
                     context.restore();    
                 }
-                update() {
-                    if(this.timer = 4000) {
-                        game.stageHeartPool.push(new StageHeart(this));
-                        }else this.timer++;
-                    } 
-        }    
+        }  
+
     class Starfeild {
             constructor(game) {
                     this.game = game;
@@ -211,7 +207,6 @@ window.addEventListener('load', function(){
 
             }
                 draw(context,) {
-                
                     if(this.timer>8000){
                         this.reset();
                         this.timer = 0;
@@ -275,7 +270,7 @@ window.addEventListener('load', function(){
                     );
                     context.restore();    
                 }
-            }
+        }
     class Heart {
         constructor(game) {
                 this.game = game;
@@ -297,9 +292,8 @@ window.addEventListener('load', function(){
 
         }
             draw(context,) {
-
                 context.save();
-                ctx.globalAlpha = 1.0;
+                context.globalAlpha = 1.0;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -363,23 +357,19 @@ window.addEventListener('load', function(){
                 }
                 update(){
                     const range = 10;
-                
                     if (
                         Math.abs(this.x - this.cat.x-12) <= range &&
                         Math.abs(this.y - this.cat.y-12) <= range
                     ) {
                         this.frameY = 5;
                     }
-                    
-
                 }
                 
                 reset(){
                     this.x = 0;
                     this.y = 0;
                 }
-            }
-
+        }
 
     class Game {
         constructor(canvas) {
@@ -403,8 +393,6 @@ window.addEventListener('load', function(){
                 this.stageHeartPool.push(new StageHeart(this));
             }, 100000);
         
-
-
         }
         createHeartPool(){
             for (let i = 0; i < 6; i++){
