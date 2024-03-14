@@ -379,7 +379,7 @@ window.addEventListener('load', function(){
 
                         if (index !== -1) {
                             this.game.stageHeartPool.splice(index, 1);
-                            if(!this.game.button1.ispressed){
+                            if(this.game.ispressed){
                                 this.game.audio1.play();
                             }
                             
@@ -417,7 +417,6 @@ window.addEventListener('load', function(){
 
             this.width = this.canvas.width;
             this.height = this.canvas.height;
-            this.ispressed = false;
             this.starFeild = new Starfeild(this);
             this.stage = new Stage(this);
             this.background = new Background(this);
@@ -438,16 +437,14 @@ window.addEventListener('load', function(){
             this.button1.addEventListener('click', () => {
                 if (!this.ispressed) {
                     this.ispressed = true;
-                    audio1.volume = 0;
-                    audio2.volume = 0;
-                } else {
-                    this.ispressed = false;
                     audio1.volume = 0.5;
                     audio2.volume = 0.5;
+                } else {
+                    this.ispressed = false;
+                    audio1.volume = 0.0;
+                    audio2.volume = 0.0;
                 }
             });
-            
-
         }
         createHeartPool(){
             for (let i = 0; i < 6; i++){
