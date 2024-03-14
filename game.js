@@ -36,6 +36,7 @@ window.addEventListener('load', function(){
                 this.speedY = 2;
                 this.maxY = 300;
                 this.minY = 100;
+                this.spriteTimer = 0
                 this.selectCat = false;
                 this.start();
                 
@@ -57,10 +58,17 @@ window.addEventListener('load', function(){
             }
             
             update(){
-                this.frameX += this.catspeed;
-                if(this.frameX > this.maxFrame){
-                this.reset(); 
+                this.spriteTimer++;
+                
+                if(this.spriteTimer === 1){
+                    this.frameX += this.catspeed;
+                    if(this.frameX > this.maxFrame){
+                    this.reset(); 
+                }}
+                if(this.spriteTimer > 5){
+                    this.spriteTimer = 0;
                 }
+
                 if(this.y <= 122 && this.x <= 235) {
                     game.createHeartPool();
                     this.frameX = 6;
