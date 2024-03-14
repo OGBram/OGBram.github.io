@@ -3,10 +3,7 @@ Personal website for art
 & learning to code
 In development
 
-@2024
-
-CanvasRenderingContext2D.arc()
-CanvasRenderingContext2D.rotate()
+©2024
 
 A soldier, yet a priest
 clasping my hands in prayer
