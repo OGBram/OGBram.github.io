@@ -30,7 +30,7 @@ body {
     color: #fff;
     outline-width: 1em;
     outline-style: hidden;
-    
+    overflow-y: scroll;    
 }   
 
 footer {
@@ -56,7 +56,7 @@ footer::before {
     background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
 }
 #mute {
-    transform: translateY(-200px);
+    transform: translateY(-100px);
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
@@ -82,10 +82,9 @@ div h2 {
 .gallery {
     display: flex;
     justify-content: center;
-
     outline-style: hidden;
     background: transparent;
-    margin-bottom: 6em;
+
 }
 
 .gallery img {
@@ -100,32 +99,21 @@ div h2 {
 
     transform: scale(1.2);
     opacity: 1.0;
-    
 }
 
 #imageContainer {
     display: none;
+    margin: 0;
+    padding: 0;
 }
 
 #mycanvas {
+    display: block;
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -10%);
-    align-items: center;
+    width: 100%;
+    max-width: 750px;
 
 }
-
-#catMenuA {
-    display: none;
-    position: relative;
-    top: 50%;
-    bottom: 50%;
-    transform: translate(+87%, -480px);
-    opacity: 50%;
-    transition: transform 0.3s ease-in-out;
-}
-
 
 
 @media only screen and (max-width: 600px){}
