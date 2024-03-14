@@ -65,7 +65,7 @@ window.addEventListener('load', function(){
                     if(this.frameX > this.maxFrame){
                     this.reset(); 
                 }}
-                if(this.spriteTimer > 5){
+                if(this.spriteTimer > 4){
                     this.spriteTimer = 0;
                 }
 
@@ -146,10 +146,10 @@ window.addEventListener('load', function(){
                 this.frameX = 0;
                 this.frameY = 0;
                 this.maxFrame = 3;
+                this.spriteTimer2 = 0;
             }
     
             draw(context,) {
-                this.frameX <= this.maxFrame ? this.frameX++ : this.frameX = 0;
                 context.save();
                 ctx.globalAlpha = 0.4;
                 context.drawImage(
@@ -164,6 +164,21 @@ window.addEventListener('load', function(){
                     this.height,
                 );
                 context.restore();    
+            }
+            update(){
+                this.spriteTimer2++;
+                
+                if(this.spriteTimer2 === 1){
+                    this.frameX ++;
+                    if(this.frameX > this.maxFrame){
+                    this.reset(); 
+                }}
+                if(this.spriteTimer2 > 5){
+                    this.spriteTimer2 = 0;
+                }
+            }
+            reset(){
+                this.frameX = 0;
             }
         }
     class Stage {
@@ -507,6 +522,7 @@ window.addEventListener('load', function(){
 
 
             this.background.draw(context);
+            this.background.update();
             this.fireSheet.draw(context);
             
 
