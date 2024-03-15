@@ -65,7 +65,7 @@ window.addEventListener('load', function(){
                     if(this.frameX > this.maxFrame){
                     this.reset(); 
                 }}
-                if(this.spriteTimer > 4){
+                if(this.spriteTimer > 3){
                     this.spriteTimer = 0;
                 }
 
@@ -542,7 +542,7 @@ window.addEventListener('load', function(){
     const game = new Game(canvas);
     
     var lastTime;
-    var requiredElapsed = 1000 / 25; 
+    var requiredElapsed = 1000 / 30; 
     
     requestAnimationFrame(loop);
     
