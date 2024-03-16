@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100&display=swap');
+* {
+    opacity: 0.99;
 
+}
 header {
     background-color: transparent;
     justify-content: center;
@@ -125,6 +128,5 @@ div h2 {
     width: 100%;
     left: -3%;
 }
-
 
 @media only screen and (max-width: 600px){}
