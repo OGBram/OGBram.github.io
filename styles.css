@@ -36,7 +36,7 @@ body {
     outline-width: 1em;
     outline-style: hidden;
     overflow-y: scroll;
-    max-width: 600px;
+    max-width: 432px;
  
 }   
 
@@ -91,11 +91,12 @@ div h2 {
     justify-content: center;
     outline-style: hidden;
     background: transparent;
+    max-width: 432px;
 
 }
 
 .gallery img {
-    margin: 2em;
+    margin: 1em;
     width: 35%;
     max-width: 200px;
     opacity: 0.4;
@@ -119,9 +120,10 @@ div h2 {
 #mycanvas {
     display: block;
     position: relative;
-    max-width: 600px;
-    max-height: 500px;
+    max-width: 432px;
+    max-height: 432px;
     width: 100%;
+    left: -3%;
 }
 
 
