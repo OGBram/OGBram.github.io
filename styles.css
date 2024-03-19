@@ -40,8 +40,18 @@ body {
     outline-style: hidden;
     overflow-y: scroll;
     max-width: 432px;
+    margin-top: 10px;
+    margin-left: 0;
  
 }   
+header h2 {
+    text-align: center;
+    background-image: linear-gradient(to left,  yellow, orange, violet, indigo);
+    color: transparent;
+    opacity: .7;
+    transform: translateX(-4px);
+
+}
 
 footer {
     background-color: transparent;
