@@ -81,7 +81,7 @@ div h2 {
     text-align: center;
     font-family: 'Bitter', sans-serif;
     font-weight: 100;
-    font-size: 35px;
+    font-size: 31px;
     outline-color: #333;
     outline-width: thin;
     outline-style: groove;
@@ -92,17 +92,15 @@ div h2 {
 .gallery {
     display: flex;
     justify-content: center;
-    outline-style: hidden;
     background: transparent;
     max-width: 432px;
-
 }
 
 .gallery img {
     margin: 1em;
     width: 35%;
     max-width: 200px;
-    opacity: 0.4;
+    opacity: 0.3;
     transition: transform 0.5s ease-in-out;
 }
 
