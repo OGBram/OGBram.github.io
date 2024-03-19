@@ -33,16 +33,13 @@ body {
     flex-direction: column;
     align-content: center;
     font-family: 'Arial', sans-serif;
-    margin: 1;
+    margin: 2px;
     background-color: black;
     color: #fff;
     outline-width: 1em;
     outline-style: hidden;
     overflow-y: scroll;
-    max-width: 432px;
-    margin-top: 10px;
-    margin-left: 0;
- 
+    max-width: max-content;
 }   
 header h2 {
     text-align: center;
