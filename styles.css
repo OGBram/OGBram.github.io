@@ -66,7 +66,7 @@ footer::before {
     background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
 }
 #mute {
-    transform: translateY(-100px);
+    /* transform: translateY(-100px); */
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
