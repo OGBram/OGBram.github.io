@@ -37,10 +37,9 @@ body {
 }   
 header h2 {
     text-align: center;
-    background-image: linear-gradient(to left,  yellow, orange, violet, indigo);
-    color: transparent;
     opacity: .7;
-    transform: translateX(-4px);
+    margin: 5px;
+    font-family: monospace;
 }
 
 footer {
@@ -53,9 +52,11 @@ footer h1 {
     text-align: center;
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     color: transparent;
+    margin: 2px;
+    display: none;
 }
 footer p2 {
-
+    
     font-size: 5px;
 }
 
@@ -65,15 +66,19 @@ footer::before {
     height: 40px; 
     background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
 }
+
 #mute {
-    transform: translateY(+1px);
-    background-color:darkblue;
+    background-image: linear-gradient(to left,  yellow, orange, violet, indigo);
     color: white;
-    padding: 10px 15px;
+    padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 2px;
+    margin: 15px;
+    width: 100%;
+    opacity: .75;
+    margin: 0;
+    margin-top: 5px;
 }
 
 div h2 {
@@ -85,7 +90,7 @@ div h2 {
     outline-width: thin;
     outline-style: groove;
     background: linear-gradient(to top, rgba(51, 51, 51, 0), #333);
-    margin: 0;   
+    margin: 0; 
 }
 
 .gallery {
