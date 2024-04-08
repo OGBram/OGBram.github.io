@@ -237,7 +237,7 @@ window.addEventListener('load', function(){
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x--,
+                        this.x-=2,
                         this.y,
                         this.width,
                         this.height,
@@ -570,7 +570,7 @@ window.addEventListener('load', function(){
             ctx.fillText("Ah—where they are headed,", 207, 400);
             ctx.fillText("must be my homeland\"", 232, 425);
             context.save()
-            ctx.font = "10px monospace";
+            ctx.font = "12px monospace";
             ctx.fillText("-Murakami 1938.", 325, 445);
             context.restore()
             
