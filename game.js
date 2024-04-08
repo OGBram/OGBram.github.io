@@ -9,7 +9,7 @@ window.addEventListener('load', function(){
     class Cats {
             constructor(game) {
                 this.game = game;
-                this.catspeed = 1;
+                this.catspeed = 2;
                 this.spriteWidth = 31.3;
                 this.spriteHeight = 32;
                 this.free = true;
@@ -42,8 +42,8 @@ window.addEventListener('load', function(){
                     this.spriteHeight,
                     this.x,
                     this.y,
-                    this.width*.8,
-                    this.height*.8,
+                    this.width*.75,
+                    this.height*.75,
                 );}
             }
             
@@ -136,7 +136,7 @@ window.addEventListener('load', function(){
                 this.frameX = 0;
                 this.frameY = 0;
                 this.maxFrame = 3;
-                this.spriteTimer2 = 0;
+                this.spriteTimer = 0;
             }
             draw(context,) {
                 context.save();
@@ -155,15 +155,15 @@ window.addEventListener('load', function(){
                 context.restore();    
             }
             update(){
-                this.spriteTimer2++;
+                this.spriteTimer++;
                 
-                if(this.spriteTimer2 === 1){
+                if(this.spriteTimer === 1){
                     this.frameX ++;
                     if(this.frameX > this.maxFrame){
                     this.reset(); 
                 }}
-                if(this.spriteTimer2 > 5){
-                    this.spriteTimer2 = 0;
+                if(this.spriteTimer > 8){
+                    this.spriteTimer = 0;
                 }
             }
             reset(){
@@ -237,7 +237,7 @@ window.addEventListener('load', function(){
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x-=2,
+                        this.x-=1.5,
                         this.y,
                         this.width,
                         this.height,
@@ -278,7 +278,7 @@ window.addEventListener('load', function(){
                         if(this.frameX >= this.maxFrame){
                         this.frameX = 0;
                     }}
-                    if(this.spriteTimer > 2){
+                    if(this.spriteTimer > 1){
                         this.spriteTimer = 0;
                     }
                     context.save();
@@ -329,8 +329,8 @@ window.addEventListener('load', function(){
                     this.spriteHeight,
                     this.x,
                     this.y,
-                    this.width/1.8,
-                    this.height/1.8,
+                    this.width*.5,
+                    this.height*.5,
                 );
                 context.restore();    
             }
@@ -366,23 +366,29 @@ window.addEventListener('load', function(){
                     this.cat = this.game.catPool[0];
                     
             }
-                draw(context,) {
-    
-                    context.save();
-                    context.globalAlpha = 1.0;
-                    context.drawImage(
-                        this.image,
-                        this.frameX * this.spriteWidth,
-                        this.frameY * this.spriteHeight,
-                        this.spriteWidth,
-                        this.spriteHeight,
-                        this.x,
-                        this.y,
-                        this.width/1.5,
-                        this.height/1.5,
-                    );
-                    context.restore();    
-                }
+            draw(context) {
+                context.save();
+                context.globalAlpha = 1.0;
+            
+
+                const sinOffset = Math.sin(Date.now() * 0.003) * 4;
+                const newY = this.y + sinOffset;
+            
+                context.drawImage(
+                    this.image,
+                    this.frameX * this.spriteWidth,
+                    this.frameY * this.spriteHeight,
+                    this.spriteWidth,
+                    this.spriteHeight,
+                    this.x,
+                    newY,
+                    this.width * 0.6,
+                    this.height * 0.6,
+                );
+            
+                context.restore();
+            }
+            
                 update() {
                     const range = 10;
                     if (
@@ -392,13 +398,10 @@ window.addEventListener('load', function(){
                         const index = this.game.stageHeartPool.findIndex(item => item === this);
 
                         if (index !== -1) {
-                            this.game.flowerPool.push(new Flower(game))
-                            this.game.flowerPool.push(new Flower(game))
+                            for (let i = 0; i < 4; i++) {
+                                this.game.flowerPool.push(new Flower(game));
+                            }
                             this.game.stageHeartPool.splice(index, 1);
-                            // if(this.game.ispressed){
-                            //     this.game.audio1.play();
-                            // }
-                            
                         }
                     }
                 }
@@ -450,8 +453,8 @@ window.addEventListener('load', function(){
                         this.spriteHeight,
                         this.x,
                         this.y,
-                        this.width/3,
-                        this.height/3,
+                        this.width/2,
+                        this.height/2,
                     );
                     context.restore();
                 }
