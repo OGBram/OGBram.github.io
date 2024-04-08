@@ -382,8 +382,8 @@ window.addEventListener('load', function(){
                     this.spriteHeight,
                     this.x,
                     newY,
-                    this.width * 0.6,
-                    this.height * 0.6,
+                    this.width * 0.72,
+                    this.height * 0.72,
                 );
             
                 context.restore();
