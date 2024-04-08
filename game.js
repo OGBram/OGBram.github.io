@@ -225,7 +225,7 @@ window.addEventListener('load', function(){
                     this.timer = 0;
             }
                 draw(context,) {
-                    if(this.timer>18000){
+                    if(this.timer>9000){
                         this.reset();
                         this.timer = 0;
                     }else this.timer++;
