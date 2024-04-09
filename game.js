@@ -630,14 +630,14 @@ window.addEventListener('load', function(){
             ctx.drawImage(document.getElementById("flower"),0,0,32,42,0,0,64,84);
             context.restore();
             ctx.fillText(`${this.flowerPool.length}`, 65, 50)
-
-            ctx.fillText("\"Birds migrating,", 205, 375);
-            ctx.fillText("Ah—where they are headed,", 207, 400);
-            ctx.fillText("must be my homeland\"", 232, 425);
-            context.save()
-            ctx.font = "12px monospace";
-            ctx.fillText("-Murakami 1938.", 325, 445);
-            context.restore()
+            context.save();
+            ctx.font = "18px courier";
+            ctx.fillText("\"Birds migrating,", 205, 365);
+            ctx.fillText("Ah—where they are headed,", 205, 392);
+            ctx.fillText("must be my homeland\"", 230, 417);
+            ctx.font = "14px courier"
+            ctx.fillText("-Murakami 1938.", 310, 440);
+            context.restore();
             
 
         }
