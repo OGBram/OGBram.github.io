@@ -609,6 +609,15 @@ window.addEventListener('load', function(){
             this.stageHeartPool.forEach(stageHeart => {
                 stageHeart.draw(context);
                 stageHeart.update();
+                context.save()
+                context.globalAlpha = .2;
+                context.fillStyle = "black";
+                context.beginPath(); 
+                const sinOffset = Math.sin(Date.now() * 0.003) * 4;
+                const size = 4 + sinOffset;
+                context.arc(stageHeart.x+6, stageHeart.y+35, size/2, 0, 2 * Math.PI);
+                context.fill();
+                context.restore();
             });
             
             this.heartPool.forEach(hearts => {
