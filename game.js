@@ -120,6 +120,69 @@ window.addEventListener('load', function(){
                 }           
             }    
         }
+    class Footsteps {
+        constructor(game) {
+            this.game = game;
+            this.cat = game.catPool[0];
+            this.dx = 0;
+            this.dy = 0;
+            this.speedModifier = 1;
+            this.spriteWidth = 16;
+            this.spriteHeight = 16;
+            this.width = this.spriteWidth;
+            this.height = this.spriteHeight;
+            this.x = this.game.cat.x+Math.random()*15;
+            this.y = this.game.cat.y+Math.random()*15-25;
+            this.image = document.getElementById("hearts");
+            this.frameX = 0;
+            this.frameY = Math.floor(Math.random()*3);
+            this.maxFrame = 0;
+            this.speedX = Math.random()*1;
+            this.speedY = Math.random()*1;
+            this.autoPlaying = false;
+        }
+
+            draw(context,) {
+            context.save();
+            context.globalAlpha = 1.0;
+            context.drawImage(
+                this.image,
+                this.frameX * this.spriteWidth,
+                this.frameY * this.spriteHeight,
+                this.spriteWidth,
+                this.spriteHeight,
+                this.x,
+                this.y,
+                this.width*.5,
+                this.height*.5,
+            );
+            context.restore();    
+            }
+            
+            update(){
+            if(this.cat.speedX>0){
+                this.speedX -= Math.random()-.5;
+            }else{
+                this.speedX =+1;
+            }
+
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            if(this.x > 300 || this.x < -300){
+            this.reset();
+            }
+            if(this.y+30<this.cat.y || this.y-20>this.cat.y){
+                this.reset();
+            }
+         }
+
+            reset(){
+            this.x = this.cat.x;
+            this.y = this.cat.y;
+         }    
+        
+    }
     class Background {
         constructor(game) {
                 this.game = game;
@@ -364,7 +427,7 @@ window.addEventListener('load', function(){
                     this.frameX = 0;
                     this.frameY = Math.floor(Math.random()*3);
                     this.maxFrame = 0;
-                    this.cat = this.game.catPool[0];
+                    this.cat = game.catPool[0];
                     
             }
             draw(context) {
@@ -476,11 +539,14 @@ window.addEventListener('load', function(){
             this.catPool = [];
             this.heartPool = [];
             this.stageHeartPool = [];
+            this.footstepPool = [];
             this.max = 1;
             this.stageHeart = new StageHeart(this);
+            this.cat = new Cats(this);
             this.createCatPool();
+            this.createFootsteps();
             this.createStagePool();
-            
+
             setInterval(() => {
                 this.stageHeartPool.push(new StageHeart(this));
             }, 5000);
@@ -488,24 +554,10 @@ window.addEventListener('load', function(){
             this.button1 = document.getElementById("mute");
             this.ispressed = false;
             this.button1.addEventListener("click", function() {
-                // Redirect to the desired URL when the button is clicked
+
                 window.location.href = "https://ogbram.github.io/gandalf/";
             }); 
-            // this.button1.addEventListener('click', () => {
-            //     if (!this.ispressed) {
-            //         this.ispressed = true;
-            //         audio1.volume = 0.5;
-            //         audio2.volume = 0.5;
-            //         audio3.volume = 0.5;
-            //         audio3.play();
-            //     } else {
-            //         this.ispressed = false;
-            //         audio1.volume = 0.0;
-            //         audio2.volume = 0.0;
-            //         audio3.volume = 0.0;
-            //     }
 
-            // });
         }
         createHeartPool(){
             for (let i = 0; i < 6; i++){
@@ -516,6 +568,11 @@ window.addEventListener('load', function(){
             for (let i = 0; i < this.max; i++){
                 this.catPool.push(new Cats(this));
             }
+        }
+        createFootsteps(){
+            for (let i = 0; i < 5; i++){
+                this.footstepPool.push(new Footsteps(this));
+            } 
         }   
         createStagePool(){
             for (let i = 0; i < 40; i++){
@@ -544,15 +601,19 @@ window.addEventListener('load', function(){
                 }
             });
             
+            this.footstepPool.forEach(footstep => {
+                footstep.draw(context);
+                footstep.update();
+            });
+
             this.stageHeartPool.forEach(stageHeart => {
                 stageHeart.draw(context);
                 stageHeart.update();
-            })
+            });
             
             this.heartPool.forEach(hearts => {
                 hearts.draw(context);                                                    
                 hearts.update();
-
             });
 
             this.flowerPool.forEach(flower => {
