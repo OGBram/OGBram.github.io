@@ -596,11 +596,6 @@ window.addEventListener('load', function(){
             
             this.stage.draw(context);
 
-            this.footstepPool.forEach(footstep => {
-                footstep.draw(context);
-                footstep.update();
-            });
-
             this.flowerPool.forEach(flower => {
                 flower.draw(context);
                 context.save();
@@ -618,6 +613,11 @@ window.addEventListener('load', function(){
                 }
             });
 
+            this.footstepPool.forEach(footstep => {
+                footstep.draw(context);
+                footstep.update();
+            });
+            
             this.stageHeartPool.forEach(stageHeart => {
                 stageHeart.draw(context);
                 stageHeart.update();
@@ -645,18 +645,7 @@ window.addEventListener('load', function(){
             context.globalAlpha = 1.0;
             ctx.font = "20px monospace";
             ctx.drawImage(document.getElementById("flower"),0,0,32,42,0,0,64,84);
-            context.restore();
-            // ctx.fillText(`${this.flowerPool.length}`, 65, 50)
-            // context.save();
-            // ctx.font = "18px courier";
-            // ctx.fillText("\"Birds migrating,", 205, 365);
-            // ctx.fillText("Ah—where they are headed,", 205, 392);
-            // ctx.fillText("must be my homeland\"", 230, 417);
-            // ctx.font = "14px courier"
-            // ctx.fillText("-Murakami 1938.", 310, 440);
-            // context.restore();
-            
-
+            context.restore();    
         }
     }
     
