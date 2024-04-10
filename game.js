@@ -34,6 +34,8 @@ window.addEventListener('load', function(){
 
             draw(context) {
                 if (!this.free){
+                context.save()
+                context.globalAlpha = 1.0;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -45,6 +47,7 @@ window.addEventListener('load', function(){
                     this.width*.75,
                     this.height*.75,
                 );}
+                context.restore();
             }
             
             update(){
