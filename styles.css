@@ -1,4 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100&display=swap');
+.cedarville-cursive-text {
+    font-family: 'Cedarville Cursive', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    margin-top: 20px;
+    background-color: transparent;
+    text-align: center;
+}
+.courier-text {
+    font-family: Courier, monospace;
+    font-size: 8px;
+    margin-top: 10px;
+    text-align: center;
+}
 
 header {
     background-color: transparent;
