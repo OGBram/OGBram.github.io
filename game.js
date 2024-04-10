@@ -301,7 +301,7 @@ window.addEventListener('load', function(){
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x-=1.5,
+                        this.x-=2,
                         this.y,
                         this.width,
                         this.height,
