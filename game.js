@@ -297,7 +297,7 @@ window.addEventListener('load', function(){
                         this.timer=0;
                     }
                     context.save()
-                    context.globalAlpha = 1;
+                    context.globalAlpha = .99;
                     const sinOffset = Math.sin(Date.now() * 0.001) * 1;
                     const yOffset = sinOffset;
                     context.drawImage(
@@ -306,7 +306,7 @@ window.addEventListener('load', function(){
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x-=.5,
+                        this.x+=-.5,
                         this.y,
                         this.width,
                         this.height,
@@ -314,17 +314,17 @@ window.addEventListener('load', function(){
                     );
                     context.restore();
                     context.save()
-                    context.globalAlpha = .9;
+                    context.globalAlpha = .99;
                     context.drawImage(
                         this.image,
                         this.frameX * this.spriteWidth,
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x-=.5,
+                        this.x,
                         this.y,
-                        this.width/2,
-                        this.height/2,
+                        this.width/1.3,
+                        this.height/1.3,
                     
                     );
                     context.restore();
@@ -650,7 +650,7 @@ window.addEventListener('load', function(){
                 flower.draw(context);
                 context.save();
                 context.fillStyle = "black";
-                context.globalAlpha = .25;
+                context.globalAlpha = .35;
                 const size = 10;
                 context.fillRect(flower.x+12, flower.y+15, size, 3)
                 context.restore();
@@ -672,7 +672,7 @@ window.addEventListener('load', function(){
                 stageHeart.draw(context);
                 stageHeart.update();
                 context.save()
-                context.globalAlpha = .25;
+                context.globalAlpha = .35;
                 context.fillStyle = "black";
                 context.beginPath(); 
                 const sinOffset = Math.sin(Date.now() * 0.003) * 4;
