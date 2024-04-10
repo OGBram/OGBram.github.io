@@ -593,14 +593,6 @@ window.addEventListener('load', function(){
             
             this.stage.draw(context);
 
-            
-            this.catPool.forEach(cat => {
-                if (!cat.free) {
-                    cat.update();
-                    cat.draw(context);
-                }
-            });
-            
             this.footstepPool.forEach(footstep => {
                 footstep.draw(context);
                 footstep.update();
@@ -614,6 +606,13 @@ window.addEventListener('load', function(){
                 const size = 10;
                 context.fillRect(flower.x+12, flower.y+15, size, 3)
                 context.restore();
+            });
+
+            this.catPool.forEach(cat => {
+                if (!cat.free) {
+                    cat.update();
+                    cat.draw(context);
+                }
             });
 
             this.stageHeartPool.forEach(stageHeart => {
