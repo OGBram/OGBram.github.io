@@ -206,14 +206,14 @@ window.addEventListener('load', function(){
             }
             draw(context,) {
                 context.save();
-                ctx.globalAlpha = 0.7;
+                ctx.globalAlpha = 0.35;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x-124,
+                    this.x-130,
                     this.y+46,
                     this.width,
                     this.height,
@@ -356,8 +356,41 @@ window.addEventListener('load', function(){
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x+53,
-                        this.y+23,
+                        this.x+30,
+                        this.y+40,
+                        this.width/3,
+                        this.height/3,
+                    );
+                    context.drawImage(
+                        this.image,
+                        this.frameX * this.spriteWidth,
+                        this.frameY * this.spriteHeight,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        this.x-150,
+                        this.y+15,
+                        this.width/3,
+                        this.height/3,
+                    );
+                    context.drawImage(
+                        this.image,
+                        this.frameX * this.spriteWidth,
+                        this.frameY * this.spriteHeight,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        this.x-85,
+                        this.y-15,
+                        this.width/3,
+                        this.height/3,
+                    );
+                    context.drawImage(
+                        this.image,
+                        this.frameX * this.spriteWidth,
+                        this.frameY * this.spriteHeight,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        this.x-35,
+                        this.y+80,
                         this.width/3,
                         this.height/3,
                     );
