@@ -169,7 +169,7 @@ window.addEventListener('load', function(){
             this.x += this.speedX;
             this.y += this.speedY;
             
-            if(this.x > 300 || this.x < -300){
+            if(this.x > 250 || this.x < -300){
             this.reset();
             }
             if(this.y+30<this.cat.y || this.y-20>this.cat.y){
@@ -610,7 +610,7 @@ window.addEventListener('load', function(){
                 stageHeart.draw(context);
                 stageHeart.update();
                 context.save()
-                context.globalAlpha = .2;
+                context.globalAlpha = .25;
                 context.fillStyle = "black";
                 context.beginPath(); 
                 const sinOffset = Math.sin(Date.now() * 0.003) * 4;
