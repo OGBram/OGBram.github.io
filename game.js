@@ -606,6 +606,16 @@ window.addEventListener('load', function(){
                 footstep.update();
             });
 
+            this.flowerPool.forEach(flower => {
+                flower.draw(context);
+                context.save();
+                context.fillStyle = "black";
+                context.globalAlpha = .25;
+                const size = 10;
+                context.fillRect(flower.x+12, flower.y+15, size, 3)
+                context.restore();
+            });
+
             this.stageHeartPool.forEach(stageHeart => {
                 stageHeart.draw(context);
                 stageHeart.update();
@@ -623,16 +633,6 @@ window.addEventListener('load', function(){
             this.heartPool.forEach(hearts => {
                 hearts.draw(context);                                                    
                 hearts.update();
-            });
-
-            this.flowerPool.forEach(flower => {
-                flower.draw(context);
-                context.save();
-                context.fillStyle = "black";
-                context.globalAlpha = .25;
-                const size = 10;
-                context.fillRect(flower.x+12, flower.y+15, size, 3)
-                context.restore();
             });
 
             this.background.draw(context);
