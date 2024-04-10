@@ -292,7 +292,7 @@ window.addEventListener('load', function(){
             }
                 draw(context,) {
                     this.timer++;
-                    if(this.timer>12000){
+                    if(this.timer>20000){
                         this.reset()
                         this.timer=0;
                     }
