@@ -549,7 +549,7 @@ window.addEventListener('load', function(){
 
             setInterval(() => {
                 this.stageHeartPool.push(new StageHeart(this));
-            }, 5000);
+            }, 4000);
             
             this.button1 = document.getElementById("mute");
             this.ispressed = false;
@@ -615,7 +615,7 @@ window.addEventListener('load', function(){
                 context.beginPath(); 
                 const sinOffset = Math.sin(Date.now() * 0.003) * 4;
                 const size = 4 + sinOffset;
-                context.arc(stageHeart.x+6, stageHeart.y+35, size/2, 0, 2 * Math.PI);
+                context.arc(stageHeart.x+8, stageHeart.y+20, size*.5, 0, 2 * Math.PI);
                 context.fill();
                 context.restore();
             });
@@ -626,7 +626,13 @@ window.addEventListener('load', function(){
             });
 
             this.flowerPool.forEach(flower => {
-                flower.draw(context);                                                    
+                flower.draw(context);
+                context.save();
+                context.fillStyle = "black";
+                context.globalAlpha = .25;
+                const size = 10;
+                context.fillRect(flower.x+12, flower.y+15, size, 3)
+                context.restore();
             });
 
             this.background.draw(context);
