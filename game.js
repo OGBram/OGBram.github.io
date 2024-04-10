@@ -292,22 +292,39 @@ window.addEventListener('load', function(){
             }
                 draw(context,) {
                     this.timer++;
-                    if(this.timer>9000){
+                    if(this.timer>12000){
                         this.reset()
                         this.timer=0;
                     }
                     context.save()
-                    context.globalAlpha = 1.0;
+                    context.globalAlpha = 1;
+                    const sinOffset = Math.sin(Date.now() * 0.001) * 1;
+                    const yOffset = sinOffset;
                     context.drawImage(
                         this.image,
                         this.frameX * this.spriteWidth,
                         this.frameY * this.spriteHeight,
                         this.spriteWidth,
                         this.spriteHeight,
-                        this.x-=2,
+                        this.x-=.5,
                         this.y,
                         this.width,
                         this.height,
+                    
+                    );
+                    context.restore();
+                    context.save()
+                    context.globalAlpha = .9;
+                    context.drawImage(
+                        this.image,
+                        this.frameX * this.spriteWidth,
+                        this.frameY * this.spriteHeight,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        this.x-=.5,
+                        this.y,
+                        this.width/2,
+                        this.height/2,
                     
                     );
                     context.restore();
