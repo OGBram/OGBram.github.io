@@ -624,7 +624,7 @@ window.addEventListener('load', function(){
 
         }
         startAudio(){
-            this.audio1.play;
+            this.audio1.play();
         }
         createHeartPool(){
             for (let i = 0; i < 6; i++){
