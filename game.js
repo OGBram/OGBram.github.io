@@ -471,6 +471,7 @@ window.addEventListener('load', function(){
             constructor(game) {
                     this.audio2 = audio2;
                     this.audio2.volume = .20;
+                    this.audio1 = audio1;
                     this.game = game;
                     this.dx = 0;
                     this.dy = 0;
@@ -486,6 +487,7 @@ window.addEventListener('load', function(){
                     this.frameY = Math.floor(Math.random()*3);
                     this.maxFrame = 0;
                     this.cat = game.catPool[0];
+                    audio1.play();
                     
             }
             draw(context) {
@@ -622,7 +624,7 @@ window.addEventListener('load', function(){
 
         }
         startAudio(){
-            this.audio1.play();
+            this.audio1.play;
         }
         createHeartPool(){
             for (let i = 0; i < 6; i++){
