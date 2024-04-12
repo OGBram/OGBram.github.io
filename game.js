@@ -192,8 +192,8 @@ window.addEventListener('load', function(){
                 this.dx = 0;
                 this.dy = 0;
                 this.speedModifier = 1;
-                this.spriteWidth = 149;
-                this.spriteHeight = 103;
+                this.spriteWidth = 192;
+                this.spriteHeight = 112;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
                 this.x = this.game.width * 0.5 - this.width * 0.5;
@@ -206,18 +206,19 @@ window.addEventListener('load', function(){
             }
             draw(context,) {
                 context.save();
-                ctx.globalAlpha = 0.35;
+                ctx.globalAlpha = .9;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x-130,
-                    this.y+46,
-                    this.width,
-                    this.height,
+                    this.x-135,
+                    this.y+55,
+                    this.width*.9,
+                    this.height*.9,
                 );
+                
                 context.restore();    
             }
             update(){
@@ -228,7 +229,7 @@ window.addEventListener('load', function(){
                     if(this.frameX > this.maxFrame){
                     this.reset(); 
                 }}
-                if(this.spriteTimer > 8){
+                if(this.spriteTimer > 5){
                     this.spriteTimer = 0;
                 }
             }
@@ -645,6 +646,8 @@ window.addEventListener('load', function(){
             this.starFeild.draw(context);
             
             this.stage.draw(context);
+            this.background.draw(context);
+            this.background.update()
 
             this.flowerPool.forEach(flower => {
                 flower.draw(context);
@@ -690,10 +693,7 @@ window.addEventListener('load', function(){
                    this.heartPool.length = 0; 
                 }
             });
-            console.log(this.heartPool.length);
-
-            this.background.draw(context);
-            this.background.update();
+;
             this.fireSheet.draw(context);
             
             context.save();
