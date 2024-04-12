@@ -9,7 +9,7 @@ window.addEventListener('load', function(){
     class Cats {
             constructor(game) {
                 this.game = game;
-                this.catspeed = 2;
+                this.catSpeed = 2;
                 this.spriteWidth = 31.3;
                 this.spriteHeight = 32;
                 this.free = true;
@@ -54,7 +54,7 @@ window.addEventListener('load', function(){
                 this.spriteTimer++;
                 
                 if(this.spriteTimer === 1){
-                    this.frameX += this.catspeed;
+                    this.frameX += this.catSpeed;
                     if(this.frameX > this.maxFrame){
                     this.reset(); 
                 }}
