@@ -206,7 +206,7 @@ window.addEventListener('load', function(){
             }
             draw(context,) {
                 context.save();
-                context.globalAlpha = .9;
+                ctx.globalAlpha = .75;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -697,7 +697,6 @@ window.addEventListener('load', function(){
             context.restore();    
         }
     }
-    
     const game = new Game(canvas);
     
     var lastTime;
