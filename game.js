@@ -526,7 +526,7 @@ window.addEventListener('load', function(){
                                 this.game.flowerPool.push(new Flower(game));
                             }
                             this.game.stageHeartPool.splice(index, 1);
-                            this.audio2.play();
+                            this.audio2.play;
                         }
                     }
                 }
