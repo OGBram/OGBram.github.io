@@ -299,8 +299,6 @@ window.addEventListener('load', function(){
                     }
                     context.save()
                     context.globalAlpha = .99;
-                    const sinOffset = Math.sin(Date.now() * 0.001) * 1;
-                    const yOffset = sinOffset;
                     context.drawImage(
                         this.image,
                         this.frameX * this.spriteWidth,
@@ -313,8 +311,6 @@ window.addEventListener('load', function(){
                         this.height,
                     
                     );
-                    context.restore();
-                    context.save()
                     context.globalAlpha = .99;
                     context.drawImage(
                         this.image,
