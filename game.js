@@ -641,7 +641,7 @@ window.addEventListener('load', function(){
             this.starfeild.draw(context);
             
             this.stage.draw(context);
-            // this.background.draw(context);
+            this.background.draw(context);
 
             this.flowerPool.forEach(flower => {
                 flower.draw(context);
