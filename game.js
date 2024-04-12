@@ -198,8 +198,8 @@ window.addEventListener('load', function(){
                 this.dx = 0;
                 this.dy = 0;
                 this.speedModifier = 1;
-                this.spriteWidth = 192;
-                this.spriteHeight = 112;
+                this.spriteWidth = 82;
+                this.spriteHeight = 40;
                 this.width = this.spriteWidth;
                 this.height = this.spriteHeight;
                 this.x = this.game.width * 0.5 - this.width * 0.5;
@@ -212,17 +212,17 @@ window.addEventListener('load', function(){
             }
             draw(context,) {
                 context.save();
-                context.globalAlpha = .75;
+                context.globalAlpha = .4;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
                     this.frameY * this.spriteHeight,
                     this.spriteWidth,
                     this.spriteHeight,
-                    this.x-135,
-                    this.y+55,
-                    this.width,
-                    this.height,
+                    this.x+85,
+                    this.y,
+                    this.width*1.8,
+                    this.height*1.8,
                 );
                 context.restore();
                 this.update();    
@@ -232,10 +232,10 @@ window.addEventListener('load', function(){
                 
                 if(this.spriteTimer === 1){
                     this.frameX ++;
-                    if(this.frameX > this.maxFrame){
+                    if(this.frameX >= this.maxFrame){
                     this.reset(); 
                 }}
-                if(this.spriteTimer >= 5){
+                if(this.spriteTimer >= 20){
                     this.spriteTimer = 0;
                 }
             }
