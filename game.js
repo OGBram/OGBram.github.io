@@ -218,8 +218,8 @@ window.addEventListener('load', function(){
                     this.width*.9,
                     this.height*.9,
                 );
-                
-                context.restore();    
+                context.restore();
+                this.update();    
             }
             update(){
                 this.spriteTimer++;
@@ -229,7 +229,7 @@ window.addEventListener('load', function(){
                     if(this.frameX > this.maxFrame){
                     this.reset(); 
                 }}
-                if(this.spriteTimer > 5){
+                if(this.spriteTimer >= 5){
                     this.spriteTimer = 0;
                 }
             }
@@ -642,7 +642,6 @@ window.addEventListener('load', function(){
             
             this.stage.draw(context);
             this.background.draw(context);
-            this.background.update();
 
             this.flowerPool.forEach(flower => {
                 flower.draw(context);
