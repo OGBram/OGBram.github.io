@@ -122,7 +122,7 @@ window.addEventListener('load', function(){
 
                 }           
             }    
-        }
+    }
     class Footsteps {
         constructor(game) {
             this.game = game;
@@ -236,7 +236,7 @@ window.addEventListener('load', function(){
             reset(){
                 this.frameX = 0;
             }
-        }
+    }
     class Stage {
         constructor(game) {
                     this.game = game;
@@ -272,7 +272,7 @@ window.addEventListener('load', function(){
                     );
                     context.restore();    
                 }
-        }  
+    }  
     class Starfeild {
             constructor(game) {
                     this.game = game;
@@ -336,7 +336,7 @@ window.addEventListener('load', function(){
                     this.frameX = 0;
                     this.frameY = 0;
                 }
-        }    
+    }    
     class FireSheet {
             constructor(game) {
                     this.game = game;
@@ -414,7 +414,7 @@ window.addEventListener('load', function(){
                     );
                     context.restore();    
                 }
-        }
+    }
     class Heart {
         constructor(game) {
                 this.game = game;
@@ -464,7 +464,7 @@ window.addEventListener('load', function(){
                 this.x = 0;
                 this.y = 0;
             }
-        }
+    }
     class StageHeart {
             constructor(game) {
                     this.game = game;
@@ -540,7 +540,7 @@ window.addEventListener('load', function(){
                     this.audioPlaying = false;
                 }
                 
-        }
+     }
     class Flower {
         constructor(game) {
                     this.game = game;
