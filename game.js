@@ -1,5 +1,5 @@
 window.addEventListener('load', function(){
-    const canvas = document.getElementById('mycanvas');
+    const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 600;
@@ -285,7 +285,7 @@ window.addEventListener('load', function(){
                     this.height = this.spriteHeight;
                     this.x = 0;
                     this.y = 0;
-                    this.image = document.getElementById("starFeild");
+                    this.image = document.getElementById("starfeild");
                     this.frameX = 0;
                     this.frameY = 0;
                     this.maxFrame = 0;
@@ -583,7 +583,7 @@ window.addEventListener('load', function(){
             this.canvas = canvas;
             this.width = this.canvas.width;
             this.height = this.canvas.height;
-            this.starFeild = new Starfeild(this);
+            this.starfeild = new Starfeild(this);
             this.stage = new Stage(this);
             this.background = new Background(this);
             this.fireSheet = new FireSheet(this);
@@ -642,7 +642,7 @@ window.addEventListener('load', function(){
         }
         render(context) {
             
-            this.starFeild.draw(context);
+            this.starfeild.draw(context);
             
             this.stage.draw(context);
             this.background.draw(context);

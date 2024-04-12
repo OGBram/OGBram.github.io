@@ -134,7 +134,7 @@ div h2 {
     position: absolute;
 }
 
-#mycanvas {
+#myCanvas {
     display: block;
     position: relative;
     max-width: 432px;
