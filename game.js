@@ -164,7 +164,7 @@ window.addEventListener('load', function(){
             
             update(){
             if(this.cat.speedX>0){
-                this.speedX -= Math.random()-.5;
+
             }else{
                 this.speedX =+1;
             }
@@ -172,10 +172,10 @@ window.addEventListener('load', function(){
             this.x += this.speedX;
             this.y += this.speedY;
             
-            if(this.x > 250 || this.x < -300){
+            if(this.x > 350 || this.x < -300){
             this.reset();
             }
-            if(this.y+30<this.cat.y || this.y-20>this.cat.y){
+            if(this.y+30<this.cat.y || this.y-15>this.cat.y){
                 this.reset();
             }
          }
@@ -685,7 +685,12 @@ window.addEventListener('load', function(){
             this.heartPool.forEach(hearts => {
                 hearts.draw(context);                                                    
                 hearts.update();
+                if(hearts.x > 1000){
+
+                   this.heartPool.length = 0; 
+                }
             });
+            console.log(this.heartPool.length);
 
             this.background.draw(context);
             this.background.update();
