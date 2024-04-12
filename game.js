@@ -540,7 +540,7 @@ window.addEventListener('load', function(){
                     this.audioPlaying = false;
                 }
                 
-     }
+    }
     class Flower {
         constructor(game) {
                     this.game = game;
@@ -577,7 +577,7 @@ window.addEventListener('load', function(){
                     context.restore();
                 }
 
-        }
+    }
     class Game {
         constructor(canvas) {
             this.canvas = canvas;
@@ -606,7 +606,6 @@ window.addEventListener('load', function(){
             }, 4000);
             
             this.button1 = document.getElementById("mute");
-            this.ispressed = false;
             this.button1.addEventListener("click", function() {
 
                 window.location.href = "https://ogbram.github.io/gandalf/";
@@ -693,7 +692,7 @@ window.addEventListener('load', function(){
                    this.heartPool.length = 0; 
                 }
             });
-;
+            
             this.fireSheet.draw(context);
             
             context.save();
