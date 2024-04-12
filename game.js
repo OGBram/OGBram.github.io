@@ -204,7 +204,7 @@ window.addEventListener('load', function(){
                 this.height = this.spriteHeight;
                 this.x = this.game.width * 0.5 - this.width * 0.5;
                 this.y = this.game.height * 0.5 - this.height * 0.5;
-                this.image = document.getElementById("");
+                this.image = document.getElementById("waterA");
                 this.frameX = 0;
                 this.frameY = 0;
                 this.maxFrame = 3;
@@ -592,7 +592,7 @@ window.addEventListener('load', function(){
             this.height = this.canvas.height;
             this.starfeild = new Starfeild(this);
             this.stage = new Stage(this);
-            // this.background = new Background(this);
+            this.background = new Background(this);
             this.fireSheet = new FireSheet(this);
             this.hearts = new Heart(this);
             this.flower = new Flower(this);
@@ -659,8 +659,8 @@ window.addEventListener('load', function(){
             this.starfeild.draw(context);
             
             this.stage.draw(context);
-            // this.background.draw(context);
-
+            this.background.draw(context);
+            this.background.update();
             this.flowerPool.forEach(flower => {
                 flower.draw(context);
                 context.save();
