@@ -206,7 +206,7 @@ window.addEventListener('load', function(){
             }
             draw(context,) {
                 context.save();
-                ctx.globalAlpha = .9;
+                context.globalAlpha = .9;
                 context.drawImage(
                     this.image,
                     this.frameX * this.spriteWidth,
@@ -642,7 +642,7 @@ window.addEventListener('load', function(){
             
             this.stage.draw(context);
             this.background.draw(context);
-            this.background.update()
+            this.background.update();
 
             this.flowerPool.forEach(flower => {
                 flower.draw(context);
