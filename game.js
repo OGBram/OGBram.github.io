@@ -526,7 +526,7 @@ window.addEventListener('load', function(){
                                 this.game.flowerPool.push(new Flower(game));
                             }
                             this.game.stageHeartPool.splice(index, 1);
-                            this.audio2.play;
+                            this.audio2.play();
                         }
                     }
                 }
@@ -592,7 +592,7 @@ window.addEventListener('load', function(){
             this.height = this.canvas.height;
             this.starfeild = new Starfeild(this);
             this.stage = new Stage(this);
-            this.background = new Background(this);
+            // this.background = new Background(this);
             this.fireSheet = new FireSheet(this);
             this.hearts = new Heart(this);
             this.flower = new Flower(this);
