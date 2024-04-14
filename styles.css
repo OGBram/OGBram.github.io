@@ -20,15 +20,16 @@ header {
     text-align: center;
     font-family: 'Bitter', sans-serif;
     font-weight: 100;
-    padding-left: .5em;
-    background: linear-gradient(to top, rgba(51, 51, 51, 0), #333);
-    outline-color: #333;
-    outline-width: thin;
-    outline-style: groove;
+    padding: 1em;
+    font-size: 10px;
+    background: linear-gradient(to top, rgba(47, 0, 63, 0.627), #ffffff1d);
+    outline: none;
     max-width: 432px;
-    border-radius: 1%;
+    border-radius: 30px;
+    display: none;
     h1, p {
-        margin: 3px;
+        font-family: 'Cedarville Cursive', cursive;
+        margin: 1px;
     }
     h1 {
         margin-top: 10px;
@@ -70,8 +71,8 @@ footer p {
     background-image: linear-gradient(to left,  rgb(4, 2, 51), rgba(0, 0, 0, 0.852), rgb(51, 8, 51), rgb(48, 2, 80));
     color: white;
     padding: 10px;
-    border: none;
-    border-radius: 4px;
+    border: 30px solid black;
+    border-radius: 50px;
     cursor: pointer;
     margin: 15px;
     width: 100%;
@@ -79,7 +80,7 @@ footer p {
     margin: 0;
 }
 
-div h2 {
+/* div h2 {
     text-align: center;
     font-family: 'Bitter', sans-serif;
     font-weight: 100;
@@ -89,13 +90,14 @@ div h2 {
     outline-style: groove;
     background: linear-gradient(to top, rgba(51, 51, 51, 0), #333);
     margin: 0; 
-}
+} */
 
 .gallery {
     display: flex;
     justify-content: center;
-    background: transparent;
+    background: linear-gradient(to bottom, rgba(193, 5, 255, 0.118), #000000);
     max-width: 432px;
+    border-radius: 50px;
 }
 
 .gallery img {
@@ -126,6 +128,7 @@ div h2 {
     max-height: 432px;
     width: 100%;
     background: linear-gradient(to top, rgba(193, 5, 255, 0.189), #000000);
+    border-radius: 50px;
 }
 
 @media only screen and (max-width: 600px){}
