@@ -8,7 +8,6 @@
     background-color: transparent;
     text-align: center;
     cursor: pointer;
-    
 }
 .courier-text {
     font-family: Courier, monospace;
@@ -89,6 +88,7 @@ footer p {
     max-width: 432px;
     border-radius: 50px;
     margin-top: 20px;
+    cursor: none;
 }
 
 .gallery img {
