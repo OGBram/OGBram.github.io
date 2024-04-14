@@ -57,30 +57,17 @@ header h2 {
 footer {
     background-color: transparent;
     text-align: center;
-    width: 100%;
+    width: 100%;;
+    margin: 0;
+    border: 0;
+}
 
-}
-footer h1 {
-    text-align: center;
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    color: transparent;
-    margin: 2px;
-    display: none;
-}
-footer p {
-    
+footer p {   
     font-size: 6px;
 }
 
-footer::before {
-    content: "\00a0"; 
-    display: block;
-    height: 40px; 
-    background: linear-gradient(to bottom, rgba(51, 51, 51, 0), #333);
-}
-
 #mute {
-    background-image: linear-gradient(to left,  yellow, orange, violet, indigo);
+    background-image: linear-gradient(to left,  rgb(4, 2, 51), rgba(0, 0, 0, 0.852), rgb(51, 8, 51), rgb(48, 2, 80));
     color: white;
     padding: 10px;
     border: none;
@@ -90,7 +77,6 @@ footer::before {
     width: 100%;
     opacity: .75;
     margin: 0;
-    margin-top: 5px;
 }
 
 div h2 {
@@ -121,7 +107,6 @@ div h2 {
 }
 
 .gallery img:hover {
-
     transform: scale(1.2);
     opacity: 1.0;
 }
@@ -140,7 +125,7 @@ div h2 {
     max-width: 432px;
     max-height: 432px;
     width: 100%;
-    left: -3%;
+    background: linear-gradient(to top, rgba(193, 5, 255, 0.189), #000000);
 }
 
 @media only screen and (max-width: 600px){}
