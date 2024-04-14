@@ -40,11 +40,11 @@ footer {
 footer p {   
     font-size: 6px;
 }
-.mute:hover {
+.button1:hover {
     transform: translateY(-10px);
     border: 5px solid rgb(150, 9, 216);
 }
-.mute {
+.button1 {
     background-image: linear-gradient(to left,  rgb(4, 2, 51), rgba(0, 0, 0, 0.852), rgb(51, 8, 51), rgb(48, 2, 80));
     color: white;
     padding: 10px;
