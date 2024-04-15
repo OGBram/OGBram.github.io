@@ -1,7 +1,4 @@
-*{
-    margin-left: 5px;
-    margin-right: 5px;
-}
+
 .cedarville-cursive-text {
     font-family: 'Cedarville Cursive', cursive;
     font-weight: 400;
@@ -11,12 +8,21 @@
     background-color: transparent;
     text-align: center;
     cursor: pointer;
+    transition: 500ms;
+    border-radius: 0px;
 }
+
+.cedarville-cursive-text:hover {
+    transform: translateY(-10px);
+    border: 5px solid rgba(255, 255, 255, 0);
+}
+
 .courier-text {
     font-family: Courier, monospace;
     font-size: 8px;
     margin-top: 10px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 body {
@@ -43,10 +49,12 @@ footer {
 footer p {   
     font-size: 6px;
 }
+
 .button1:hover {
     transform: translateY(-10px);
     border: 5px solid rgb(150, 9, 216);
 }
+
 .button1 {
     background-image: linear-gradient(to left,  rgb(4, 2, 51), rgba(0, 0, 0, 0.852), rgb(51, 8, 51), rgb(48, 2, 80));
     color: white;
@@ -100,6 +108,11 @@ footer p {
     width: 98%;
     background: linear-gradient(to top, rgba(193, 5, 255, 0.189), #000000);
     border-radius: 50px;
+    transition: 500ms;
+}
+#myCanvas:hover {
+    border:1px solid rgb(48, 2, 80);
+    /* transform: translateY(+5px); */
 }
 
 @media only screen and (max-width: 600px){}
