@@ -1,4 +1,7 @@
-
+*{
+    margin-left: 5px;
+    margin-right: 5px;
+}
 .cedarville-cursive-text {
     font-family: 'Cedarville Cursive', cursive;
     font-weight: 400;
@@ -24,17 +27,17 @@ body {
     background-color: black;
     color: #fff;
     overflow-y: scroll;
-    max-width: max-content;
-    margin-left: 2px;
+    max-width: fit-content;
+    margin: auto;
     margin-top: 2px;
-}   
+    border: 0; 
+}
+  
 
 footer {
     background-color: transparent;
     text-align: center;
-    width: 100%;;
-    margin: 0;
-    border: 0;
+    width: 100%;
 }
 
 footer p {   
@@ -94,7 +97,7 @@ footer p {
     position: relative;
     max-width: 432px;
     max-height: 432px;
-    width: 100%;
+    width: 98%;
     background: linear-gradient(to top, rgba(193, 5, 255, 0.189), #000000);
     border-radius: 50px;
 }
