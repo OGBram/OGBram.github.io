@@ -9,7 +9,6 @@
     text-align: center;
     cursor: pointer;
     transition: 600ms;
-    border-radius: 0px;
 }
 
 .cedarville-cursive-text:hover {
@@ -22,6 +21,7 @@
     margin-top: 10px;
     text-align: center;
     margin-bottom: 10px;
+    transition: 200ms;
 }
 
 body {
@@ -35,37 +35,44 @@ body {
     max-width: fit-content;
     margin: auto;
     margin-top: 2px;
-    border: 0; 
+    border: none; 
 }
   
 
 footer {
     background-color: transparent;
     text-align: center;
-    width: 100%;
+    width: auto;
+    border: none;
+    margin-top: 5px;
 }
 
 footer p {   
     font-size: 6px;
 }
 
+#footer:hover {
+    transform: scale(1.5);
+}
+
 .button1:hover {
-    transform: translateY(-10px);
-    border: 5px solid rgb(150, 9, 216);
+    transform: scale(1.2);
+
 }
 
 .button1 {
-    background-image: linear-gradient(to left,  rgb(4, 2, 51), rgba(0, 0, 0, 0.852), rgb(51, 8, 51), rgb(48, 2, 80));
+    background-image: linear-gradient(to left,  rgba(4, 2, 51, 0.832), rgba(0, 0, 0, 0.852), rgb(51, 8, 51), rgb(48, 2, 80));
+    align-self: center;
     color: white;
+    background-color: #000000;
     padding: 10px;
-    border: 5px solid black;
+    border: none;
     border-radius: 50px;
     cursor: pointer;
     margin: 0;
-    width: 75%;
+    width: 65%;
     margin-top: 20px;
-    opacity: .9;
-    transition: 700ms;
+    transition: 450ms;
 }
 
 .gallery {
@@ -104,9 +111,9 @@ footer p {
     position: relative;
     max-width: 432px;
     max-height: 432px;
-    width: 98%;
+    width: 100%;
     background: linear-gradient(to top, rgba(193, 5, 255, 0.189), #000000);
-    border-radius: 50px;
+    border-radius: 35px;
 }
 
 @media only screen and (max-width: 600px){}
