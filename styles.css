@@ -52,19 +52,20 @@ footer p {
 }
 
 #footer:hover {
-    transform: scale(1.5);
+    transform: scale(1.4);
 }
 
 .button1:hover {
     transform: scale(1.2);
-
+    color:#ff0000;
 }
 
 .button1 {
     background-image: linear-gradient(to left,  rgba(4, 2, 51, 0.832), rgba(0, 0, 0, 0.852), rgb(51, 8, 51), rgb(48, 2, 80));
     align-self: center;
-    color: white;
+    opacity: .9;
     background-color: #000000;
+    color: rgb(242, 245, 232);
     padding: 10px;
     border: none;
     border-radius: 50px;
@@ -72,7 +73,7 @@ footer p {
     margin: 0;
     width: 65%;
     margin-top: 20px;
-    transition: 450ms;
+    transition: 500ms;
 }
 
 .gallery {
