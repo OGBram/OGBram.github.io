@@ -72,7 +72,7 @@ footer p {
     cursor: pointer;
     margin: 0;
     width: 42%;
-    margin: 10px;
+    margin: 15px;
     transition: 500ms;
     flex-direction: row;
 }
