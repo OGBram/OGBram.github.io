@@ -115,6 +115,6 @@ footer p {
     width: 100%;
     background: linear-gradient(to top, rgba(193, 5, 255, 0.189), #000000);
     border-radius: 35px;
-}
+}   
 
 @media only screen and (max-width: 600px){}
