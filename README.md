@@ -4,7 +4,3 @@ Personal website for art
 In development
 
 ©2024
-
-A soldier, yet a priest
-clasping my hands in prayer
-toward the moon
