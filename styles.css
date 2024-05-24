@@ -96,7 +96,7 @@ footer p {
 }
 
 .gallery img:hover {
-    transform: translateY(+5px);
+    transform: translateY(-5px);
     opacity: 1.0;
 }
 
