@@ -117,6 +117,13 @@ footer p {
     background: linear-gradient(to top, rgba(193, 5, 255, 0.189), #000000);
     border-radius: 35px;
 }
+#galText {
+    font-family: Courier, monospace;
+    font-size: 18px;
+
+    text-align: center;
+
+}
 .modal {
     display: none; 
     position: fixed; 
